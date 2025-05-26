@@ -19,7 +19,13 @@ header {
     border-radius: 8px;
     margin: 20px 0;
 }
+banner {
+    transition: transform 0.3s; /* Efeito suave ao passar o mouse */
+}
 
+.banner:hover {
+    transform: scale(1.02); /* Zoom sutil no hover (PC) */
+}
 .btn {  
     display: inline-block;  
     background: #3a86ff;  
