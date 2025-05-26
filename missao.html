@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão | After The Storm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .banner-overlay {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+        
+        .mission-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: #4a5568;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2d3748;
+            transform: translateY(-2px);
+        }
+        
+        /* Efeito de brilho suave no hover para os itens da lista */
+        .list-item:hover {
+            background-color: rgba(74, 85, 104, 0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Banner com imagem -->
+    <div class="relative h-64 md:h-96 w-full overflow-hidden">
+        <!-- IMAGEM DA MISSÃO - Substitua pela sua imagem -->
+        <img src="imagens/seu-banner.jpg" ...> 
+             alt="Banner da Missão" 
+             class="w-full h-full object-cover">
+        
+        <div class="absolute inset-0 banner-overlay flex items-center justify-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white title-font">Missão Atual</h1>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Botão Voltar -->
+        <div class="mb-8">
+            <a href="index.html" class="btn-primary text-white px-6 py-3 rounded-lg inline-flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Voltar à Página Inicial
+            </a>
+        </div>
+
+        <!-- Seção de Objetivos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Objetivos Primários -->
+            <div class="mission-card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800 title-font border-b pb-2">
+                    <i class="fas fa-bullseye mr-2 text-blue-600"></i>Objetivos Primários
+                </h2>
+                <ul class="space-y-3">
+                    <!-- OBJETIVOS PRIMÁRIOS - Adicione/edite abaixo -->
+                    <li class="list-item p-3 rounded-md">
+                        <i class="fas fa-check-circle mr-2 text-green-500"></i>
+                        <!-- Edite este texto -->
+                        [Objetivo principal 1 - descreva aqui]
+                    </li>
+                    <li class="list-item p-3 rounded-md">
+                        <i class="fas fa-check-circle mr-2 text-green-500"></i>
+                        <!-- Edite este texto -->
+                        [Objetivo principal 2 - descreva aqui]
+                    </li>
+                    <li class="list-item p-3 rounded-md">
+                        <i class="fas fa-check-circle mr-2 text-green-500"></i>
+                        <!-- Edite este texto -->
+                        [Objetivo principal 3 - descreva aqui]
+                    </li>
+                    <!-- Adicione mais objetivos conforme necessário -->
+                </ul>
+            </div>
+
+            <!-- Objetivos Secundários -->
+            <div class="mission-card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800 title-font border-b pb-2">
+                    <i class="fas fa-star mr-2 text-yellow-500"></i>Objetivos Secundários
+                </h2>
+                <ul class="space-y-3">
+                    <!-- OBJETIVOS SECUNDÁRIOS - Adicione/edite abaixo -->
+                    <li class="list-item p-3 rounded-md">
+                        <i class="fas fa-circle mr-2 text-blue-400"></i>
+                        <!-- Edite este texto -->
+                        [Objetivo secundário 1 - descreva aqui]
+                    </li>
+                    <li class="list-item p-3 rounded-md">
+                        <i class="fas fa-circle mr-2 text-blue-400"></i>
+                        <!-- Edite este texto -->
+                        [Objetivo secundário 2 - descreva aqui]
+                    </li>
+                    <li class="list-item p-3 rounded-md">
+                        <i class="fas fa-circle mr-2 text-blue-400"></i>
+                        <!-- Edite este texto -->
+                        [Objetivo secundário 3 - descreva aqui]
+                    </li>
+                    <!-- Adicione mais objetivos conforme necessário -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seção de Status e Recompensas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Status do Grupo -->
+            <div class="mission-card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800 title-font border-b pb-2">
+                    <i class="fas fa-info-circle mr-2 text-purple-600"></i>Status do Grupo
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- STATUS DE PROCURAÇÃO - Edite abaixo -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Situação Legal:</h3>
+                        <div class="flex items-center">
+                            <!-- Altere a classe para 'text-red-500' se estiverem sendo procurados -->
+                            <i class="fas fa-search mr-2 text-green-500 text-xl"></i>
+                            <span>
+                                <!-- Edite este texto -->
+                                [Descreva o status legal do grupo - procurados/limpos/etc]
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- ALIANÇAS - Edite abaixo -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Alianças Atuais:</h3>
+                        <ul class="space-y-2 pl-5">
+                            <li class="list-item p-2 rounded-md">
+                                <i class="fas fa-handshake mr-2 text-blue-500"></i>
+                                <!-- Edite este texto -->
+                                [Aliança 1 - descreva aqui]
+                            </li>
+                            <li class="list-item p-2 rounded-md">
+                                <i class="fas fa-handshake mr-2 text-blue-500"></i>
+                                <!-- Edite este texto -->
+                                [Aliança 2 - descreva aqui]
+                            </li>
+                            <!-- Adicione mais alianças conforme necessário -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recompensas -->
+            <div class="mission-card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800 title-font border-b pb-2">
+                    <i class="fas fa-coins mr-2 text-yellow-400"></i>Recompensas
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- RECOMPENSAS PRINCIPAIS - Edite abaixo -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Recompensas Primárias:</h3>
+                        <ul class="space-y-2 pl-5">
+                            <li class="list-item p-2 rounded-md">
+                                <i class="fas fa-trophy mr-2 text-yellow-500"></i>
+                                <!-- Edite este texto -->
+                                [Recompensa principal 1 - descreva aqui]
+                            </li>
+                            <li class="list-item p-2 rounded-md">
+                                <i class="fas fa-trophy mr-2 text-yellow-500"></i>
+                                <!-- Edite este texto -->
+                                [Recompensa principal 2 - descreva aqui]
+                            </li>
+                            <!-- Adicione mais recompensas conforme necessário -->
+                        </ul>
+                    </div>
+                    
+                    <!-- RECOMPENSAS SECUNDÁRIAS - Edite abaixo -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">Recompensas Secundárias:</h3>
+                        <ul class="space-y-2 pl-5">
+                            <li class="list-item p-2 rounded-md">
+                                <i class="fas fa-medal mr-2 text-gray-400"></i>
+                                <!-- Edite este texto -->
+                                [Recompensa secundária 1 - descreva aqui]
+                            </li>
+                            <li class="list-item p-2 rounded-md">
+                                <i class="fas fa-medal mr-2 text-gray-400"></i>
+                                <!-- Edite este texto -->
+                                [Recompensa secundária 2 - descreva aqui]
+                            </li>
+                            <!-- Adicione mais recompensas conforme necessário -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Notas Adicionais -->
+        <div class="mt-12 mission-card bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800 title-font border-b pb-2">
+                <i class="fas fa-pencil-alt mr-2 text-blue-600"></i>Notas Adicionais
+            </h2>
+            <div class="p-4 bg-gray-50 rounded-md">
+                <!-- NOTAS ADICIONAIS - Edite abaixo -->
+                <p class="text-gray-700 italic">
+                    [Adicione aqui quaisquer notas adicionais sobre a missão, informações contextuais, 
+                    detalhes importantes ou observações relevantes para os jogadores.]
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé Simples -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">© 2023 After The Storm. Todos os direitos reservados.</p>
+            <p class="text-gray-400 text-sm">Uma aventura épica em um mundo pós-apocalíptico.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efeito de rolagem suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
