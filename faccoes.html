@@ -261,25 +261,44 @@
                         <i class="fas fa-map-marked-alt mr-2 text-purple-600"></i>Mapa de Influência
                     </h3>
                     <!-- IMAGEM DO MAPA - Substitua pela sua imagem -->
-                    <div class="bg-gray-200 rounded-lg p-4 text-center text-gray-500">
-                       <div class="mt-6">
+                    <!-- Seção do Mapa -->
+<div class="mt-6">
     <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
         <i class="fas fa-map-marked-alt mr-2 text-purple-600"></i>Mapa de Influência
     </h3>
-    <div class="map-container relative">
-    <!-- Imagem do mapa -->
-    <img src="images/mapa-supmacoppih.jpg" alt="Mapa de Supmacoppih" class="w-full">
     
-    <!-- Marcadores de território (posicione manualmente) -->
-    <div class="territory-marker viking" style="left: 20%; top: 30%;" title="Thorshamar (Viking)"></div>
-    <div class="territory-marker eythr" style="left: 70%; top: 45%;" title="Kynholm (Eythr)"></div>
-    <div class="territory-marker neutral" style="left: 50%; top: 60%;" title="Terra de Ninguém"></div>
-</div>
-                    </div>
+    <!-- Container do Mapa -->
+    <div class="map-container relative border-4 border-gray-300 rounded-lg overflow-hidden shadow-xl">
+        <!-- Imagem do Mapa -->
+        <img src="images/mapa-supmacoppih.jpg" alt="Mapa de Supmacoppih" class="w-full">
+        
+        <!-- Marcadores POSICIONADOS MANUALMENTE -->
+        <!-- Coluna da Esquerda (Eythr) -->
+        <div class="territory-marker eythr" style="left: 20%; top: 15%;" title="Thorshamar (Eythr)"></div>
+        <div class="territory-marker eythr" style="left: 20%; top: 35%;" title="Grimstad (Eythr)"></div>
+        <div class="territory-marker eythr" style="left: 20%; top: 55%;" title="Ulrik (Eythr)"></div>
+        <div class="territory-marker eythr" style="left: 20%; top: 75%;" title="Thorshamar Sul (Eythr)"></div>
+        
+        <!-- Coluna da Direita (Viking) -->
+        <div class="territory-marker viking" style="left: 80%; top: 25%;" title="Elmsburg (Viking)"></div>
+        <div class="territory-marker viking" style="left: 80%; top: 50%;" title="Kynholm (Viking)"></div>
+        <div class="territory-marker viking" style="left: 80%; top: 75%;" title="Kynholm Sul (Viking)"></div>
+        
+        <!-- Legenda Fixa -->
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-3">
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-blue-600 mr-2"></div>
+                    <span>Território Viking</span>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-4 h-4 bg-red-600 mr-2"></div>
+                    <span>Território Eythr</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Rodapé Simples -->
     <footer class="bg-gray-800 text-white py-6 mt-12">
