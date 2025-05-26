@@ -66,37 +66,59 @@ body {
 }
 
 .card {
-    background: var(--card-bg);
+    position: relative;
     border-radius: 10px;
-    width: 280px;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: all 0.3s;
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 2px solid var(--cor-primaria);
+    transition: transform 0.3s, box-shadow 0.3s; /* Efeito hover */
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .card img {
+    position: absolute;
     width: 100%;
-    border-radius: 8px;
-    height: 160px;
+    height: 100%;
     object-fit: cover;
-    border: 2px solid var(--cor-primaria);
+    filter: brightness(0.4) blur(2px);
+    z-index: 1;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(42, 42, 74, 0.7);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid var(--cor-secundaria);
 }
 
 .card h3 {
     color: var(--cor-secundaria);
-    margin-top: 10px;
-    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-size: 1.5em;
 }
 
 .card p {
-    color: #d1d1d1;
-    font-size: 0.9em;
+    color: #e0e0e0;
+    margin-bottom: 15px;
 }
+
+.card .btn {
+    background: var(--cor-primaria);
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
 
 /* --- Botões --- */
 .btn {
