@@ -35,6 +35,11 @@ body {
 .banner:hover {
     transform: scale(1.01);
 }
+.banner-overlay {
+    background: linear-gradient(to right, 
+        rgba(106, 27, 154, 0.7) /* Roxo escuro */, 
+        rgba(106, 27, 154, 0.2) /* Roxo claro */);
+}
 
 /* --- Header Text --- */
 .header-text {
