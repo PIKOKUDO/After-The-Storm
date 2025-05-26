@@ -184,16 +184,14 @@ body {
 }
 /* --- mapithcas ---*/
 
+/* Estilo do Container do Mapa */
 .map-container {
     position: relative;
-    border: 2px solid #6a1b9a;
-    border-radius: 10px;
-    overflow: hidden;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Marcadores de território */
+/* Marcadores de Território */
 .territory-marker {
     position: absolute;
     width: 16px;
@@ -201,32 +199,67 @@ body {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     cursor: help;
+    border: 2px solid;
     animation: pulse 2s infinite;
+    z-index: 10;
 }
 
-.viking { background-color: #3b82f6; border: 2px solid #1d4ed8; }
-.eythr { background-color: #ef4444; border: 2px solid #b91c1c; }
-.neutral { background-color: #64748b; border: 2px solid #475569; }
-
-@keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.3); }
-    100% { transform: translate(-50%, -50%) scale(1); }
+.viking {
+    background-color: #3b82f6;
+    border-color: #1e40af;
 }
 
-/* Tooltip (aparece ao passar o mouse) */
+.eythr {
+    background-color: #ef4444;
+    border-color: #991b1b;
+}
+
+/* Tooltip ao passar o mouse */
 .territory-marker:hover::after {
     content: attr(title);
     position: absolute;
     left: 50%;
     bottom: 100%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     color: white;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 14px;
     white-space: nowrap;
+    z-index: 20;
+}
+
+/* Efeito de pulsação */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.3); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Destaque visual dos territórios */
+.map-highlight {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.1);
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.viking-highlight {
+    width: 120px;
+    height: 120px;
+    left: 80%;
+    top: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+}
+
+.eythr-highlight {
+    width: 120px;
+    height: 120px;
+    left: 20%;
+    top: 50%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.2) 0%, transparent 70%);
 }
 
 /* --- Responsividade --- */
