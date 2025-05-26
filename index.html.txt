@@ -1,0 +1,30 @@
+html
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="UTF-8">  
+    <title>After The Storm RPG</title>  
+    <link rel="stylesheet" href="css/style.css">  
+</head>  
+<body>  
+    <header>  
+        <img src="imagens/banner.jpg" alt="After The Storm" class="banner">  
+        <h1>🌪️ After The Storm</h1>  
+        <p>Um RPG sobre tempo, guerra e escolhas impossíveis.</p>  
+    </header>  
+
+    <nav>  
+        <a href="historia.html" class="btn">📜 História do Mundo</a>  
+        <a href="fichas.html" class="btn">🎭 Fichas de Personagem</a>  
+        <a href="regras.html" class="btn">⚔️ Regras do Sistema</a>  
+    </nav>  
+
+    <section>  
+        <h2>📖 Introdução</h2>  
+        <p>  
+            Transportados por uma entidade do Vazio, vocês estão no olho do furacão de uma guerra ancestral.  
+            O futuro depende de suas ações no passado — mas cada passo altera o destino.  
+        </p>  
+    </section>  
+</body>  
+</html>  
