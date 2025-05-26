@@ -1,29 +1,64 @@
-<!DOCTYPE html>  
-<html>  
-<head>  
-    <meta charset="UTF-8">  
-    <title>After The Storm RPG</title>  
-    <link rel="stylesheet" href="css/style.css">  
-</head>  
-<body>  
-    <header>  
-        <img src="images/banner.jpg" alt="After The Storm" class="banner">  
-        <h1>🌪️ After The Storm</h1>  
-        <p>Um RPG sobre tempo, guerra e escolhas impossíveis.</p>  
-    </header>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>After The Storm RPG</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar Nova -->
+    <nav class="navbar">
+        <a href="#" class="logo">🌪️ After The Storm</a>
+        <div class="nav-links">
+            <a href="historia.html">História</a>
+            <a href="fichas.html">Personagens</a>
+            <a href="regras.html">Regras</a>
+            <a href="#" class="btn-destaque">Jogar Agora</a>
+        </div>
+    </nav>
 
-    <nav>  
-        <a href="historia.html" class="btn">📜 História do Mundo</a>  
-        <a href="fichas.html" class="btn">🎭 Fichas de Personagem</a>  
-        <a href="regras.html" class="btn">⚔️ Regras do Sistema</a>  
-    </nav>  
+    <!-- Banner e Cabeçalho -->
+    <header>
+        <img src="images/banner.jpg" alt="After The Storm" class="banner">
+        <div class="header-text">
+            <h1>Um RPG sobre tempo, guerra e escolhas impossíveis</h1>
+            <p>Transportados por uma entidade do Vazio, vocês estão no olho do furacão de uma guerra ancestral.</p>
+        </div>
+    </header>
 
-    <section>  
-        <h2>📖 Introdução</h2>  
-        <p>  
-            Transportados por uma entidade do Vazio, vocês estão no olho do furacão de uma guerra ancestral.  
-            O futuro depende de suas ações no passado — mas cada passo altera o destino.  
-        </p>  
-    </section>  
-</body>  
-</html>  
+    <!-- Seção de Cards -->
+    <section class="container">
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="imagens/missao.jpg" alt="Missão Temporal">
+                <h3>Missão Temporal</h3>
+                <p>Impeça a ascenção daquele que trará a ruína no futuro</p>
+                <a href="historia.html" class="btn">Saiba mais</a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="imagens/faccoes.jpg" alt="Facções em Guerra">
+                <h3>Facções em Guerra</h3>
+                <p>Vikings vs. Eythr: escolha um lado ou jogue todos contra todos.</p>
+                <a href="regras.html" class="btn">Explorar</a>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="imagens/vazio.jpg" alt="O Vazio">
+                <h3>O Observador</h3>
+                <p>Quem é a entidade que os trouxe para o passado?</p>
+                <a href="#" class="btn">Descobrir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Introdução (sua seção original) -->
+    <section class="container intro-section">
+        <h2>📖 Introdução</h2>
+        <p>O futuro depende de suas ações no passado — mas cada passo altera o destino.</p>
+    </section>
+</body>
+</html>
