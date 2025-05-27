@@ -118,10 +118,11 @@ body {
 }
 
 .card .btn {
-    background: var(--cor-primaria);
-    border: none;
-    width: 100%;
+    align-self: center; /* Centraliza horizontalmente */
+    margin-top: auto; /* Empurra o botão para a base do card */
+    width: 80%; /* Largura consistente */
     text-align: center;
+    padding: 10px 0; /* Ajuste de espaçamento */
 }
 
 
