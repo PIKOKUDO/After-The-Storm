@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - História</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+        
+        /* Custom styles that can't be done with Tailwind */
+        .parchment-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title-border {
+            text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+        }
+        
+        /* Animation for content sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Continent buttons grid */
+        .continent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <!-- Main content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back button -->
+            <div class="mb-8">
+                <a href="index.html" class="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Voltar à página inicial
+                </a>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center text-yellow-400 title-border">
+                História do Mundo
+            </h1>
+            
+            <!-- Navigation buttons -->
+            <div class="flex flex-wrap gap-4 justify-center mb-8">
+                <button onclick="toggleSection('world-history')" class="px-6 py-3 bg-yellow-700 hover:bg-yellow-600 rounded-lg font-medium transition duration-200">
+                    História do Mundo
+                </button>
+                <button onclick="toggleSection('continents-history')" class="px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded-lg font-medium transition duration-200">
+                    História dos Continentes
+                </button>
+                <button onclick="toggleSection('void-observations')" class="px-6 py-3 bg-purple-700 hover:bg-purple-600 rounded-lg font-medium transition duration-200">
+                    Observações do Vazio
+                </button>
+            </div>
+            
+            <!-- World History Section -->
+            <div id="world-history" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-yellow-800 text-gray-900 mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-red-900 border-b-2 border-red-900 pb-2">
+                    História do Mundo Atual
+                </h2>
+                <!-- You can edit the text inside this div -->
+                <div class="space-y-4 text-lg">
+                    <p>Este é o espaço para a história do mundo de After The Storm. Aqui você pode descrever como o mundo foi criado, os grandes eventos que moldaram sua história, as eras que se passaram, e qualquer informação relevante sobre o mundo como um todo.</p>
+                    
+                    <p>Você pode formatar o texto como quiser, adicionar parágrafos, listas, ou qualquer outro elemento que ajude a contar a história do seu mundo.</p>
+                    
+                    <p>Exemplo de estrutura que você pode usar:</p>
+                    
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>A Criação do Mundo</li>
+                        <li>A Era dos Deuses</li>
+                        <li>O Grande Cataclisma</li>
+                        <li>A Ascensão das Civilizações</li>
+                        <li>A Tempestade que Mudou Tudo</li>
+                        <li>O Mundo Atual (After The Storm)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Continents History Section -->
+            <div id="continents-history" class="content-section">
+                <div class="parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-blue-800 text-gray-900 mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-blue-900 border-b-2 border-blue-900 pb-2">
+                        Mapa dos Continentes
+                    </h2>
+                    <!-- World map image -->
+                    <div class="mb-6 flex justify-center">
+                        <img src="mundi.jpg" alt="Mapa do Mundo" class="max-w-full h-auto rounded-lg border-2 border-gray-800 shadow-md">
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4 text-center">Selecione um continente para saber mais:</h3>
+                    
+                    <!-- Continent buttons -->
+                    <div class="continent-grid mb-8">
+                        <button onclick="toggleContinent('eothr')" class="px-4 py-3 bg-red-700 hover:bg-red-600 rounded-lg font-medium transition duration-200">
+                            Eothr
+                        </button>
+                        <button onclick="toggleContinent('ruddliah')" class="px-4 py-3 bg-green-700 hover:bg-green-600 rounded-lg font-medium transition duration-200">
+                            Ruddliah
+                        </button>
+                        <button onclick="toggleContinent('midr')" class="px-4 py-3 bg-blue-700 hover:bg-blue-600 rounded-lg font-medium transition duration-200">
+                            Midr
+                        </button>
+                        <button onclick="toggleContinent('dnalsi')" class="px-4 py-3 bg-yellow-700 hover:bg-yellow-600 rounded-lg font-medium transition duration-200">
+                            D'Nalsi
+                        </button>
+                        <button onclick="toggleContinent('supmacoppih')" class="px-4 py-3 bg-purple-700 hover:bg-purple-600 rounded-lg font-medium transition duration-200">
+                            Supmacoppih
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Continent sections (initially hidden) -->
+                <!-- Eothr -->
+                <div id="eothr" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-red-800 text-gray-900 mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-red-900 border-b-2 border-red-900 pb-2">
+                        Eothr
+                    </h2>
+                    <!-- You can edit the text inside these divs -->
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-red-800">Principais Recursos Extraídos:</h3>
+                            <p>Descreva aqui os principais recursos naturais e minerais encontrados neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-red-800">Povos que Vivem Aqui:</h3>
+                            <p>Liste as raças, culturas ou civilizações que habitam este continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-red-800">Clima:</h3>
+                            <p>Descreva os padrões climáticos predominantes neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-red-800">Resumo da História:</h3>
+                            <p>Conte a história deste continente, seus eventos importantes e como ele se relaciona com o mundo maior.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ruddliah -->
+                <div id="ruddliah" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-green-800 text-gray-900 mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-green-900 border-b-2 border-green-900 pb-2">
+                        Ruddliah
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-green-800">Principais Recursos Extraídos:</h3>
+                            <p>Descreva aqui os principais recursos naturais e minerais encontrados neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-green-800">Povos que Vivem Aqui:</h3>
+                            <p>Liste as raças, culturas ou civilizações que habitam este continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-green-800">Clima:</h3>
+                            <p>Descreva os padrões climáticos predominantes neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-green-800">Resumo da História:</h3>
+                            <p>Conte a história deste continente, seus eventos importantes e como ele se relaciona com o mundo maior.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Midr -->
+                <div id="midr" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-blue-800 text-gray-900 mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-blue-900 border-b-2 border-blue-900 pb-2">
+                        Midr
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Principais Recursos Extraídos:</h3>
+                            <p>Descreva aqui os principais recursos naturais e minerais encontrados neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Povos que Vivem Aqui:</h3>
+                            <p>Liste as raças, culturas ou civilizações que habitam este continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Clima:</h3>
+                            <p>Descreva os padrões climáticos predominantes neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">Resumo da História:</h3>
+                            <p>Conte a história deste continente, seus eventos importantes e como ele se relaciona com o mundo maior.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- D'Nalsi -->
+                <div id="dnalsi" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-yellow-800 text-gray-900 mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-yellow-900 border-b-2 border-yellow-900 pb-2">
+                        D'Nalsi
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-yellow-800">Principais Recursos Extraídos:</h3>
+                            <p>Descreva aqui os principais recursos naturais e minerais encontrados neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-yellow-800">Povos que Vivem Aqui:</h3>
+                            <p>Liste as raças, culturas ou civilizações que habitam este continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-yellow-800">Clima:</h3>
+                            <p>Descreva os padrões climáticos predominantes neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-yellow-800">Resumo da História:</h3>
+                            <p>Conte a história deste continente, seus eventos importantes e como ele se relaciona com o mundo maior.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Supmacoppih -->
+                <div id="supmacoppih" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-purple-800 text-gray-900 mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-purple-900 border-b-2 border-purple-900 pb-2">
+                        Supmacoppih
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-purple-800">Principais Recursos Extraídos:</h3>
+                            <p>Descreva aqui os principais recursos naturais e minerais encontrados neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-purple-800">Povos que Vivem Aqui:</h3>
+                            <p>Liste as raças, culturas ou civilizações que habitam este continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-purple-800">Clima:</h3>
+                            <p>Descreva os padrões climáticos predominantes neste continente.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-purple-800">Resumo da História:</h3>
+                            <p>Conte a história deste continente, seus eventos importantes e como ele se relaciona com o mundo maior.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Void Observations Section -->
+            <div id="void-observations" class="content-section parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-purple-800 text-gray-900">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-purple-900 border-b-2 border-purple-900 pb-2">
+                    Observações do Vazio
+                </h2>
+                <p class="text-lg italic">O vazio não observou nada ainda.</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>A tormenta se aproxima</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Function to toggle sections
+        function toggleSection(sectionId) {
+            // Hide all content sections first
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            }
+            
+            // Special case for continents history - hide all continent sections when showing main continents section
+            if (sectionId === 'continents-history') {
+                document.querySelectorAll('#continents-history .content-section[id!="continents-history"]').forEach(continent => {
+                    continent.style.display = 'none';
+                });
+            }
+        }
+        
+        // Function to toggle continent sections
+        function toggleContinent(continentId) {
+            // First hide all continent sections
+            document.querySelectorAll('#continents-history .content-section[id!="continents-history"]').forEach(continent => {
+                continent.style.display = 'none';
+            });
+            
+            // Show the selected continent
+            const continent = document.getElementById(continentId);
+            if (continent) {
+                continent.style.display = 'block';
+                
+                // Scroll to the continent section
+                continent.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Initialize by showing the world history section
+        window.onload = function() {
+            toggleSection('world-history');
+        };
+    </script>
+</body>
+</html>
