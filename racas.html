@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Raças</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-primaria: #b99f6b;
+            --card-bg: #f0e5cd;
+        }
+        
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--cor-primaria);
+            border-bottom: 2px solid var(--cor-primaria);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .parchment-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-color: #e0cca1;
+        }
+        
+        .raca-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--cor-primaria);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .raca-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .raca-header {
+            position: relative;
+            text-align: center;
+        }
+        
+        .raca-imagem {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .raca-titulo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(185, 159, 107, 0.8);
+            color: white;
+            padding: 0.5rem;
+            margin: 0;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .raca-detalhes {
+            padding: 1.5rem;
+        }
+        
+        .raca-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .raca-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--cor-primaria);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .raca-info ul {
+            padding-left: 1.5rem;
+        }
+        
+        .raca-info li {
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Navbar styles to match homepage */
+        .navbar {
+            background-color: #2d3748;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .navbar-logo {
+            font-family: 'Cinzel', serif;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .navbar-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            font-family: 'MedievalSharp', cursive;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-link:hover {
+            color: var(--cor-primaria);
+        }
+        
+        /* Responsive layout */
+        .racas-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .racas-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="container mx-auto py-8">
+        <!-- Back button -->
+        <div class="mb-8 px-4">
+            <a href="index.html" class="inline-flex items-center px-4 py-2 parchment-button rounded-lg text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Voltar ao Início
+            </a>
+        </div>
+        
+        <!-- Main title -->
+        <h1 class="title text-3xl md:text-4xl font-bold mb-8 text-center px-4">Raças de After The Storm</h1>
+        
+        <!-- Races container -->
+        <div class="racas-container">
+            <!-- Race 1 - Example -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Humano" alt="Humano" class="raca-imagem">
+                    <h2 class="raca-titulo">Humano</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Os humanos são a raça mais abundante no mundo de Nvar, foram os primeiros a descobrir o fogo, e, são os unicos que conseguem pocriar com qualquer raça humanoide. Nihil.</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>Adrenalina</li>
+                            <li>Em momentos oportunos como risco iminente da propria ou da vida de um aliado, duas vezes por dia ou descanço, consegue realizar +1 ação por turno durante 5 turnos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Baixa longevidade</li>
+                            <li>Remedios causam embiaguês</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race 2 - Example -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Elfo" alt="Elfo" class="raca-imagem">
+                    <h2 class="raca-titulo">Alto Elfo</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Os altos elfos são seres graciosos e longevos, com uma conexão profunda com a natureza e a magia. Sua sociedade é antiga e cheia de tradições. Vardinos.</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>+10% de dano em todas as magias</li>
+                            <li>Visão noturna</li>
+                            <li>Resistência a controle mental</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Vulnerabilidade extrema a prata</li>
+                            <li>Vulnerabilidade a ferro frio</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- NEW RACES SHOULD BE ADDED BELOW THIS COMMENT -->
+            <!-- Keep the same structure as the examples above -->
+            
+            <!-- Race 3 - Template -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Raça" alt="Raça" class="raca-imagem">
+                    <h2 class="raca-titulo">Elfo da floresta</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Os elfos da floresta são comumente encontrados em area de mata fechada, uma raça reclusa que não costuma sair muito de seu habitat natural, são mestres no uso de arco e flecha. Vardinos.</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>Ataques com arco e flecha a alvos a menos de 30m possuem acerto garantido.</li>
+                            <li>Visão noturna</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Vulnerabilidade extrema a prata</li>
+                            <li>Vulnerabilidade a ferro frio</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race 4 - Template -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Raça" alt="Raça" class="raca-imagem">
+                    <h2 class="raca-titulo">Elfo negro</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Os elfos negros são uma raça nascida nas sombras, qualquer elfo pode ter em sua linhagem um elfo negro, os elfos interpretam como uma maldição quando um filho nasce elfo negro. Vardinos.</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>Os Elfos negros são naturalmente imunes a dano de fogo vindos de qualquer forma.</li>
+                            <li>Não possui fraquezas a ferro ou prata.</li>
+                            <li>Com adagas, caso ataque um alvo sem que seja percebido pelo mesmo, o acerto é garantido.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Não possui visão noturna</li>
+                            <li>Vulnerabilidade a gelo conjurado</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race 5 - Template -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Raça" alt="Raça" class="raca-imagem">
+                    <h2 class="raca-titulo">Anão</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Os anões são conhecidos por sua extrema habilidade na forjaria e criação de itens, há também quem diga que culinaria nenhuma é melhor que a deles. Atriox.</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>A maioria dos Anões não se dá muito bem com magias, por isso, naturalmente eles possuem uma resistencia a dano magico de 50%</li>
+                            <li>Itens criados ou melhorados por um anão tem uma vantagem de +20 no dado</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Magias de cura tem apenas 50% do efeito em anões</li>
+                            <li>Devido a alta resistencia alcolica dos anões, eles são incapazes de ficarem bebados</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race 6 - Template -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Raça" alt="Raça" class="raca-imagem">
+                    <h2 class="raca-titulo">Aviário</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Raça descendente dos Draconatos, filhos de draconatos com humanos primordiais, essa raça se assemelha um pouco com aves, normalmente possuem asas funcionais, e, quando não tem, são considerados deficientes e ortos no nascimento pelos proprios aviários. Rantés</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>Com suas poderosas asas, conseguem voar caso não esteja utilizando uma armadura pesada.</li>
+                            <li>consegue se comunicar, de maneira nada eficiente e muito esforçada, com outras especies de aves</l
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Vulnerablidade a prata e ferro frio</li>
+                            <li>Vulnerabilidade extrema a fogo</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race 7 - Template -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Raça" alt="Raça" class="raca-imagem">
+                    <h2 class="raca-titulo">Reptiliano</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Os Reptilianos são descendentes diretos dos draconatos, não se sabe ao certo como surgiram no mundo, mas que compartilham algumas caracteristicas, como a capacidade de realizar sopros elementais</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>Dependendo da linhagem, consegue utilizar baforada e bola elemental</li>
+                            <li>Suas escamas garantem 10% de redução passiva de dano físico</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Vulnerabilidade a prata</li>
+                            <li>Vulnerabilidade a ferro frio</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Race 8 - Template -->
+            <section class="raca-card">
+                <div class="raca-header">
+                    <img src="https://via.placeholder.com/300x400.png?text=Raça" alt="Raça" class="raca-imagem">
+                    <h2 class="raca-titulo">Felíneo</h2>
+                </div>
+                
+                <div class="raca-detalhes">
+                    <div class="raca-info">
+                        <h3>🏷️ Características</h3>
+                        <p>Assim como os humanos, os felíneos são uma raça que está presente desde os tempos antigos, possuindo váias subespecies distribuidas pelo mundo. Nihil.</p>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚔️ Pontos Fortes</h3>
+                        <ul>
+                            <li>Seus passos são silenciosos, caso não esteja portando cotas de malha ou armaduras barulhentas, o ruido ao se movimentar é inexistente</li>
+                            <li>Suas garras fazem com que ataques desarmados causem +10 de dano, causando sangramento caso acerte.</li>
+                            <li>Conseguem enxergar muito bem no escuro, mas não é uma visão noturna.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="raca-info">
+                        <h3>⚠️ Fraquezas</h3>
+                        <ul>
+                            <li>Baixa longevidade</li>
+                            <li>Remedios causam embriaguês</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>After The Storm - a escuridão é eterna</p>
+        </div>
+    </footer>
+</body>
+</html>
