@@ -40,7 +40,13 @@ body {
         rgba(106, 27, 154, 0.7) /* Roxo escuro */, 
         rgba(106, 27, 154, 0.2) /* Roxo claro */);
 }
-
+.banner-faccoes {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Ajuste conforme necessário (center, top, bottom) */
+    display: block;
+}
 /* --- Header Text --- */
 .header-text {
     text-align: center;
