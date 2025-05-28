@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Personagens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .parchment-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-color: #e0cca1;
+        }
+        
+        .parchment-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+        
+        .letter-section {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #f0e5cd;
+            border: 1px solid #b99f6b;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .letter-header {
+            font-family: 'Cinzel', serif;
+            color: #5c3a21;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #b99f6b;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5e7d0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b99f6b;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Back button -->
+        <div class="mb-8">
+            <a href="index.html" class="inline-flex items-center px-4 py-2 parchment-button rounded-lg text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Voltar ao Início
+            </a>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="title text-4xl md:text-5xl font-bold mb-8 text-center text-gray-800">
+            Personagens conhecidos em After The Storm
+        </h1>
+        
+        <!-- Character sections A-Z -->
+        <div class="space-y-8">
+            <!-- Letter A -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">A</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with A here -->
+
+                    <!-- Add more A characters as needed -->
+                </div>
+            </div>
+            
+            <!-- Letter B -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">B</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with B here -->
+                </div>
+            </div>
+            
+            <!-- Letter C -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">C</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with C here -->
+                </div>
+            </div>
+            
+            <!-- Letter D -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">D</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with D here -->
+                </div>
+            </div>
+            
+            <!-- Letter E -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">E</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with E here -->
+                </div>
+            </div>
+            
+            <!-- Letter F -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">F</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with F here -->
+                </div>
+            </div>
+            
+            <!-- Letter G -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">G</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with G here -->
+                </div>
+            </div>
+            
+            <!-- Letter H -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">H</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with H here -->
+                <a href="fichas/hibachi.html" class="parchment-button px-4 py-3 rounded-lg text-center text-gray-800 font-medium">
+                Hibachi kogeta
+                </a>
+                </div>
+            </div>
+            
+            <!-- Letter I -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">I</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with I here -->
+                </div>
+            </div>
+            
+            <!-- Letter J -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">J</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with J here -->
+                </div>
+            </div>
+            
+            <!-- Letter K -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">K</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with K here -->
+                </div>
+            </div>
+            
+            <!-- Letter L -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">L</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with L here -->
+                </div>
+            </div>
+            
+            <!-- Letter M -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">M</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with M here -->
+                </div>
+            </div>
+            
+            <!-- Letter N -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">N</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with N here -->
+                </div>
+            </div>
+            
+            <!-- Letter O -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">O</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with O here -->
+                </div>
+            </div>
+            
+            <!-- Letter P -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">P</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with P here -->
+                </div>
+            </div>
+            
+            <!-- Letter Q -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">Q</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with Q here -->
+                </div>
+            </div>
+            
+            <!-- Letter R -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">R</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with R here -->
+                </div>
+            </div>
+            
+            <!-- Letter S -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">S</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with S here -->
+                    <a href="fichas/sorun.html" class="parchment-button px-4 py-3 rounded-lg text-center text-gray-800 font-medium">
+                        Sorun
+                    </a>
+                    <!-- Add more S characters as needed -->
+                </div>
+            </div>
+            
+            <!-- Letter T -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">T</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with T here -->
+                </div>
+            </div>
+            
+            <!-- Letter U -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">U</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with U here -->
+                </div>
+            </div>
+            
+            <!-- Letter V -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">V</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with V here -->
+                </div>
+            </div>
+            
+            <!-- Letter W -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">W</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with W here -->
+                </div>
+            </div>
+            
+            <!-- Letter X -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">X</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with X here -->
+                </div>
+            </div>
+            
+            <!-- Letter Y -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">Y</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with Y here -->
+                </div>
+            </div>
+            
+            <!-- Letter Z -->
+            <div class="letter-section p-6">
+                <h2 class="letter-header text-2xl font-bold mb-4">Z</h2>
+                <div class="personagem-botoes grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- Add character buttons starting with Z here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Conexões são importantes</p>
+        </div>
+    </footer>
+</body>
+</html>
