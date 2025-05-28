@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Ficha do Personagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .parchment-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-color: #e0cca1;
+        }
+        
+        .parchment-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+        
+        .parchment-section {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #f0e5cd;
+            border: 1px solid #b99f6b;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .tab-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background-color: #f0e5cd;
+            font-weight: bold;
+        }
+        
+        .tab-button:hover:not(.active) {
+            background-color: #e0cca1;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .character-image {
+            border: 3px solid #b99f6b;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .attribute-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #5c3a21;
+        }
+        
+        .inventory-slot {
+            min-height: 50px;
+            border: 1px dashed #b99f6b;
+            background-color: rgba(233, 219, 177, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .inventory-slot:hover {
+            background-color: rgba(233, 219, 177, 0.6);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5e7d0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b99f6b;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Back button -->
+        <div class="mb-8">
+            <a href="fichas.html" class="inline-flex items-center px-4 py-2 parchment-button rounded-lg text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Voltar às Fichas
+            </a>
+        </div>
+        
+        <!-- Character Info Section -->
+        <div class="parchment-section p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Character Image -->
+                <div class="w-full md:w-1/3 flex flex-col items-center">
+                    <img src="https://via.placeholder.com/300x400.png?text=Character+Image" alt="Imagem do Personagem" class="character-image w-full max-w-xs mb-4">
+                    
+                    <!-- Player Info -->
+                    <div class="w-full mb-4">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Jogador:</h3>
+                        <p class="text-gray-800">Nome do Jogador: <span class="font-bold">-</span></p>
+                        <p class="text-gray-800">Idade do Jogador: <span class="font-bold">-</span></p>
+                    </div>
+                    
+                    <!-- Character Class -->
+                    <div class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Classe:</h3>
+                        <p class="text-center text-xl font-bold text-gray-800">-</p>
+                    </div>
+                </div>
+                
+                <!-- Character Details -->
+                <div class="w-full md:w-2/3">
+                    <h2 class="title text-3xl font-bold mb-4 text-gray-800">Nome do Personagem: <span class="underline">Hibachi Kogeta</span></h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Informações Básicas</h3>
+                            <p class="text-gray-800">Idade: <span class="font-bold">13</span></p>
+                            <p class="text-gray-800">Altura: <span class="font-bold">1,43</span></p>
+                            <p class="text-gray-800">Peso: <span class="font-bold">43</span></p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Outras Informações</h3>
+                            <p class="text-gray-800">Raça: <span class="font-bold">Humano Abençoado</span></p>
+                            <p class="text-gray-800">Alinhamento: <span class="font-bold">Bom</span></p>
+                            <p class="text-gray-800">Origem: <span class="font-bold">Ilhas D'Nalsi</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Character Description -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Descrição</h3>
+                        <p class="text-gray-800 italic">Suas íris remetem as brazas do fogo eterno, brilhando constantemente, seu cabelo possui um degrade que muda constante seus tons de laranja pro vermelho, sua pele é clara como quem não toma sol há muito tempo</p>
+                    </div>
+                    
+                    <!-- Character Backstory -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">História</h3>
+                        <p class="text-gray-800">Hibachi é uma garota abençoada com a dadiva do Dragão eterno do fogo Nihil, tendo apenas 13 anos na existencia atual, o rei de seu continente queria usá-la como arma, fazendo com que hibachi fugisse de sua terra natal no ano de 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="flex border-b border-gray-300 mb-6">
+            <button onclick="openTab(event, 'attributes')" class="tab-button px-6 py-2 mr-2 active">Atributos</button>
+            <button onclick="openTab(event, 'inventory')" class="tab-button px-6 py-2 mr-2">Inventário</button>
+        </div>
+        
+        <!-- Attributes Tab -->
+        <div id="attributes" class="tab-content active parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Atributos do Personagem</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Strength -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Força</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">115</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+11</p>
+                </div>
+                
+                <!-- Dexterity -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Destreza</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">115</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+11</p>
+                </div>
+                
+                <!-- Charisma -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Carisma</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">80</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+8</p>
+                </div>
+                
+                <!-- Faith -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fé</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">600</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+60/120</p>
+                </div>
+                
+                <!-- Luck -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sorte</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">1</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+0</p>
+                </div>
+                
+                <!-- Health -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vida</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">250</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">275.0</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inventory Tab -->
+        <div id="inventory" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Inventário</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Weapons -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armas</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">adaga curta</p>
+                            <p class="text-sm">6D10 + bonus de agilidade</p>
+                        </div>
+      
+                    </div>
+                </div>
+                
+                <!-- Shields -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Escudos</h3>
+                    <div class="space-y-3">
+                    </div>
+                </div>
+                
+                <!-- Wands -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Varinhas</h3>
+                    <div class="space-y-3">
+                        
+                    </div>
+                </div>
+                
+                <!-- Scepters -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Cetros</h3>
+                    <div class="space-y-3">
+                        
+                    </div>
+                </div>
+                
+                <!-- Bows -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Arcos</h3>
+                    <div class="space-y-3">
+                        
+                    </div>
+                </div>
+                
+                <!-- Armor -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armaduras</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Vestes Casuais</p>
+                            <p class="text-sm">15.0 de armadura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Money -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Drakmas</h3>
+                <div class="inventory-slot p-4 rounded text-center">
+                    <p class="text-2xl font-bold">D$0,00</p>
+                </div>
+            </div>
+            
+            <!-- Other Items -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Outros Itens</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Maçã</p>
+                        <p class="text-sm">2x</p>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Conexões são importantes</p>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabbuttons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
