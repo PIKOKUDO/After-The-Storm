@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Regras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+        
+        /* Custom styles that can't be done with Tailwind */
+        .parchment-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title-border {
+            text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+        }
+        
+        /* You can add more custom styles here if needed */
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <!-- Main content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back button -->
+            <div class="mb-8">
+                <a href="index.html" class="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Voltar à página inicial
+                </a>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 text-center text-yellow-400 title-border">
+                Regras do Jogo
+            </h1>
+            
+            <!-- Content container with parchment style -->
+            <div class="parchment-bg p-6 md:p-8 rounded-lg shadow-lg border-2 border-yellow-800 text-gray-900">
+                <!-- HOW TO PLAY SECTION -->
+                <!-- You can edit the text inside this section -->
+                <section class="mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-red-900 border-b-2 border-red-900 pb-2">
+                        Como Jogar
+                    </h2>
+                    <p class="text-lg mb-4">
+                        After the storm é um RPG anárquico, onde você, o jogador, tem liberdade para fazer e ser o que quiser em um mundo de fantasia completamente novo, mas lembre-se, suas ações tem consequências, tanto as boas, quanto as ruins.
+                    </p>
+                </section>
+                
+                <!-- ATTRIBUTES SECTION -->
+                <!-- You can edit the text inside this section -->
+                <section>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-red-900 border-b-2 border-red-900 pb-2">
+                        Atributos
+                    </h2>
+                    <p class="text-lg mb-6">
+                        Em After the storm para cada ação que você queira fazer, seu personagem utilizará um ou mais atributos, por exemplo, caso você queira atirar uma bola de fogo em um goblin, você utilizaria "Fé" e "Agilidade".
+                    </p>
+                    
+                    <p class="text-lg mb-6">
+                        Para cada 10 skillpoints investidas em um atributo, você ganha +1 no modificador de dados, então por exemplo, se você tiver 100 de força, e quiser desferir um soco, na hora de rolar o dado você ganha +10 no valor do dado rolado, e +10 de dano fixo caso acerte o ataque!
+                    </p>
+                    
+                    <!-- Attributes list -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Strength -->
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-red-700">
+                            <h3 class="font-bold text-xl text-red-800 mb-2">Força</h3>
+                            <p>Atributo comumente utilizado para atacar ou para ações que dependem de força bruta.</p>
+                        </div>
+                        
+                        <!-- Dexterity -->
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-green-700">
+                            <h3 class="font-bold text-xl text-green-800 mb-2">Destreza</h3>
+                            <p>Atributo relacionado a quantos metros por rodada seu personagem pode se mover, e, para ações como esconder, lockpick e coisas do tipo.</p>
+                        </div>
+                        
+                        <!-- Charisma -->
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-purple-700">
+                            <h3 class="font-bold text-xl text-purple-800 mb-2">Carisma</h3>
+                            <p>Atributo comumente relacionado a beleza ou influência do seu personagem, determina sua capacidade de convencer outros personagens ou domar animais.</p>
+                        </div>
+                        
+                        <!-- Faith -->
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-blue-700">
+                            <h3 class="font-bold text-xl text-blue-800 mb-2">Fé</h3>
+                            <p>Atributo relacionado as magias e orações, para cada +1 de modificador você ganha +2 de mana.</p>
+                            <p class="mt-2 italic text-gray-700">
+                                <span class="font-semibold">Mana:</span> energia gasta para castar magias, recarrega 1 por turno fora de combate, caso chegue a 0, o jogador não consegue castar magias até recuperar a mana perdida.
+                            </p>
+                        </div>
+                        
+                        <!-- Luck -->
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-yellow-700">
+                            <h3 class="font-bold text-xl text-yellow-800 mb-2">Sorte</h3>
+                            <p>Determina um bônus ao procurar ou craftar itens, quanto maior esse bônus, maiores as chances de encontrar ou criar um item de maior raridade.</p>
+                        </div>
+                        
+                        <!-- Health -->
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-red-600">
+                            <h3 class="font-bold text-xl text-red-700 mb-2">Vida</h3>
+                            <p>Quanta vida seu personagem tem, se chegar a 0 ele cai, ferido, e, começa uma contagem regressiva de 2 turnos para que algum outro jogador estanque o sangramento e estabilize o personagem, deixando ele com 1 de vida, caso a contagem chegue a 0, o personagem morre e precisa ser revivido antes que o corpo apodreça.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- You can add more sections below as needed -->
+                <!-- Just copy the section structure above and edit the content -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>After The Storm RPG © 2023 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>
