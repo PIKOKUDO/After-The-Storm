@@ -5,106 +5,87 @@
   <meta charset="UTF-8" />
   <title>Classes</title>
   <style>
-    body {
-      font-family: 'Georgia', serif;
-      background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-      color: #3e2f1c;
-      padding: 30px;
-      background-color: #f9f1dc;
+  body {
+    font-family: 'Georgia', serif;
+    background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    color: #3e2f1c;
+    padding: 30px;
+    background-color: #f9f1dc;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .btn-voltar {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 40px auto;
+    padding: 10px 20px;
+    background-color: #d8c08c;
+    color: #2f2f2f;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #a88e5d;
+    font-weight: bold;
+  }
+
+  .card {
+    background-color: #fff9e6;
+    border: 2px solid #c2a97e;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .card-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .subclasse-btn {
+    padding: 6px 12px;
+    background-color: #bfa76a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    white-space: nowrap;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 48px;
-      margin-bottom: 20px;
+    .card-header h2 {
+      font-size: 1.3em;
     }
-
-    .btn-voltar {
-      display: block;
-      width: fit-content;
-      margin: 0 auto 40px auto;
-      padding: 10px 20px;
-      background-color: #d8c08c;
-      color: #2f2f2f;
-      text-decoration: none;
-      border-radius: 8px;
-      border: 2px solid #a88e5d;
-      font-weight: bold;
-    }
-
-    .card {
-      background-color: #fff9e6;
-      border: 2px solid #c2a97e;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .card h2 {
-      margin-top: 0;
-    }
-
-    .subclasse-btn {
-      display: inline-block;
-      margin: 5px 0;
-      padding: 6px 12px;
-      background-color: #bfa76a;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 0.9em;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
- @media (max-width: 768px) {
-      h1 {
-        font-size: 36px;
-      }
-
-      .card {
-        padding: 15px;
-      }
-
-      .subclasse-btn {
-        font-size: 0.85em;
-        padding: 5px 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 15px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      .btn-voltar {
-        width: 100%;
-        text-align: center;
-        font-size: 1em;
-      }
-
-      .card {
-        padding: 12px;
-      }
-
-      .subclasse-btn {
-        width: 100%;
-        text-align: center;
-        font-size: 0.85em;
-        padding: 8px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
