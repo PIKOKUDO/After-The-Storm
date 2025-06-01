@@ -175,7 +175,7 @@
                         Descubra novas lendas!
                     </button>
                 </div>
-            <section class="mb-16">
+            </section>section class="mb-16">
             <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-amber-400">A Majestade de Nihil</h2>
     
                 <div class="dragon-image-container rounded-lg p-4 max-w-4xl mx-auto">
@@ -192,9 +192,9 @@
         </main>
         
         <!-- Footer -->
-        <footer class="py-6 px-4 text-center text-amber-600 border-t border-amber-900">
-            <p>Era para essa pagina ser secreta...</p>
-        </footer>
+       <footer class="py-6 text-center text-amber-300 bg-black bg-opacity-30 border-t border-amber-700">
+    <p>Ei, era pa essa página ser secreta!</p>
+    </footer>
     </div>
 
     <script>
@@ -235,5 +235,21 @@
             createEmbers();
         });
     </script>
+<script>
+    const embersContainer = document.getElementById('embers-container');
+
+    for (let i = 0; i < 50; i++) {
+        const ember = document.createElement('div');
+        ember.classList.add('ember');
+        ember.style.width = `${Math.random() * 4 + 2}px`;
+        ember.style.height = ember.style.width;
+        ember.style.left = `${Math.random() * 100}%`;
+        ember.style.bottom = '0';
+        ember.style.animationDuration = `${Math.random() * 5 + 3}s`;
+        ember.style.animationDelay = `${Math.random() * 5}s`;
+        embersContainer.appendChild(ember);
+    }
+        console.log("Página carregada");
+</script>
 </body>
 </html>
