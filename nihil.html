@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihil – Fogo: O Dragão Loong</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Noto+Serif+SC:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #1a0000;
+            color: #f0d8b8;
+            overflow-x: hidden;
+        }
+        
+        .dragon-title {
+            font-family: 'Cinzel Decorative', cursive;
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
+        }
+        
+        .scroll-card {
+            background: linear-gradient(to bottom, #2a0a0a, #1a0505);
+            border-left: 4px solid #d4a017;
+            border-right: 4px solid #d4a017;
+            transform: perspective(500px) rotateX(2deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .scroll-card::before, .scroll-card::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 30px;
+            top: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="100" viewBox="0 0 30 100"><path d="M0,0 Q15,20 30,0 L30,100 Q15,80 0,100 Z" fill="%232a0a0a"/></svg>');
+            background-repeat: repeat-y;
+        }
+        
+        .scroll-card::before {
+            left: -30px;
+        }
+        
+        .scroll-card::after {
+            right: -30px;
+            transform: scaleX(-1);
+        }
+        
+        .floating-embers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .ember {
+            position: absolute;
+            background-color: #ff4500;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .fire-border {
+            position: relative;
+        }
+        
+        .fire-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, #ff4500, #ff8c00, #ff4500, transparent);
+            filter: blur(5px);
+            animation: flicker 2s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        .dragon-image-container {
+            background: radial-gradient(ellipse at center, rgba(210,105,30,0.2) 0%, rgba(139,0,0,0.1) 70%, rgba(25,0,0,0) 100%);
+            border: 2px solid rgba(212, 160, 23, 0.3);
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden">
+    <!-- Floating embers background -->
+    <div class="floating-embers" id="embers-container"></div>
+    
+    <!-- Main container with fire borders -->
+    <div class="fire-border min-h-screen flex flex-col">
+        <!-- Header section -->
+        <header class="py-8 px-4 sm:px-8 text-center">
+            <h1 class="dragon-title text-4xl sm:text-6xl font-bold mb-4 text-amber-500">Nihil – Fogo</h1>
+            <h2 class="text-xl sm:text-2xl font-medium text-red-200">O Dragão Loong das Chamas Eternas</h2>
+            <div class="mt-6 w-24 h-1 bg-amber-500 mx-auto"></div>
+        </header>
+        
+        <!-- Main content -->
+        <main class="flex-grow container mx-auto px-4 sm:px-6 py-8">
+            <!-- Introduction section -->
+            <section class="mb-16 text-center max-w-3xl mx-auto">
+                <p class="text-lg sm:text-xl leading-relaxed mb-6">
+                    Nas brumas do tempo, quando o mundo ainda era jovem, surgiu das profundezas do vulcão sagrado o grande Loong de Fogo, Nihil. Seu corpo serpentino dança entre as chamas, tecendo o destino de humanos e felíneos com seu sopro incandescente.
+                </p>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-amber-600 to-transparent my-8"></div>
+            </section>
+            
+            <!-- Legends section -->
+            <section class="mb-16">
+                <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-amber-400">Lendas do Dragão de Fogo</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Legend card 1 -->
+                    <div class="scroll-card relative px-8 py-6">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-300 border-b border-amber-700 pb-2">O Nascimento das Chamas</h3>
+                        <div class="text-justify space-y-4">
+                            <p>Dizem que quando Nihil emergiu do coração da montanha de fogo, seu primeiro suspiro criou o sol do amanhecer. As gotas de lava que caíram de suas escamas se transformaram nos primeiros felíneos, destinados a guardar seus segredos.</p>
+                            <p>Escreva aqui a primeira lenda sobre o dragão...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend card 2 -->
+                    <div class="scroll-card relative px-8 py-6">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-300 border-b border-amber-700 pb-2">A Dança dos Destinos</h3>
+                        <div class="text-justify space-y-4">
+                            <p>Nos festivais da lua vermelha, os sacerdotes contam como Nihil tece os fios do destino com suas garras. Cada movimento de sua cauda cria um novo caminho, cada piscar de seus olhos âmbar extingue uma possibilidade.</p>
+                            <p>Escreva aqui a segunda lenda sobre o dragão...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend card 3 -->
+                    <div class="scroll-card relative px-8 py-6">
+                        <h3 class="text-2xl font-bold mb-4 text-amber-300 border-b border-amber-700 pb-2">O Pacto dos Corajosos</h3>
+                        <div class="text-justify space-y-4">
+                            <p>Quando a grande seca consumiu as terras, apenas os mais corajosos humanos se aventuraram até o covil de Nihil. Em troca de uma gota de seu sangue, juraram lealdade eterna. Assim nasceu a linhagem dos Portadores da Chama.</p>
+                            <p>Escreva aqui a terceira lenda sobre o dragão...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more legend cards as needed -->
+                </div>
+                
+                <!-- Add new legend button -->
+                <div class="mt-12 text-center">
+                    <button class="px-6 py-3 bg-amber-700 hover:bg-amber-600 text-amber-100 font-medium rounded-lg transition duration-300 transform hover:scale-105">
+                        + Adicionar Nova Lenda
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Dragon image section -->
+            <section class="mb-16">
+                <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-amber-400">A Majestade de Nihil</h2>
+                
+                <div class="dragon-image-container rounded-lg p-4 max-w-4xl mx-auto">
+                    <div class="aspect-w-16 aspect-h-9 bg-black bg-opacity-30 flex items-center justify-center min-h-64">
+                        <p class="text-center text-amber-200 italic p-8">
+                            [Espaço para sua imagem do Dragão Loong. Carregue uma imagem que capture a essência flamejante de Nihil, com suas escamas rubras e olhos que queimam como brasas.]
+                        </p>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button class="px-4 py-2 bg-red-900 hover:bg-red-800 text-amber-100 rounded transition">
+                            Carregar Imagem do Dragão
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="py-6 px-4 text-center text-amber-600 border-t border-amber-900">
+            <p>© <span id="year"></span> Crônicas do Dragão Loong. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Create floating embers
+        function createEmbers() {
+            const container = document.getElementById('embers-container');
+            const emberCount = 30;
+            
+            for (let i = 0; i < emberCount; i++) {
+                const ember = document.createElement('div');
+                ember.classList.add('ember');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                ember.style.width = `${size}px`;
+                ember.style.height = `${size}px`;
+                
+                // Random position
+                ember.style.left = `${Math.random() * 100}%`;
+                ember.style.bottom = `-${size}px`;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                ember.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                ember.style.animationDelay = `${Math.random() * 20}s`;
+                
+                container.appendChild(ember);
+            }
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createEmbers();
+        });
+    </script>
+</body>
+</html>
