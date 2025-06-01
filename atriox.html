@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atriox – O Deus Dragão da Terra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Cinzel:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: #1a1a1a;
+            color: #d4d4d4;
+            overflow-x: hidden;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10,10 Q20,5 30,15 Q40,10 50,20 Q60,10 70,15 Q80,5 90,10 Q95,20 85,30 Q90,40 80,50 Q90,60 85,70 Q95,80 90,90 Q80,95 70,85 Q60,90 50,80 Q40,90 30,85 Q20,95 10,90 Q5,80 15,70 Q10,60 20,50 Q10,40 15,30 Q5,20 10,10 Z" fill="%235a4a2a" opacity="0.1"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M20,20 L40,40 L60,20 L80,40 L100,20 L120,40 L140,20 L160,40 L180,20" stroke="%235a4a2a" stroke-width="1" fill="none" opacity="0.05"/></svg>');
+            background-size: 100px, 200px;
+        }
+        
+        .dragon-title {
+            font-family: 'Uncial Antiqua', cursive;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #b38a5c;
+        }
+        
+        .stone-card {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 2px solid #5a4a2a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+        
+        .stone-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #5a4a2a, #b38a5c, #5a4a2a);
+        }
+        
+        .falling-rocks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .rock {
+            position: absolute;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%235a4a2a"><path d="M12,3C16.97,7.03 21,11.5 21,16C21,18.5 19.5,21 16,21C11.5,21 7.03,16.97 3,12C7.03,7.03 11.5,3 16,3C18.5,3 21,5.5 21,8C21,11.5 16.97,16.97 12,21C7.03,16.97 3,11.5 3,8C3,5.5 5.5,3 8,3C11.5,3 16.97,7.03 12,12Z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: fall-down linear infinite;
+        }
+        
+        @keyframes fall-down {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(100vh) rotate(180deg);
+                opacity: 0;
+            }
+        }
+        
+        .earthquake-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .crack-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b38a5c, transparent);
+            animation: crack-appear 8s infinite;
+            transform-origin: left center;
+        }
+        
+        @keyframes crack-appear {
+            0% {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: scaleX(1);
+            }
+            20% {
+                opacity: 0.8;
+            }
+            30% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        .rune-border {
+            border: 2px solid #5a4a2a;
+            position: relative;
+        }
+        
+        .rune-border::before, .rune-border::after {
+            content: 'ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚻᚼᚽᚾᚿᛀᛁᛂᛃᛄᛅᛆᛇᛈᛉᛊᛋᛌᛍᛎᛏ';
+            position: absolute;
+            font-size: 12px;
+            color: #b38a5c;
+            letter-spacing: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .rune-border::before {
+            top: -10px;
+            left: 10px;
+            background: #2a2a2a;
+            padding: 0 5px;
+        }
+        
+        .rune-border::after {
+            bottom: -10px;
+            right: 10px;
+            background: #2a2a2a;
+            padding: 0 5px;
+        }
+        
+        .metallic-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metallic-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(179, 138, 92, 0.3) 50%,
+                rgba(255, 255, 255, 0) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 8s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            20% { transform: translateX(100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        .moss-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M20,20 Q40,10 60,30 Q80,15 100,25 Q120,10 140,30 Q160,15 180,25" stroke="%234d6b3a" stroke-width="1" fill="none" opacity="0.05"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .copper-highlight {
+            text-shadow: 0 0 5px rgba(179, 138, 92, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden">
+    <!-- Moss effect background -->
+    <div class="moss-effect"></div>
+    
+    <!-- Falling rocks background -->
+    <div class="falling-rocks" id="rocks-container"></div>
+    
+    <!-- Earthquake effect -->
+    <div class="earthquake-effect" id="crack-container"></div>
+    
+    <!-- Main container -->
+    <div class="min-h-screen flex flex-col">
+        <!-- Header section -->
+        <header class="py-12 px-4 sm:px-8 text-center metallic-shine">
+            <h1 class="dragon-title text-5xl sm:text-7xl font-bold mb-4 copper-highlight">Atriox</h1>
+            <h2 class="text-xl sm:text-2xl font-medium text-amber-700">O Deus Dragão da Terra</h2>
+            <div class="mt-6 w-24 h-1 bg-gradient-to-r from-amber-700 to-stone-700 mx-auto"></div>
+        </header>
+        
+        <!-- Main content -->
+        <main class="flex-grow container mx-auto px-4 sm:px-6 py-8">
+            <!-- Introduction section -->
+            <section class="mb-16 text-center max-w-3xl mx-auto">
+                <div class="stone-card relative px-8 py-6 mb-8 rune-border">
+                    <h3 class="text-2xl font-bold mb-4 text-amber-600 border-b border-amber-700 pb-2">A Origem de Atriox</h3>
+                    <div class="text-justify space-y-4 text-stone-300">
+                        <p>Nas profundezas mais obscuras do mundo, onde as raízes das montanhas se entrelaçam com o núcleo ardente da terra, Atriox emergiu da primeira pedra. Seu corpo colossal é formado de obsidiana negra e basalto, suas escamas gravadas com runas antigas que contam a história do planeta desde seu nascimento. Dizem que seu sopro pode moldar continentes e seu movimento faz tremer as fundações da terra.</p>
+                        <p>Atriox é o guardião dos segredos subterrâneos, o senhor dos minerais e metais, o juiz que decide quando a terra deve se abrir ou permanecer firme. Sua presença é sentida em cada tremor, em cada pedra preciosa que brilha nas profundezas, em cada raiz que busca nutrientes no solo.</p>
+                        <p>Escreva aqui a história completa do Deus Dragão Atriox...</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-amber-700 to-transparent my-8"></div>
+            </section>
+            
+            <!-- Legends section -->
+            <section class="mb-16">
+                <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-amber-600 copper-highlight">Lendas da Terra</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Legend card 1 -->
+                    <div class="stone-card relative px-6 py-5 rune-border hover:transform hover:scale-105 transition duration-300">
+                        <h3 class="text-xl font-bold mb-3 text-amber-600 border-b border-amber-700 pb-2">O Moldador de Montanhas</h3>
+                        <div class="text-justify space-y-3 text-stone-300">
+                            <p>Quando Atriox se move em seu sono profundo, a crosta terrestre se dobra e novas cadeias montanhosas nascem. Os antigos xamãs acreditavam que os picos mais altos eram as espinhas dorsais de Atriox emergindo à superfície, e que minerais preciosos eram fragmentos de suas escamas.</p>
+                            <p>Diz a lenda que os primeiros anões aprenderam a arte da metalurgia ao observar como Atriox forjava metais no calor de seu ventre vulcânico. As minas mais ricas são aquelas que ele abençoou com um toque de sua garra.</p>
+                            <p>Escreva aqui a primeira lenda sobre o Deus Dragão...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend card 2 -->
+                    <div class="stone-card relative px-6 py-5 rune-border hover:transform hover:scale-105 transition duration-300">
+                        <h3 class="text-xl font-bold mb-3 text-amber-600 border-b border-amber-700 pb-2">O Guardião das Profundezas</h3>
+                        <div class="text-justify space-y-3 text-stone-300">
+                            <p>Contam que Atriox guarda os segredos mais antigos do mundo em cavernas inacessíveis. Aqueles que ousam descer muito fundo nas minas podem ouvir seu coração pulsar nas paredes de pedra, e encontrar runas que ninguém consegue decifrar - a linguagem da própria terra.</p>
+                            <p>Os poucos que retornam dessas profundezas trazem consigo fragmentos de conhecimento ancestral, mas também uma estranha marca - seus olhos brilham com um reflexo âmbar, como se tivessem visto algo que não deveriam.</p>
+                            <p>Escreva aqui a segunda lenda sobre o Deus Dragão...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend card 3 -->
+                    <div class="stone-card relative px-6 py-5 rune-border hover:transform hover:scale-105 transition duration-300">
+                        <h3 class="text-xl font-bold mb-3 text-amber-600 border-b border-amber-700 pb-2">O Juiz dos Vulcões</h3>
+                        <div class="text-justify space-y-3 text-stone-300">
+                            <p>Diz a lenda que os vulcões entram em erupção quando Atriox fica irado com a arrogância dos mortais. Mas também dizem que sua lava carrega bênçãos - terras fertilizadas por suas cinzas produzem colheitas abundantes por gerações.</p>
+                            <p>Pedras vulcânicas esculpidas em sua imagem protegem contra desastres naturais, e os sacerdotes de Atriox usam máscaras de obsidiana para interpretar os padrões nas cinzas, prevendo o humor do grande dragão.</p>
+                            <p>Escreva aqui a terceira lenda sobre o Deus Dragão...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add new legend button -->
+                <div class="mt-12 text-center">
+                    <button class="px-6 py-3 bg-gradient-to-r from-amber-700 to-stone-700 hover:from-amber-800 hover:to-stone-800 text-amber-100 font-medium rounded transition duration-300 transform hover:scale-105 shadow-lg">
+                        + Adicionar Nova Lenda
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Dragon image section -->
+            <section class="mb-16">
+                <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-amber-600 copper-highlight">A Forma de Atriox</h2>
+                
+                <div class="stone-card rounded p-4 max-w-4xl mx-auto metallic-shine rune-border">
+                    <div class="aspect-w-16 aspect-h-9 bg-stone-800 bg-opacity-50 flex items-center justify-center min-h-64 border border-amber-800">
+                        <p class="text-center text-stone-400 italic p-8">
+                          <img 
+                src="images/atriox.jpg" 
+                alt="A Majestade de Atriox" 
+                class="w-full h-full object-cover object-center"
+            >  
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="py-6 px-4 text-center text-amber-700 border-t border-amber-800 bg-stone-900">
+            <p class="italic">Ei, era para essa página ser secreta!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create falling rocks
+        function createRocks() {
+            const container = document.getElementById('rocks-container');
+            const rockCount = 20;
+            
+            for (let i = 0; i < rockCount; i++) {
+                const rock = document.createElement('div');
+                rock.classList.add('rock');
+                
+                // Random size between 10px and 30px
+                const size = Math.random() * 20 + 10;
+                rock.style.width = `${size}px`;
+                rock.style.height = `${size}px`;
+                
+                // Random position
+                rock.style.left = `${Math.random() * 100}%`;
+                rock.style.top = `-${size}px`;
+                
+                // Random animation duration between 20s and 40s
+                const duration = Math.random() * 20 + 20;
+                rock.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                rock.style.animationDelay = `${Math.random() * 20}s`;
+                
+                container.appendChild(rock);
+            }
+        }
+        
+        // Create crack lines
+        function createCracks() {
+            const container = document.getElementById('crack-container');
+            const lineCount = 8;
+            
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.classList.add('crack-line');
+                
+                // Random width between 100px and 300px
+                const width = Math.random() * 200 + 100;
+                line.style.width = `${width}px`;
+                
+                // Random position
+                line.style.top = `${Math.random() * 100}%`;
+                line.style.left = `${Math.random() * 100}%`;
+                
+                // Random rotation
+                line.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+                
+                // Random animation duration between 15s and 30s
+                const duration = Math.random() * 15 + 15;
+                line.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                line.style.animationDelay = `${Math.random() * 15}s`;
+                
+                container.appendChild(line);
+            }
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createRocks();
+            createCracks();
+            
+            // Add occasional earthquake effect to the page
+            setInterval(() => {
+                const shakeIntensity = 3;
+                document.body.style.transform = `translateX(${Math.random() * shakeIntensity * 2 - shakeIntensity}px) translateY(${Math.random() * shakeIntensity * 2 - shakeIntensity}px)`;
+                setTimeout(() => {
+                    document.body.style.transform = 'translateX(0) translateY(0)';
+                }, 200);
+                
+                // Create additional cracks during quake
+                const quakeCrack = document.createElement('div');
+                quakeCrack.classList.add('crack-line');
+                quakeCrack.style.width = `${Math.random() * 200 + 100}px`;
+                quakeCrack.style.top = `${Math.random() * 100}%`;
+                quakeCrack.style.left = `${Math.random() * 100}%`;
+                quakeCrack.style.animationDuration = '5s';
+                document.getElementById('crack-container').appendChild(quakeCrack);
+                setTimeout(() => {
+                    quakeCrack.remove();
+                }, 5000);
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
