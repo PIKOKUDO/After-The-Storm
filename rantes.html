@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rantes – O Dragão Celestial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Poiret+One&display=swap">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .dragon-title {
+            font-family: 'Poiret One', cursive;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(200, 220, 255, 0.8);
+        }
+        
+        .scroll-card {
+            background: linear-gradient(to bottom, #ffffff, #f5f7fa);
+            border: 1px solid rgba(200, 220, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(100, 149, 237, 0.2);
+            transform: perspective(500px) rotateX(1deg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scroll-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #a7c7e7, #c9d9f2, #a7c7e7);
+        }
+        
+        .floating-feathers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .feather {
+            position: absolute;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a7c7e7"><path d="M12 3C10.9 3 10 3.9 10 5C10 6.1 10.9 7 12 7C13.1 7 14 6.1 14 5C14 3.9 13.1 3 12 3ZM12 9C10.9 9 10 9.9 10 11C10 12.1 10.9 13 12 13C13.1 13 14 12.1 14 11C14 9.9 13.1 9 12 9ZM12 15C10.9 15 10 15.9 10 17C10 18.1 10.9 19 12 19C13.1 19 14 18.1 14 17C14 15.9 13.1 15 12 15Z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.7;
+            animation: float-down linear infinite;
+        }
+        
+        @keyframes float-down {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .wind-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .wind-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(200, 220, 255, 0.8), transparent);
+            animation: wind-pass linear infinite;
+        }
+        
+        @keyframes wind-pass {
+            0% {
+                transform: translateX(-100%) skewX(-20deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.5;
+            }
+            80% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(100%) skewX(-20deg);
+                opacity: 0;
+            }
+        }
+        
+        .cloud-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M50,120 Q30,100 50,80 Q40,60 60,60 Q70,40 90,50 Q100,30 120,40 Q140,20 160,40 Q170,60 150,70 Q180,80 170,100 Q180,120 160,120 Q150,140 130,130 Q120,150 100,140 Q80,150 70,130 Q50,140 50,120 Z" fill="%23ffffff" opacity="0.3"/></svg>');
+            background-repeat: repeat;
+            background-size: 200px;
+        }
+        
+        .dragon-image-container {
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(200, 220, 255, 0.2));
+            border: 1px solid rgba(200, 220, 255, 0.8);
+            box-shadow: 0 0 30px rgba(167, 199, 231, 0.5);
+        }
+        
+        .metallic-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metallic-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 8s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            20% { transform: translateX(100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+    </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden cloud-bg">
+    <!-- Floating feathers background -->
+    <div class="floating-feathers" id="feathers-container"></div>
+    
+    <!-- Wind effect -->
+    <div class="wind-effect" id="wind-container"></div>
+    
+    <!-- Main container -->
+    <div class="min-h-screen flex flex-col">
+        <!-- Header section -->
+        <header class="py-8 px-4 sm:px-8 text-center metallic-shine">
+            <h1 class="dragon-title text-4xl sm:text-6xl font-bold mb-4 text-indigo-800">Rantes</h1>
+            <h2 class="text-xl sm:text-2xl font-medium text-slate-600">O Dragão Celestial dos Ventos</h2>
+            <div class="mt-6 w-24 h-1 bg-gradient-to-r from-blue-300 to-purple-300 mx-auto"></div>
+        </header>
+        
+        <!-- Main content -->
+        <main class="flex-grow container mx-auto px-4 sm:px-6 py-8">
+            <!-- Introduction section -->
+            <section class="mb-16 text-center max-w-3xl mx-auto">
+                <div class="scroll-card relative px-8 py-6 mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-700 border-b border-blue-200 pb-2">A Origem de Rantes</h3>
+                    <div class="text-justify space-y-4 text-slate-600">
+                        <p>Nos altos cumes onde o céu beija a terra, Rantes nasceu do primeiro sopro do vento primordial. Dizem que seu batimento cardíaco sincroniza com as correntes de ar que circundam o globo, e os ventos gerados por ele ajudaram o fogo que queimava as Arvores eternas a se espalhar, o vento que soprava as cinzas das arvores gerou formas de vida, os Reptilianos e os Aviários.</p>
+                        <p>Diferente das outras especies, a maioria dos reptilianos e dos aviários cultuam ao Deus Dragão Rantes desde o primordio de suas historias.</p>
+                    </div>
+                </div>
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent my-8"></div>
+            </section>
+            
+            <!-- Legends section -->
+            <section class="mb-16">
+                <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-indigo-700">Lendas do Céu</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Legend card 1 -->
+                    <div class="scroll-card relative px-8 py-6">
+                        <h3 class="text-2xl font-bold mb-4 text-indigo-700 border-b border-blue-200 pb-2">O Criador dos Furacões</h3>
+                        <div class="text-justify space-y-4 text-slate-600">
+                            <p>Rantes é o Deus Dragão mais caótico de todos, mas um pacifista, Rantes odeia a morte, Mas entende que é necessaria no ciclo da vida, ele entende que por mais que muitos venham a sofrer, certas coisas são necessarias, certos sacrificios sejam necessarios para o bem maior.</p>
+                            <p>Rantes, com o apoio indireto de Vardinas, criou as correntes de ar que navegam o mundo incessantemente, e, quando tem pesadelos ou esta irritado, ocorrem os furacões.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend card 2 -->
+                    <div class="scroll-card relative px-8 py-6">
+                        <h3 class="text-2xl font-bold mb-4 text-indigo-700 border-b border-blue-200 pb-2">A Ponte das Nuvens</h3>
+                        <div class="text-justify space-y-4 text-slate-600">
+                            <p>Contam que Rantes pode solidificar o ar sob seus pés, criando passarelas invisíveis no céu. Alguns dizem que as auroras boreais são na verdade os rastros deixados por Rantes ao cruzar os céus em noites especiais.</p>
+                            <p>Com a união dos 4 dragões para criar a unica raça intencionalmente criada, os Dracônicos, Rantes foi o responsavel por ceder-lhes a compaixão, algo que estava fora dos planos naquele momento.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend card 3 -->
+                    <div class="scroll-card relative px-8 py-6">
+                        <h3 class="text-2xl font-bold mb-4 text-indigo-700 border-b border-blue-200 pb-2">O Sussurro dos Ventos</h3>
+                        <div class="text-justify space-y-4 text-slate-600">
+                            <p>Diz a lenda que quem ouve o verdadeiro nome de Rantes sussurrado pelo vento ganha o dom da compreensão das línguas dos pássaros, as lendas tambem dizem que aqueles que conseguem impressionar Rantes com uma musica, ganham um desejo, logo, as tribos que cultuam rantes uma vez por ano fazem um grande festival de musica na intenção de chamar a atenção do deus dos ventos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add new legend button -->
+                <div class="mt-12 text-center">
+                    <button class="px-6 py-3 bg-gradient-to-r from-blue-400 to-purple-400 hover:from-blue-500 hover:to-purple-500 text-white font-medium rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                        Descubra novas lendas!
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Dragon image section -->
+            <section class="mb-16">
+                <h2 class="dragon-title text-3xl sm:text-4xl font-bold mb-8 text-center text-indigo-700">A Forma de Rantes</h2>
+                
+                <div class="dragon-image-container rounded-lg p-4 max-w-4xl mx-auto metallic-shine">
+                    <div class="aspect-w-16 aspect-h-9 bg-white bg-opacity-20 flex items-center justify-center min-h-64">
+                        <p class="text-center text-indigo-600 italic p-8">
+                            <img 
+                src="images/Rantes.jpg" 
+                alt="A Majestade de Rantes" 
+                class="w-full h-full object-cover object-center"
+            >
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="py-6 px-4 text-center text-blue-400 border-t border-blue-200">
+            <p class="italic">Ei, era para essa página ser secreta!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating feathers
+        function createFeathers() {
+            const container = document.getElementById('feathers-container');
+            const featherCount = 15;
+            
+            for (let i = 0; i < featherCount; i++) {
+                const feather = document.createElement('div');
+                feather.classList.add('feather');
+                
+                // Random size between 10px and 25px
+                const size = Math.random() * 15 + 10;
+                feather.style.width = `${size}px`;
+                feather.style.height = `${size}px`;
+                
+                // Random position
+                feather.style.left = `${Math.random() * 100}%`;
+                feather.style.top = `-${size}px`;
+                
+                // Random animation duration between 20s and 40s
+                const duration = Math.random() * 20 + 20;
+                feather.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                feather.style.animationDelay = `${Math.random() * 20}s`;
+                
+                container.appendChild(feather);
+            }
+        }
+        
+        // Create wind lines
+        function createWindLines() {
+            const container = document.getElementById('wind-container');
+            const lineCount = 8;
+            
+            for (let i = 0; i < lineCount; i++) {
+                const line = document.createElement('div');
+                line.classList.add('wind-line');
+                
+                // Random width between 100px and 300px
+                const width = Math.random() * 200 + 100;
+                line.style.width = `${width}px`;
+                
+                // Random position
+                line.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 15s and 30s
+                const duration = Math.random() * 15 + 15;
+                line.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                line.style.animationDelay = `${Math.random() * 15}s`;
+                
+                container.appendChild(line);
+            }
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            createFeathers();
+            createWindLines();
+        });
+    </script>
+</body>
+</html>
