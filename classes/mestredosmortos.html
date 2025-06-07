@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquimorte - Subclasse do Necromante</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: #0a0a0a;
+        }
+        
+        .earth-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23785d41' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(90, 24, 154, 0.3);
+        }
+        
+        .cost-ball {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%);
+            color: white;
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 8px rgba(154, 82, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+    <!-- Hero Section -->
+    <header class="relative h-96 overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-green-100 font-cinzel mb-4 text-glow">ARQUIMORTE</h1>
+                <p class="text-xl md:text-2xl text-green-200 font-semibold italic">O Senhor dos Mortos-Vivos</p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-green-600"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Class Description -->
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-purple-300 mb-8 text-center border-b-2 border-purple-700 pb-2 inline-block">A Arte da Sombra</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-lg mb-4 text-gray-300">
+                        O <span class="font-bold text-green-400">Arquimorte</span> é uma subclasse do Necromante que domina a arte de reanimar diferentes tipos de cadáveres para propósitos específicos. Cada diferente tipo de cadáver reanimado serve um propósito único no campo de batalha.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-300">
+                        Os Arquimortes são conhecidos por seus exércitos de não-mortos, composto por diferentes tipos de cadáveres reanimados que obedecem aos seus comandos sem questionar. Eles são mestres em equilibrar o poder da morte com as necessidades táticas.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-up-from-ground-water text-green-500 mt-1 mr-3"></i>
+                            <span>Reanimação especializada de diferentes tipos de cadáveres</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hand-holding-medical text-green-500 mt-1 mr-3"></i>
+                            <span>Cura através do sacrifício de seus mortos-vivos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-skull text-green-500 mt-1 mr-3"></i>
+                            <span>Expansão contínua do exército morto-vivo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-people-arrows text-green-500 mt-1 mr-3"></i>
+                            <span>Controle tático preciso sobre diferentes tipos de servos</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl border-4 border-purple-900">
+                    <img src="https://github.com/PIKOKUDO/After-The-Storm/blob/main/images/mestredosmortos.jpg" 
+                         alt="Shadow Assassin in action" 
+                         class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abilities Section -->
+    <section class="py-16 bg-gray-900 px-4 shadow-pattern">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-purple-300 mb-12 text-center border-b-2 border-purple-700 pb-2 inline-block">Habilidades da Sombra</h2>
+            
+            <!-- Summon skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-purple-400 mb-8 flex items-center">
+                    <i class="fas fa-flask-poison mr-3"></i>
+                    Invocações
+                </h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- Archer Corpse Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-green-800 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #3a7d44 0%, #1b3a1f 100%);">10</div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Arqueiro Morto-Vivo</h4>
+                        <p class="text-gray-300 mb-4">Reanima um cadáver de arqueiro para ataques a distancia.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Invoca um arqueiro esquelético que ataca à distância com 2D25+1D10 de dano por flecha. Dura até ser destruído ou dispensado.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Mage Corpse Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-green-800 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #3a7d44 0%, #1b3a1f 100%);">15</div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Mago Morto-Vivo</h4>
+                        <p class="text-gray-300 mb-4">Reanima um cadáver de mago para magias.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Invoca um mago esquelético que pode lançar magias básicas. Dura até ser destruído ou dispensado.</p>
+                        </div>
+                    </div>
+
+                    <!-- Warrior Corpse Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-green-800 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #3a7d44 0%, #1b3a1f 100%);">8</div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Guerreiro Morto-Vivo</h4>
+                        <p class="text-gray-300 mb-4">Reanima um cadáver de guerreiro para combate.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Invoca um guerreiro esquelético com 2D40 de dano em ataques corpo-a-corpo. Dura até ser destruído ou dispensado.</p>
+                        </div>
+                    </div>
+
+                    <!-- Animal Corpse Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-green-800 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #3a7d44 0%, #1b3a1f 100%);">Var</div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Animal Morto-Vivo</h4>
+                        <p class="text-gray-300 mb-4">Reanima um cadáver animal de variados tamanhos.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Revive o cadáver de um animal, com custo de mana proporcional ao tamanho (5 base + 1 por categoria de tamanho). Mantém algumas habilidades em vida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-green-400 mb-8 flex items-center">
+                    <i class="fas fa-bone mr-3"></i>
+                    Habilidades de Suporte
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Sacrificial Healing Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-green-800 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%);">1</div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Karing queen</h4>
+                        <p class="text-gray-300 mb-4">Sacrifica um servo para curar outro.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Sacrifica uma de suas invocações para curar 2d20 + metade da vida máxima do servo morto-vivo em um alvo escolhido.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Necrotic Expansion Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-green-800 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%);">1</div>
+                        <h4 class="text-xl font-bold text-green-300 mb-3">Expansão Necrótica</h4>
+                        <p class="text-gray-300 mb-4">Aumenta seu limite de invocações.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Aumenta em +1 o número máximo de invocações que você pode manter ativas simultaneamente. Pode ser usada múltiplas vezes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-green-300 py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-green-500 mb-4">ARQUIMORTE</h3>
+                <p class="max-w-2xl mx-auto">O Senhor dos Mortos-Vivos</p>
+            </div>
+            <div class="border-t border-purple-900 pt-8 text-center">
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fab fa-d-and-d text-xl"></i></a>
+                    <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fas fa-dice text-xl"></i></a>
+                    <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fas fa-book text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for cards on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
