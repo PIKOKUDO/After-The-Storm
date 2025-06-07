@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geomante - Subclasse do Mago</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: #221829;
+        }
+        
+        .earth-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23785d41' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(90, 24, 154, 0.3);
+        }
+        
+        .cost-ball {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%);
+            color: white;
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 8px rgba(154, 82, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+    <!-- Hero Section -->
+    <header class="relative h-96 overflow-hidden shadow-pattern">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-purple-100 font-cinzel mb-4 text-glow">SOMBRA</h1>
+                <p class="text-xl md:text-2xl text-purple-200 font-semibold italic">O Assassino das Trevas</p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-purple-600"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Class Description -->
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-purple-300 mb-8 text-center border-b-2 border-purple-700 pb-2 inline-block">A Arte da Sombra</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-lg mb-4 text-gray-400">
+                        A <span class="font-bold text-purple-400">Sombra</span> é uma subclasse do Assassino que domina as artes obscuras do subterfúgio e da manipulação das trevas. Movendo-se como uma sombra entre as sombras, esses assassinos são mestres da furtividade, venenos e ataques letais pelas costas.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-400">
+                        As Sombras são conhecidas por sua capacidade de desaparecer à vista de todos, atacando quando menos se espera. Elas são a personificação do terror silencioso que espreita nos cantos mais escuros.
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-skull text-purple-500 mt-1 mr-3"></i>
+                            <span>Domínio sobre venenos e ataques furtivos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-mask text-purple-500 mt-1 mr-3"></i>
+                            <span>Habilidades de ocultação excepcionais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-ghost text-purple-500 mt-1 mr-3"></i>
+                            <span>Manipulação e teletransporte entre sombras</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-knife-kitchen text-purple-500 mt-1 mr-3"></i>
+                            <span>Ataques devastadores quando não detectado</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl border-4 border-purple-900">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Shadow Assassin in action" 
+                         class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abilities Section -->
+    <section class="py-16 bg-gray-900 px-4 shadow-pattern">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-purple-300 mb-12 text-center border-b-2 border-purple-700 pb-2 inline-block">Habilidades da Sombra</h2>
+            
+            <!-- Poison/Offensive Skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-purple-400 mb-8 flex items-center">
+                    <i class="fas fa-flask-poison mr-3"></i>
+                    Habilidades de Veneno e Dano
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Toxicity Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">4x</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Toxicity</h4>
+                        <p class="text-gray-400 mb-4">Assassinos são peritos na criação e manejo de venenos.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Utilizando 4x ervas venenosas consegue criar um frasco de veneno que pode ser usado para envenenar armas ou alimentos, adicionando 1D50 de dano por rodada por 5 rodadas ao alvo que não resistir ao envenenamento (teste de vida).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Dio da! Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">5x</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Dio da!</h4>
+                        <p class="text-gray-400 mb-4">Ataque rápido com adagas letais.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Dano:</span> Caso esteja escondido, atira 5 adagas, 2D10 de dano cada.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark Armour Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">10</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Dark Armour</h4>
+                        <p class="text-gray-400 mb-4">Armadura feita das sombras mais escuras.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Conjura uma armadura de sombras com 40 de resistência que ao resistir a ataques faz com que eles reapareçam na sombra atrás do atacante. Dura 3 turnos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Area Control Skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-purple-400 mb-8 flex items-center">
+                    <i class="fas fa-route mr-3"></i>
+                    Habilidades de Controle de Área
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Dark Reign Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">2</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Dark Reign</h4>
+                        <p class="text-gray-400 mb-4">Domínio absoluto sobre as sombras.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Pode teleportar entre sombras, entrando em uma e saindo em outra que não precisa estar conectada, mas num raio de 20m.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slugterrâneo Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">-</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Slugterrâneo</h4>
+                        <p class="text-gray-400 mb-4">Arrasta os inimigos para as profundezas das sombras.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Pode tentar arrastar ou empurrar um alvo para dentro de uma sombra, adentrando a sombra com ele, ganha vantagem em ataques contra o alvo durante 3 turnos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Passive Skills -->
+            <div>
+                <h3 class="text-2xl font-semibold text-purple-400 mb-8 flex items-center">
+                    <i class="fas fa-scroll mr-3"></i>
+                    Habilidades Passivas
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Must Have Been The Wind Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">-</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Must Have Been The Wind</h4>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Gasta uma ação de agilidade para se esconder no ambiente, enquanto escondido, seu alcance de movimentação é reduzido pela metade. Não é alvo enquanto escondido.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Alto Dano Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">-</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Alto Dano</h4>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Causa +20 de dano fixo por ataque enquanto escondido.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Fight Club Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">-</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Fight Club</h4>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Recebe vantagem em ataques quando lutando 1x1.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Phantom Blood Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">-</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Phantom Blood</h4>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Para cada 10 de dano causado enquanto nas sombras, recebe 1 de vida.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Eyeless Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-800 card-hover">
+                        <div class="cost-ball">-</div>
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">Eyeless</h4>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> É indetectável pelas criaturas que existem em sombras muito grandes caso não esteja se movendo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-purple-300 py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-purple-500 mb-4">SOMBRA</h3>
+                <p class="max-w-2xl mx-auto">O terror que espreita nas trevas</p>
+            </div>
+            <div class="border-t border-purple-900 pt-8 text-center">
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fab fa-d-and-d text-xl"></i></a>
+                    <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fas fa-dice text-xl"></i></a>
+                    <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fas fa-book text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for cards on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
