@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piromante - Subclasse de Mago do Fogo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: #1a0a00;
+        }
+        
+        .earth-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23785d41' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(90, 24, 154, 0.3);
+        }
+        
+        .cost-ball {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%);
+            color: white;
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 8px rgba(154, 82, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+    <!-- Hero Section -->
+    <header class="relative h-96 overflow-hidden bg-gradient-to-b from-red-900 to-black">
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-orange-100 font-cinzel mb-4 text-glow" style="text-shadow: 0 0 10px #ff4500;">PIROMANTE</h1>
+                <p class="text-xl md:text-2xl text-yellow-200 font-semibold italic">O Arquimago do Fogo Elemental</p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-red-500"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-orange-300 mb-8 text-center border-b-2 border-red-700 pb-2 inline-block">A Arte da Destruição pelo Fogo</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-lg mb-4 text-gray-300">
+                        O <span class="font-bold text-red-500">Piromante</span> é o arquétipo definitivo do mago destruidor, canalizando o elemento fogo em sua forma mais pura e violenta. Especializado em magias de dano massivo em área, incinera inimigos com chamas imparáveis.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-300">
+                        Mestres na arte da piromancia transformam campos de batalha em fornalhas ardentes, onde apenas cinzas restam de seus oponentes. Com 5 habilidades ofensivas devastadoras e uma cura única através das chamas da Fênix, são a tempestade de fogo personificada.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-fire text-red-500 mt-1 mr-3"></i>
+                            <span>Controle absoluto sobre chamas e transformação em calor</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-burn text-red-500 mt-1 mr-3"></i>
+                            <span>Cura através das chamas douradas da Fênix</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-fire-flame-curved text-red-500 mt-1 mr-3"></i>
+                            <span>Magias de área que incendeiam múltiplos alvos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-sun text-yellow-500 mt-1 mr-3"></i>
+                            <span>Transformação em formas elementais de pura energia térmica</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl border-4 border-purple-900">
+                    <img src="https://raw.githubusercontent.com/PIKOKUDO/After-The-Storm/main/images/piromante.jpg" 
+                         alt="Shadow Assassin in action" 
+                         class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abilities Section -->
+    <section class="py-16 bg-gradient-to-b from-red-900 to-black px-4 shadow-pattern">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-orange-300 mb-12 text-center border-b-2 border-red-600 pb-2 inline-block">Habilidades das Chamas</h2>
+            
+            <!-- Poison/Offensive Skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-red-400 mb-8 flex items-center">
+                    <i class="fas fa-fire mr-3"></i>
+                    Habilidades de Fogo e Destruição
+                </h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- Fireball Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-red-600 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);">15</div>
+                        <h4 class="text-xl font-bold text-red-300 mb-3">Bola de Fogo</h4>
+                        <p class="text-gray-300 mb-4">Lançamento explosivo de puro fogo.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> 3D50 de dano de fogo em área de 6m. Inflige queimadura (1d10 por rodada por 3 rodadas).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Flame Tornado Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-red-600 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);">20</div>
+                        <h4 class="text-xl font-bold text-red-300 mb-3">Tornado de Chamas</h4>
+                        <p class="text-gray-300 mb-4">Cria um vórtice de fogo destrutivo.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> 2d40 por rodada por 3 rodadas em área de 4m. Pode se mover 3m por rodada, Inflinge queimadura (1D10 por rodada por 3 rodadas).</p>
+                        </div>
+                    </div>
+
+                    <!-- Wall of Flame Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-red-600 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);">18</div>
+                        <h4 class="text-xl font-bold text-red-300 mb-3">Parede de Chamas</h4>
+                        <p class="text-gray-300 mb-4">Ergue uma barreira de fogo.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> 1d50 de dano para quem atravessar. Dura 3 rodadas, bloqueia visão, concede cobertura, incendeia projeteis e causa queimadura (1D10 por rodada por 3 rodadas).</p>
+                        </div>
+                    </div>
+
+                    <!-- Explosion Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-red-600 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);">25</div>
+                        <h4 class="text-xl font-bold text-red-300 mb-3">Explosão Cataclísmica</h4>
+                        <p class="text-gray-300 mb-4">Libera todo o poder do fogo de uma vez.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> 4d10 + 2x INT em área de 10m. Concede 1 ponto de exaustão após uso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-8 flex items-center">
+                    <i class="fas fa-fire-flame mr-3"></i>
+                    Habilidades de Chamas Curativas
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Phoenix Healing Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-yellow-600 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);">15</div>
+                        <h4 class="text-xl font-bold text-yellow-300 mb-3">Cura Fênix</h4>
+                        <p class="text-gray-300 mb-4">Chamas douradas que curam aliados.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Cura 3D10 de vida. Se o alvo estiver abaixo de 25% de HP, cura o dobro. Cura metade em inimigos.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Inferno Stance Card -->
+                    <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-yellow-600 card-hover">
+                        <div class="cost-ball" style="background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);">30</div>
+                        <h4 class="text-xl font-bold text-yellow-300 mb-3">Postura do Inferno</h4>
+                        <p class="text-gray-300 mb-4">Toda sua magia libera calor extremo.</p>
+                        <div class="bg-gray-700 p-3 rounded">
+                            <p class="text-sm text-gray-300"><span class="font-semibold">Efeito:</span> Por 5 rodadas, todas magias causam +20 de dano de fogo, o fogo azul causa queimaduras (2D10 por rodada por 4 rodadas), mas após o uso, o mago fica 10 rodadas não puladas sem conseguir usar magias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-red-300 py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-orange-500 mb-4" style="text-shadow: 0 0 8px #ff6b00;">PIROMANTE</h3>
+                <p class="max-w-2xl mx-auto">O Arauto da Destruição pelo Fogo</p>
+            </div>
+            <div class="border-t border-red-900 pt-8 text-center">
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-red-500 hover:text-red-400"><i class="fab fa-d-and-d text-xl"></i></a>
+                    <a href="#" class="text-red-500 hover:text-red-400"><i class="fas fa-dice text-xl"></i></a>
+                    <a href="#" class="text-red-500 hover:text-red-400"><i class="fas fa-book text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for cards on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
