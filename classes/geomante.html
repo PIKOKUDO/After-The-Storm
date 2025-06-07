@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geomante - Subclasse do Mago</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: #f5f1e6;
+        }
+        
+        .earth-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23785d41' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(120, 93, 65, 0.2);
+        }
+        
+        .mana-cost {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+    <!-- Hero Section -->
+    <header class="relative h-96 overflow-hidden earth-pattern">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-stone-900 opacity-70"></div>
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-stone-100 font-cinzel mb-4 drop-shadow-lg">GEOMANTE</h1>
+                <p class="text-xl md:text-2xl text-stone-200 font-semibold italic">O Mestre da Terra e das Profundezas</p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-amber-600"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Class Description -->
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-stone-800 mb-8 text-center border-b-2 border-amber-700 pb-2 inline-block">O Poder da Terra</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-lg mb-4 text-stone-700">
+                        O <span class="font-bold text-amber-800">Geomante</span> é uma subclasse do Mago que canaliza as forças primordiais da Terra. Enraizados nas profundezas do mundo, esses magos manipulam rochas, solo e minerais com maestria, criando defesas impenetráveis ou desencadeando cataclismos devastadores.
+                    </p>
+                    <p class="text-lg mb-6 text-stone-700">
+                        Os Geomantes são conhecidos por sua resiliência inigualável e conexão profunda com o mundo natural. Eles andam com a solidez das montanhas e a determinação dos minerais mais duros.
+                    </p>
+                    <ul class="space-y-3 text-stone-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-mountain text-amber-700 mt-1 mr-3"></i>
+                            <span>Domínio sobre rochas, cristais e estruturas terrestres</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt text-amber-700 mt-1 mr-3"></i>
+                            <span>Habilidades defensivas excepcionais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hands-helping text-amber-700 mt-1 mr-3"></i>
+                            <span>Capacidade de curar através dos minerais</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-fist-raised text-amber-700 mt-1 mr-3"></i>
+                            <span>Força bruta e controle de campo de batalha</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl border-4 border-amber-700">
+                    <img src="https://images.unsplash.com/photo-1607153333879-c7e7cea427fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Geomancer in action" 
+                         class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abilities Section -->
+    <section class="py-16 bg-stone-100 px-4 earth-pattern">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-stone-800 mb-12 text-center border-b-2 border-amber-700 pb-2 inline-block">Habilidades do Geomante</h2>
+            
+            <!-- Defensive Skills -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-amber-800 mb-8 flex items-center">
+                    <i class="fas fa-shield-alt mr-3"></i>
+                    Habilidades Defensivas
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Defensive Card 1 -->
+                    <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-stone-500 card-hover">
+                        <div class="mana-cost bg-stone-600 text-white">3</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-3">Muralha de Pedra</h4>
+                        <p class="text-stone-600 mb-4">Invoca uma barreira de pedra sólida que bloqueia ataques e projéteis.</p>
+                        <div class="bg-stone-100 p-3 rounded">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Efeito:</span> Concede 50 de redução de dano contra ataques à distância e +20 de armadura para aliados atrás da muralha por 3 rodadas.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Defensive Card 2 -->
+                    <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-stone-500 card-hover">
+                        <div class="mana-cost bg-stone-600 text-white">5</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-3">Armadura de Cristal</h4>
+                        <p class="text-stone-600 mb-4">Encobre o alvo em cristais translúcidos extremamente resistentes.</p>
+                        <div class="bg-stone-100 p-3 rounded">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Efeito:</span> Concede 70 de CA e resistência a dano cortante/perfurante. Dura5 rodadas mas reduz a mobilidade de quem usa a armadura em 60%.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Defensive Card 3 -->
+                    <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-stone-500 card-hover">
+                        <div class="mana-cost bg-stone-600 text-white">7</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-3">Abrigo Subterrâneo</h4>
+                        <p class="text-stone-600 mb-4">Afunda o alvo no solo, protegendo-o de ataques enquanto se recupera.</p>
+                        <div class="bg-stone-100 p-3 rounded">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Efeito:</span> Alvo fica imune a dano por 2 rodadas, regenerando 2d20 pontos de vida por rodada. Não pode agir durante o efeito.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Healing Skill -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold text-amber-800 mb-8 flex items-center">
+                    <i class="fas fa-heart mr-3"></i>
+                    Habilidade de Cura
+                </h3>
+                <div class="grid md:grid-cols-1 gap-6">
+                    <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-amber-500 card-hover max-w-2xl mx-auto">
+                        <div class="mana-cost bg-amber-600 text-white">6</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-3">Fluxo de Quartzo Vital</h4>
+                        <p class="text-stone-600 mb-4">Canais cristalinos emergem do solo, transferindo energia vital para os aliados.</p>
+                        <div class="bg-stone-100 p-3 rounded">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Efeito:</span> Cura 3D20 pontos de vida em todos os aliados e inimigos em um raio de 10 metros. Remove condições de envenenamento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offensive Skills -->
+            <div>
+                <h3 class="text-2xl font-semibold text-amber-800 mb-8 flex items-center">
+                    <i class="fas fa-fire-alt mr-3"></i>
+                    Habilidades Ofensivas
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Offensive Card 1 -->
+                    <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-red-700 card-hover">
+                        <div class="mana-cost bg-red-600 text-white">8</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-3">Terremoto Localizado</h4>
+                        <p class="text-stone-600 mb-4">Cria violentas rupturas no solo em uma área específica.</p>
+                        <div class="bg-stone-100 p-3 rounded mb-3">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Dano:</span> 4d30 de dano contundente em todos os alvos em um raio de 8 metros.</p>
+                        </div>
+                        <div class="bg-stone-100 p-3 rounded">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Efeito Adicional:</span> Inimigos atingidos devem fazer teste de resistência ou cairão no chão.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Offensive Card 2 - Golem -->
+                    <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-red-700 card-hover">
+                        <div class="mana-cost bg-red-600 text-white">15</div>
+                        <h4 class="text-xl font-bold text-stone-800 mb-3">Golem de Terra Ancestral</h4>
+                        <p class="text-stone-600 mb-4">Invoca um poderoso Golem de Terra para lutar ao seu lado.</p>
+                        <div class="bg-stone-100 p-3 rounded mb-3">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Dano:</span> Ataques do Golem causam 3d30 de dano contundente.</p>
+                        </div>
+                        <div class="bg-stone-100 p-3 rounded">
+                            <p class="text-sm text-stone-700"><span class="font-semibold">Efeito Adicional:</span> Golem possui 120 PV, 60 em todos os atributos e permanece em combate por 10 rodadas. Pode ser usado como escudo humanoide (+20 armadura para aliados atrás dele).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-300 py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-amber-500 mb-4">GEOMANTE</h3>
+                <p class="max-w-2xl mx-auto">A força das montanhas em suas mãos</p>
+            </div>
+            <div class="border-t border-stone-700 pt-8 text-center">
+                
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-amber-500 hover:text-amber-400"><i class="fab fa-d-and-d text-xl"></i></a>
+                    <a href="#" class="text-amber-500 hover:text-amber-400"><i class="fas fa-dice text-xl"></i></a>
+                    <a href="#" class="text-amber-500 hover:text-amber-400"><i class="fas fa-book text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for cards on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
