@@ -1,0 +1,424 @@
+<html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Ficha do Personagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=MedievalSharp&amp;display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .parchment-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-color: #e0cca1;
+        }
+        
+        .parchment-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+        
+        .parchment-section {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #f0e5cd;
+            border: 1px solid #b99f6b;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .tab-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background-color: #f0e5cd;
+            font-weight: bold;
+        }
+        
+        .tab-button:hover:not(.active) {
+            background-color: #e0cca1;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .character-image {
+            border: 3px solid #b99f6b;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .attribute-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #5c3a21;
+        }
+        
+        .inventory-slot {
+            min-height: 50px;
+            border: 1px dashed #b99f6b;
+            background-color: rgba(233, 219, 177, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .inventory-slot:hover {
+            background-color: rgba(233, 219, 177, 0.6);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5e7d0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b99f6b;
+            border-radius: 5px;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-2{margin-right:0.5rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-24{height:6rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-5{width:1.25rem}.w-full{width:100%}.max-w-6xl{max-width:72rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.border-b{border-bottom-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-1{padding-bottom:0.25rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.italic{font-style:italic}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}@media (min-width: 768px){.md\:w-2\/3{width:66.666667%}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}}</style></head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Back button -->
+        <div class="mb-8">
+            <a href="/After-The-Storm/fichas.html" class="inline-flex items-center px-4 py-2 parchment-button rounded-lg text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                </svg>
+                Voltar às Fichas
+            </a>
+        </div>
+        
+        <!-- Character Info Section -->
+        <div class="parchment-section p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Character Image -->
+                <div class="character-image-container">
+    <img src="../images/barroso.jpg" alt="barroso" class="character-image" width="300" height="400" loading="lazy">
+</div>   
+                    <!-- Player Info -->
+                    <div class="w-full mb-4">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Jogador:</h3>
+                        <p class="text-gray-800">Nome do Jogador: <span class="font-bold">Cristian Leiry</span></p>
+                        <p class="text-gray-800">Idade do Jogador: <span class="font-bold">23</span></p>
+                    </div>
+                    
+                    <!-- Character Class -->
+                    <div class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Classe:</h3>
+                        <p class="text-center text-xl font-bold text-gray-800">Geomante</p>
+                    </div>
+                </div>
+                
+                <!-- Character Details -->
+                <div class="w-full md:w-2/3">
+                    <h2 class="title text-3xl font-bold mb-4 text-gray-800">Nome do Personagem: <span class="underline">José Barroso</span></h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Informações Básicas</h3>
+                            <p class="text-gray-800">Idade: <span class="font-bold">23</span></p>
+                            <p class="text-gray-800">Altura: <span class="font-bold">1,60</span></p>
+                            <p class="text-gray-800">Peso: <span class="font-bold">60Kg</span></p>
+                            <p class="text-gray-800">Nível: <span class="font-bold">3</span></p>
+                            <p class="text-gray-800">xp: <span class="font-bold">0</span></p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Outras Informações</h3>
+                            <p class="text-gray-800">Raça: <span class="font-bold">Felíneo</span></p>
+                            <p class="text-gray-800">Alinhamento: <span class="font-bold">Caótico</span></p>
+                            <p class="text-gray-800">Origem: <span class="font-bold">Supmaccoppih</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Character Description -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Descrição</h3>
+                        <p class="text-gray-800 italic">Zé Barroso é um Caraçal de origem humilde. Um nobre fazendeiro que constantemente vive enlameado devido as suas artes arcanas de elemento terroso passado de geração em geração. Possúi uma fala caipira, roupas do campo e um chápeu artesanal de palha feito pela sua irmã caçula. O José não se sente confortável na presença de outros, devido à isso ele leva uma vida solitária e pacata pelas terras de Supmaccoppih , somente acompanhado pelos seus amigos de lama.</p>
+                    </div>
+                    
+                    <!-- Character Backstory -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">História</h3>
+                        <p class="text-gray-800">[EDITAR história do personagem]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="flex border-b border-gray-300 mb-6">
+            <button onclick="openTab(event, 'attributes')" class="tab-button px-6 py-2 mr-2">Atributos</button>
+            <button onclick="openTab(event, 'inventory')" class="tab-button px-6 py-2 mr-2 active">Inventário</button>
+            <button onclick="openTab(event, 'abilities')" class="tab-button px-6 py-2">Habilidades</button>
+        </div>
+        
+        <!-- Attributes Tab -->
+        <div id="attributes" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Atributos do Personagem</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Strength -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Força</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">0</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+0</p>
+                </div>
+                
+                <!-- Dexterity -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Destreza</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">25</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+2</p>
+                </div>
+                
+                <!-- Charisma -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Carisma</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">70</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+7</p>
+                </div>
+                
+                <!-- Faith -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fé</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">80</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+8/18</p>
+                </div>
+                
+                <!-- Luck -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sorte</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">0</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+0</p>
+                </div>
+                
+                <!-- Health -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vida</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">100</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">100/100</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inventory Tab -->
+        <div id="inventory" class="tab-content parchment-section p-6 active">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Inventário</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Weapons -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armas</h3>
+                    <div class="space-y-3">
+                        
+                        
+                    </div>
+                </div>
+                
+                <!-- Shields -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Escudos</h3>
+                    
+                </div>
+                
+                <!-- Wands -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Varinhas</h3>
+                    
+                </div>
+                
+                <!-- Scepters -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Cetros</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Cajado de runas</p>
+                            <p class="text-sm">+20%, 1D65, 6Kg, 110D$</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bows -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Arcos</h3>
+                    
+                </div>
+                
+                <!-- Armor -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armaduras</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Armadura de couro</p>
+                            <p class="text-sm">20res, 5kg, 50D$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Money -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Drakmas</h3>
+                <div class="inventory-slot p-4 rounded text-center">
+                    <p class="text-2xl font-bold">0D$</p>
+                </div>
+            </div>
+            
+            <!-- Other Items -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Outros Itens</h3>
+                
+            </div>
+        </div>
+        
+        <!-- Abilities Tab -->
+        <div id="abilities" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Habilidades</h2>
+            
+            <!-- Damage Abilities -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Habilidades de Dano</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">[EDITAR nome da habilidade]</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Dano:</span> [EDITAR]</p>
+                        <p>[EDITAR descrição detalhada da habilidade]</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">[EDITAR nome da habilidade]</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Dano:</span> [EDITAR]</p>
+                        <p>[EDITAR descrição detalhada da habilidade]</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Area Control Abilities -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Habilidades de Controle de Área</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">[EDITAR nome da habilidade]</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Área:</span> [EDITAR]</p>
+                        <p>[EDITAR descrição detalhada da habilidade]</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">[EDITAR nome da habilidade]</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Área:</span> [EDITAR]</p>
+                        <p>[EDITAR descrição detalhada da habilidade]</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Abilities -->
+            <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Habilidades de Suporte</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">[EDITAR nome da habilidade]</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> [EDITAR]</p>
+                        <p>[EDITAR descrição detalhada da habilidade]</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">[EDITAR nome da habilidade]</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> [EDITAR]</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> [EDITAR]</p>
+                        <p>[EDITAR descrição detalhada da habilidade]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Conexões são importantes</p>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabbuttons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+
+</body></html>
