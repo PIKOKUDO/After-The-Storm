@@ -153,7 +153,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div>
                             <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Informações Básicas</h3>
-                            <p class="text-gray-800">Idade: <span class="font-bold">[EDITAR]</span></p>
+                            <p class="text-gray-800">Idade: <span class="font-bold">21</span></p>
                             <p class="text-gray-800">Altura: <span class="font-bold">2,13</span></p>
                             <p class="text-gray-800">Peso: <span class="font-bold">38kg</span></p>
                             <p class="text-gray-800">Nível: <span class="font-bold">3</span></p>
@@ -320,9 +320,13 @@
             <div class="mt-6">
                 <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Outros Itens</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                 <div class="inventory-slot p-3 rounded">
+                     <div class="inventory-slot p-3 rounded">
                         <p class="font-bold">Baralho de Tarot</p>
                         <p class="text-sm">Contem cartas referentes aos 22 arcanos maiores</p>
+                    </div>
+                     <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Biblia Sagrada</p>
+                        <p class="text-sm">Contem instruçoes de preces que podem servir para abençoar ou exorcizar alguem</p>
                     </div>   
                     
                     
@@ -458,83 +462,7 @@
     </div>
 </div>
     
-    <!-- Support Abilities -->
-    <div>
-        <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Habilidades de Suporte</h3>
-        <div class="space-y-4">
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">Little Crown</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 1 Mana</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Amaldiçoar demônio</p>
-                <p>Caso remova um demônio do corpo de um aliado com Angry Birds, utilize Little Crown para amaldiçoar o demônio a te servir, a maldição dura um dia e o demônio volta ao inferno depois.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">Room</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 1 Mana</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Cura em área</p>
-                <p>O clérigo lê versículos de sua bíblia, criando uma área esférica ao redor de si que cura lentamente seus aliados em +10 de vida por turno, mas também cura inimigos na área.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">Bad Bromance</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 1 Mana</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Cura concentrada</p>
-                <p>Foca sua cura em um único aliado, curando ele em 60 pontos por rodada.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">O Que é Isso</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Passiva</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> -</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Detecção de ameaças</p>
-                <p>Clérigos conseguem identificar se há demônios ou maldições nas redondezas.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">Profecia</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> -</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Visão do futuro</p>
-                <p>Ao ler as cartas dos arcanos maiores, o Profeta percebe o que aconteceu em até 10 rodadas no futuro, dando a oportunidade dos jogadores de alterar o acontecimento de 10 rodadas no passado, tal habilidade só pode ser utilizada uma vez por campanha.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">Caminhos Cruzados</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Passiva</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> Alternativo</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Opção de custo</p>
-                <p>O Profeta pode escolher entre gastar mana ou queimar uma carta (tornando a habilidade indisponível até obter novas cartas) ao usar suas habilidades.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">A Estrela</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Suporte</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 5 Mana</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Cura instantânea + regeneração</p>
-                <p>Cura um aliado instantaneamente em 2D50 e concede um bônus de regeneração de 1D20 nos próximos 2 turnos.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">A Temperança</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Suporte</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 7 Mana</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Remoção de efeitos negativos</p>
-                <p>Remove todos os efeitos negativos de um aliado e concede a ele resistência a dano mágico por 2 turnos.</p>
-            </div>
-            
-            <div class="parchment-button p-4 rounded">
-                <h4 class="font-bold text-lg">O Sol</h4>
-                <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Suporte em área</p>
-                <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 12 Mana</p>
-                <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Ação extra/vantagem</p>
-                <p>Todos os aliados próximos recebem +1 ação extra no próximo turno ou vantagem nos testes.</p>
-            </div>
-        </div>
-    </div>
+    
 </div>
         </div>
     
