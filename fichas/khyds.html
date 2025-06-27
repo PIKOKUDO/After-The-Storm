@@ -1,0 +1,342 @@
+<html lang="pt-br">
+<head>
+    <!-- ... (manter todo o head original) ... -->
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Back button -->
+        <div class="mb-8">
+            <a href="/After-The-Storm/fichas.html" class="inline-flex items-center px-4 py-2 parchment-button rounded-lg text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Voltar às Fichas
+            </a>
+        </div>
+        
+        <!-- Character Info Section -->
+        <div class="parchment-section p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Character Image -->
+                <div class="character-image-container">
+                    <img 
+                        src="../images/suhstagym.jpg" 
+                        alt="Suhstagym Khyds" 
+                        class="character-image"
+                        width="300"
+                        height="400"
+                        loading="lazy"
+                    >
+                </div>   
+                
+                <!-- Player Info -->
+                <div class="w-full mb-4">
+                    <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Jogador:</h3>
+                    <p class="text-gray-800">Nome do Jogador: <span class="font-bold">Samuel</span></p>
+                    <p class="text-gray-800">Idade do Jogador: <span class="font-bold">16</span></p>
+                </div>
+                
+                <!-- Character Class -->
+                <div class="w-full">
+                    <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Classe:</h3>
+                    <p class="text-center text-xl font-bold text-gray-800">Guerreiro Sagrado</p>
+                </div>
+            </div>
+            
+            <!-- Character Details -->
+            <div class="w-full md:w-2/3">
+                <h2 class="title text-3xl font-bold mb-4 text-gray-800">Nome do Personagem: <span class="underline">Suhstagym Khyds</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Informações Básicas</h3>
+                        <p class="text-gray-800">Idade: <span class="font-bold">692</span></p>
+                        <p class="text-gray-800">Altura: <span class="font-bold">1,24m</span></p>
+                        <p class="text-gray-800">Peso: <span class="font-bold">36kg</span></p>
+                        <p class="text-gray-800">Nível: <span class="font-bold">3</span></p>
+                        <p class="text-gray-800">xp: <span class="font-bold">0</span></p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Outras Informações</h3>
+                        <p class="text-gray-800">Raça: <span class="font-bold">Anão</span></p>
+                        <p class="text-gray-800">Alinhamento: <span class="font-bold">Neutro Caótico</span></p>
+                        <p class="text-gray-800">Origem: <span class="font-bold">Supmaccoppih</span></p>
+                    </div>
+                </div>
+                
+                <!-- Character Description -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Descrição</h3>
+                    <p class="text-gray-800 italic">Um anão que usa vestes de um padre, com chápeu e tudo. Apesar de sua raça ser conhecida por capacidades físicas, ele tem o corpo bem contrario a isso, sendo relativamente magro e velho demais pra ser "muito ágil".</p>
+                </div>
+                
+                <!-- Character Backstory -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">História</h3>
+                    <p class="text-gray-800">Suhstagym nasceu de uma família estupidamente rica e famosa oque fez com que ele crescesse sendo um mimado e consequentemente o fazendo um fracote e burro anão. Mas, ainda como viking, ele era obrigado a matar e a participar de guerras constantemente, sobrevivendo apenas por sua grande fé nos Deuses que ele acredita terem sempre salvo ele. Por essa razão, Suhstagym se tornou um clérigo de sua religião ao perceber que estava perto do fim da sua vida, esperando algum tipo de salvação por parte dos deuses e se obrigando a se tornar uma pessoa "melhor".</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="flex border-b border-gray-300 mb-6">
+            <button onclick="openTab(event, 'attributes')" class="tab-button px-6 py-2 mr-2 active">Atributos</button>
+            <button onclick="openTab(event, 'inventory')" class="tab-button px-6 py-2 mr-2">Inventário</button>
+            <button onclick="openTab(event, 'abilities')" class="tab-button px-6 py-2">Habilidades</button>
+        </div>
+        
+        <!-- Attributes Tab -->
+        <div id="attributes" class="tab-content active parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Atributos do Personagem</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Strength -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Força</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">0</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+0</p>
+                </div>
+                
+                <!-- Dexterity -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Destreza</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">25</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+2</p>
+                </div>
+                
+                <!-- Charisma -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Carisma</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">50</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+5</p>
+                </div>
+                
+                <!-- Faith -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fé</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">60</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+6</p>
+                </div>
+                
+                <!-- Luck -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sorte</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">0</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">+0</p>
+                </div>
+                
+                <!-- Health -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vida</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">40</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">140/140</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inventory Tab -->
+        <div id="inventory" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Inventário</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Weapons -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armas</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Cajado de Runas</p>
+                            <p class="text-sm">1D65, 6kg, 110D$</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Armor -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armaduras</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Armadura de Couro</p>
+                            <p class="text-sm">20res, 5kg, 30D$</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Money -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Drakmas</h3>
+                <div class="inventory-slot p-4 rounded text-center">
+                    <p class="text-2xl font-bold">140</p>
+                </div>
+            </div>
+            
+            <!-- Other Items -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Outros Itens</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Bíblia Sagrada</p>
+                        <p class="text-sm">Usada para habilidades e rituais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Abilities Tab -->
+        <div id="abilities" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Habilidades Sagradas</h2>
+            
+            <!-- Exorcism Abilities -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Exorcismo</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Angry Birds</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Expulsão de demônio</p>
+                        <p>Caso algum aliado seja possuído, atira sua bíblia para expulsar o demônio (que pode se manifestar fisicamente).</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Little Crown</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 1 Mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Amaldiçoar demônio expulso</p>
+                        <p>Após usar Angry Birds, amaldiçoa o demônio a te servir por 1 dia antes de voltar ao inferno.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">O Que é Isso</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Passiva</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Detecção de ameaças</p>
+                        <p>Identifica a presença de demônios ou maldições nas redondezas.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Not Here</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Defensiva</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 3 Mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Duração:</span> 4 turnos</p>
+                        <p>Cria um círculo protetor que bloqueia criaturas malignas (afeta aliados caóticos também).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Healing Abilities -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Cura & Suporte</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Room</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Cura em Área</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 1 Mana/turno</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> +10 HP por turno (aliados e inimigos)</p>
+                        <p>Ao ler versículos, cria uma área esférica de cura gradual.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Bad Bromance</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Cura Concentrada</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 1 Mana/turno</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Cura:</span> 60 HP por rodada (único alvo)</p>
+                        <p>Foca toda energia curativa em um único aliado.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Ressurrect</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Ressurreição</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 10 Mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Revive 1-2 aliados com 50% HP</p>
+                        <p>Ritual sagrado de retorno à vida.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Clean Aspect</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Purificação</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 5 Mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Remove efeitos negativos</p>
+                        <p>Prece para limpar maldições e condições adversas.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Last Stand</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Emergência</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> Destrói a Bíblia Sagrada</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Revive 1 aliado (último recurso)</p>
+                        <p>Sacrifício final quando é o último sobrevivente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offensive Abilities -->
+            <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Ofensivas Divinas</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Glória Ardente</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Bênção Ofensiva</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 2 Mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> 1D60 radiante/cura por ataque</p>
+                        <p>Abençoa uma arma para causar dano radiante e curar simultaneamente.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Holy Flames</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Transformação</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Fogo sagrado (cura aliados, 2x dano em malditos)</p>
+                        <p>Converte chamas comuns em fogo abençoado.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Holy Phit</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Defensivo</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 30 Mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Efeito:</span> Melhora armadura</p>
+                        <p>Prece desesperada por proteção divina.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Conexões são importantes</p>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabbuttons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
