@@ -1,6 +1,119 @@
 <html lang="pt-br">
 <head>
-    <!-- ... (manter todo o head original) ... -->
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Ficha do Personagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .parchment-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-color: #e0cca1;
+        }
+        
+        .parchment-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+        
+        .parchment-section {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #f0e5cd;
+            border: 1px solid #b99f6b;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .tab-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background-color: #f0e5cd;
+            font-weight: bold;
+        }
+        
+        .tab-button:hover:not(.active) {
+            background-color: #e0cca1;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .character-image {
+            border: 3px solid #b99f6b;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .attribute-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #5c3a21;
+        }
+        
+        .inventory-slot {
+            min-height: 50px;
+            border: 1px dashed #b99f6b;
+            background-color: rgba(233, 219, 177, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .inventory-slot:hover {
+            background-color: rgba(233, 219, 177, 0.6);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5e7d0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b99f6b;
+            border-radius: 5px;
+        }
+    </style>
+
 </head>
 <body class="min-h-screen">
     <div class="container mx-auto px-4 py-8 max-w-6xl">
@@ -39,7 +152,7 @@
                 <!-- Character Class -->
                 <div class="w-full">
                     <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Classe:</h3>
-                    <p class="text-center text-xl font-bold text-gray-800">Guerreiro Sagrado</p>
+                    <p class="text-center text-xl font-bold text-gray-800">Clérigo (Guerreiro Sagrado)</p>
                 </div>
             </div>
             
@@ -50,7 +163,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div>
                         <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Informações Básicas</h3>
-                        <p class="text-gray-800">Idade: <span class="font-bold">692</span></p>
+                        <p class="text-gray-800">Idade: <span class="font-bold">792</span></p>
                         <p class="text-gray-800">Altura: <span class="font-bold">1,24m</span></p>
                         <p class="text-gray-800">Peso: <span class="font-bold">36kg</span></p>
                         <p class="text-gray-800">Nível: <span class="font-bold">3</span></p>
@@ -61,7 +174,7 @@
                         <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Outras Informações</h3>
                         <p class="text-gray-800">Raça: <span class="font-bold">Anão</span></p>
                         <p class="text-gray-800">Alinhamento: <span class="font-bold">Neutro Caótico</span></p>
-                        <p class="text-gray-800">Origem: <span class="font-bold">Supmaccoppih</span></p>
+                        <p class="text-gray-800">Origem: <span class="font-bold">Viking</span></p>
                     </div>
                 </div>
                 
@@ -142,7 +255,7 @@
                     <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                         <span class="attribute-value">40</span>
                     </div>
-                    <p class="mt-2 text-gray-700">140/140</p>
+                    <p class="mt-2 text-gray-700">40/40</p>
                 </div>
             </div>
         </div>
