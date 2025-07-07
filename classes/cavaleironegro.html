@@ -1,0 +1,143 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cavaleiro Negro - O Arauto da Morte</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #0e0e0e;
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .cost-ball {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: linear-gradient(135deg, #581c87 0%, #1e1b4b 100%);
+      color: white;
+    }
+  </style>
+</head>
+<body class="text-gray-200">
+  <header class="relative h-96 overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+    <div class="relative z-10 h-full flex items-center justify-center">
+      <div class="text-center px-4">
+        <h1 class="text-5xl md:text-7xl font-bold text-purple-400 font-cinzel mb-4">CAVALEIRO NEGRO</h1>
+        <p class="text-xl md:text-2xl text-purple-300 font-semibold italic">Arauto da Morte e da Escuridão</p>
+        <div class="mt-8 flex justify-center">
+          <div class="w-16 h-1 bg-purple-600"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-purple-300 mb-8 text-center border-b-2 border-purple-600 pb-2 inline-block">A Vontade Sombria</h2>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-lg mb-4">
+            O <span class="font-bold text-purple-400">Cavaleiro Negro</span> é a encarnação da corrupção, um servo sombrio que se ergue dos mortos para arrastar seus inimigos à perdição. Usa a dor como arma e a morte como promessa.
+          </p>
+          <p class="text-lg mb-6">
+            Seus ataques drenam, amaldiçoam e corroem. Onde caminha, a luz recua. Onde golpeia, até a alma sangra.
+          </p>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-xl border-4 border-purple-800">
+          <img src="https://i.imgur.com/xymuU68.jpeg" alt="Cavaleiro Negro em batalha" class="w-full h-auto object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gradient-to-b from-gray-900 to-black px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-purple-400 mb-12 text-center border-b-2 border-purple-700 pb-2 inline-block">Habilidades Profanas</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Long Live the King -->
+        <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-700 card-hover">
+          <div class="cost-ball">4</div>
+          <h4 class="text-xl font-bold text-purple-300 mb-3">Long Live the King</h4>
+          <p class="mb-2">Drena 1D40 de um alvo (aliado ou inimigo) e cura 1D20 de outro aliado.</p>
+          <p class="text-sm italic">“O trono nunca está vazio.”</p>
+        </div>
+
+        <!-- Shadow Nightmares -->
+        <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-700 card-hover">
+          <div class="cost-ball">2</div>
+          <h4 class="text-xl font-bold text-purple-300 mb-3">Shadow Nightmares</h4>
+          <p class="mb-2">Arma recebe +1D60 de dano sombrio. Dura 5 turnos (∞ no escuro).</p>
+          <p class="text-sm italic">“A luz falha. A escuridão permanece.”</p>
+        </div>
+
+        <!-- Death Ray -->
+        <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-700 card-hover">
+          <div class="cost-ball">5</div>
+          <h4 class="text-xl font-bold text-purple-300 mb-3">Death Ray</h4>
+          <p class="mb-2">Cone de 1D80 de dano sombrio. Cria poça que aumenta dano em +20% por 3 turnos.</p>
+          <p class="text-sm italic">“A morte não é o fim. É o começo.”</p>
+        </div>
+
+        <!-- Night King -->
+        <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-700 card-hover">
+          <h4 class="text-xl font-bold text-purple-300 mb-3">Night King</h4>
+          <p class="mb-2">+10% de dano contra alvos sagrados.</p>
+          <p class="text-sm italic">“Reis da luz? Apenas tochas esperando apagar.”</p>
+        </div>
+
+        <!-- Revivify Profano -->
+        <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-700 card-hover">
+          <div class="cost-ball">10</div>
+          <h4 class="text-xl font-bold text-purple-300 mb-3">Revivify Profano</h4>
+          <p class="mb-2">Reduz cura sagrada em 50%. Se morrer, pode matar alguém e voltar com 100% da vida.</p>
+          <p class="text-sm italic">“A alma vagueia, faminta por vingança.”</p>
+        </div>
+
+        <!-- From Shoftware -->
+        <div class="relative bg-gray-800 rounded-lg shadow-md p-6 border-b-4 border-purple-700 card-hover">
+          <h4 class="text-xl font-bold text-purple-300 mb-3">From Shoftware</h4>
+          <p class="mb-2">Com ≤20% de vida, ganha +10% de roubo de vida por 5 turnos.</p>
+          <p class="text-sm italic">“Quando tudo se quebra, resta o instinto.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-purple-400 py-10 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold text-purple-500 mb-4">CAVALEIRO NEGRO</h3>
+        <p class="max-w-2xl mx-auto">O emissário sombrio que caminha entre os vivos e os mortos.</p>
+      </div>
+      <div class="border-t border-purple-800 pt-8 text-center">
+        <div class="flex justify-center space-x-4 mt-4">
+          <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fab fa-d-and-d text-xl"></i></a>
+          <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fas fa-dice text-xl"></i></a>
+          <a href="#" class="text-purple-500 hover:text-purple-400"><i class="fas fa-book text-xl"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
