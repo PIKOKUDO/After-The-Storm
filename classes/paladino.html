@@ -1,0 +1,143 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paladino - Guardião da Luz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: #f0f4f8;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cost-ball {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <header class="relative h-96 overflow-hidden bg-gradient-to-b from-yellow-200 to-white">
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-yellow-700 font-cinzel mb-4">PALADINO</h1>
+                <p class="text-xl md:text-2xl text-yellow-600 font-semibold italic">Guardião da Fé e da Luz</p>
+                <div class="mt-8 flex justify-center">
+                    <div class="w-16 h-1 bg-yellow-500"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-yellow-600 mb-8 text-center border-b-2 border-yellow-400 pb-2 inline-block">Luz que Guia e Protege</h2>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-lg mb-4">
+                        O <span class="font-bold text-yellow-700">Paladino</span> representa a justiça divina em sua forma mais pura. Canalizando luz sagrada, protege os fracos, cura os aliados e incinera a corrupção.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Com um equilíbrio entre defesa, cura e ataque, o Paladino é o bastião da ordem nos campos de batalha. Sua presença inspira coragem e sua queda é apenas o prenúncio da redenção.
+                    </p>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl border-4 border-yellow-400">
+                    <img src="https://i.imgur.com/OZ5x3Hg.jpg" alt="Paladino em combate" class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-b from-yellow-100 to-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-yellow-700 mb-12 text-center border-b-2 border-yellow-500 pb-2 inline-block">Habilidades da Luz</h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Vida para a Vida -->
+                <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-yellow-400 card-hover">
+                    <div class="cost-ball">4</div>
+                    <h4 class="text-xl font-bold text-yellow-700 mb-3">Vida para a Vida</h4>
+                    <p class="mb-2">Sacrifica 1D20 de vida para curar 1D60 de um aliado.</p>
+                    <p class="text-sm">“Minhas chagas são o preço da tua redenção.”</p>
+                </div>
+
+                <!-- Espada de Luz -->
+                <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-yellow-400 card-hover">
+                    <div class="cost-ball">2</div>
+                    <h4 class="text-xl font-bold text-yellow-700 mb-3">Espada de Luz</h4>
+                    <p class="mb-2">Arma brilha e causa +1D80 de dano radiante (5 turnos ou 3 em escuridão).</p>
+                    <p class="text-sm">“A luz deve brilhar mais onde a escuridão ousa reinar.”</p>
+                </div>
+
+                <!-- Explosão Solar -->
+                <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-yellow-400 card-hover">
+                    <div class="cost-ball">5</div>
+                    <h4 class="text-xl font-bold text-yellow-700 mb-3">Explosão Solar</h4>
+                    <p class="mb-2">Dispara um raio em forma de Cone com 1D80 de dano sagrado. Área concede +20% cura por 3 rodadas.</p>
+                    <p class="text-sm">“A justiça não precisa se esconder.”</p>
+                </div>
+
+                <!-- Servo da Luz -->
+                <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-yellow-400 card-hover">
+                    <h4 class="text-xl font-bold text-yellow-700 mb-3">Servo da Luz</h4>
+                    <p class="mb-2">+10% de dano contra alvos Demoníacos.</p>
+                    <p class="text-sm">“Eu não temo a sombra. Ela teme a mim.”</p>
+                </div>
+
+                <!-- Graça de Miraniel -->
+                <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-yellow-400 card-hover">
+                    <div class="cost-ball">10</div>
+                    <h4 class="text-xl font-bold text-yellow-700 mb-3">Graça de Miraniel</h4>
+                    <p class="mb-2">Ao morrer, rola um D20, caso tire 18 ou mais, cura aliados próximos. Se curar 2+, ressuscita com 50% de vida ( a ressuscitação ocorre apenas uma vez por dia ou descanso).</p>
+                    <p class="text-sm">“Que minha queda seja a cura de muitos.”</p>
+                </div>
+
+                <!-- Milagre Final -->
+                <div class="relative bg-white rounded-lg shadow-md p-6 border-b-4 border-yellow-400 card-hover">
+                    <h4 class="text-xl font-bold text-yellow-700 mb-3">Milagre Final</h4>
+                    <p class="mb-2">Com ≤20% de vida, recebe +10% cura e aliados ganham +10% de defesa.</p>
+                    <p class="text-sm">“Enquanto eu respirar, ninguém cai.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-yellow-100 text-yellow-700 py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-yellow-600 mb-4">PALADINO</h3>
+                <p class="max-w-2xl mx-auto">O Guardião Sagrado que combate as Trevas com a própria Luz.</p>
+            </div>
+            <div class="border-t border-yellow-300 pt-8 text-center">
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-yellow-600 hover:text-yellow-500"><i class="fab fa-d-and-d text-xl"></i></a>
+                    <a href="#" class="text-yellow-600 hover:text-yellow-500"><i class="fas fa-dice text-xl"></i></a>
+                    <a href="#" class="text-yellow-600 hover:text-yellow-500"><i class="fas fa-book text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
