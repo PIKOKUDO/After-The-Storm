@@ -193,7 +193,7 @@
         </div>
         
         <!-- Tabs Navigation -->
-       <div class="flex border-b border-gray-300 mb-6">
+        <div class="flex border-b border-gray-300 mb-6">
             <button onclick="openTab(event, 'attributes')" class="tab-button px-6 py-2 mr-2 active">Atributos</button>
             <button onclick="openTab(event, 'inventory')" class="tab-button px-6 py-2 mr-2">Inventário</button>
             <button onclick="openTab(event, 'abilities')" class="tab-button px-6 py-2">Habilidades</button>
@@ -376,3 +376,31 @@
                         <h4 class="font-bold text-lg">Pele de Rinoceronte</h4>
                         <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa - Fortificação Natural</p>
                        
+<!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Conexões são importantes</p>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabbuttons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
