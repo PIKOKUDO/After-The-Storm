@@ -103,7 +103,7 @@
                         <!-- Faith -->
                         <div class="bg-white bg-opacity-70 p-4 rounded-lg border-l-4 border-blue-700">
                             <h3 class="font-bold text-xl text-blue-800 mb-2">Fé</h3>
-                            <p>Atributo relacionado as magias e orações, para cada +1 de modificador você ganha +2 de mana.</p>
+                            <p>Atributo relacionado as magias e orações, para cada +1 de modificador você ganha +1 de mana.</p>
                             <p class="mt-2 italic text-gray-700">
                                 <span class="font-semibold">Mana:</span> energia gasta para castar magias, recarrega 1 por turno fora de combate, caso chegue a 0, o jogador não consegue castar magias até recuperar a mana perdida.
                             </p>
@@ -122,12 +122,93 @@
                         </div>
                     </div>
                 </section>
-                
+                <section class="mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-red-900 border-b-2 border-red-900 pb-2">
+                        Mecânicas e afins
+                    </h2>
+                    <p class="text-lg mb-4">
+                       Existem diversas mecânicas relacionadas aos atributos, agora, aqui abaixo estarão descritas resumidamente como funcionam cada uma das mecânicas.
+                    </p>
+                </section>
+                <div class="grid grid-cols-1 gap-8">  <!-- Aumentei o gap para 8 (32px) -->
+  
+  <!-- Card de Ataques Físicos -->
+                      <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2"> Força:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Bônus de Força</span>: Para todos os ataques físicos corpo a corpo, seu bonus de força também é adicionado ao dano final.<br>
+                                  • <span class="font-bold">Defesa com escudos</span>: Ao utilizar um escudo para se defender, seu bonus de força soma com o atributo de defesa do escudo e com o bonus de defesa de sua armadura, mas apenas na direção e area que o escudo defende..<br>
+                                  • <span class="font-bold">Arrombamento</span>: Ação relacionada a destravar trancas de forma brutal, para cada +2 de bonus, aumenta o dano nas trancas em +10, a tranca quebra ao ter a vida zerada, mas trancas recebem dano extremamente reduzido de ataques de armas comuns.<br>
+                                </p>
+                      </div>
+                      <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2"> Destreza:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Movimentação</span>: todos conseguem se mover livremente 10m por turno, e, o bonus de atributo aumenta a distancia que você pode se mover em 1 para cada 1 de bonus<br>
+                                  • <span class="font-bold">Esconder</span>: Para se esconder, utiliza-se o atributo de agilidade, mas dependendo do material da armadura que voce esta utilizando, se mover fará barulho, então, mesmo que você consiga se esconder, será facilmente detectado.<br>
+                                  • <span class="font-bold">Lockpicking</span>: Ação relacionada a destravar trancas de maneira não brutal, para cada +2 pontos reduz em 1 a dificuldade da tranca.<br>
+                                </p>
+                      </div>
+                      <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2"> Carisma:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Convencimento</span>: Ação relacionada a ideia de convencer alguem de fazer algo no seu lugar ou dar ordens a algum subordinado, caso o subordinado seja 100% leal a ti, não consome ação na rodada.<br>
+                                </p>
+                      </div>
+                    <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2">Destreza:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Movimentação</span>: todos conseguem se mover livremente 10m por turno, e, o bonus de atributo aumenta a distancia que você pode se mover em 1 para cada 1 de bonus<br>
+                                  • <span class="font-bold">Esconder</span>: Para se esconder, utiliza-se o atributo de agilidade, mas dependendo do material da armadura que voce esta utilizando, se mover fará barulho, então, mesmo que você consiga se esconder, será facilmente detectado.<br>
+                                  • <span class="font-bold">Lockpicking</span>: Ação relacionada a destravar trancas de maneira não brutal, para cada +2 pontos reduz em 1 a dificuldade da tranca.<br>
+                                </p>
+                      </div>
+                        <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2"> Fé:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Magias</span>: Todas as magias são castadas utilizando sua fé, seja vocalizadas, concentradas ou ritualisticas, a fé é sempre o atributo necessário para castar qualquer magia.<br>
+                                  • <span class="font-bold">Mana</span>: Para castar magias, primeiro é necessario ter mana suficiente para utilizar as magias, para cada 1 de bonus, aumenta sua mana maxima em +1, a mana regenera passivamente por rodada, cada rodada regenera 1 de mana até a mana maxima, caso o personagem estaja saciado, dobra a regeneração passiva da mana, e, caso esteja com fome, a mana não se regenera.<br>
+                                  • <span class="font-bold">Bonus de dano</span>: Criticos adicionam o bonus de atributo como dano adicional.<br>
+                                </p>
+                      </div>
+                    <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2">Sorte:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Looting</span>: Ao procurar por itens, existe uma tabela, ao rolar o D100, quanto mais proximo do 100, mais raro é o item que você vai encontrar, cada +1 de bonus, soma no valor do dado para facilitar a encontrar itens raros mais facilmente.<br>
+                                </p>
+                      </div>
+                    <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2">Vida:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Regeneração</span>: A vida não se regenera passivamente, apenas durante descanços.<br>
+                                  • <span class="font-bold">Resistencias</span>: Para resistir a venenos e coisas do tipo, utiliza-se o bonus de vida, para cada 10 pontos acima de 100, adiciona-se +1 de bonus na resistencia que parte de 10.<br>
+                                </p>
+                      </div>
+                        <div class="parchment-section p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-2">Equipamentos:</h3>
+                                <p class="text-gray-700">
+                                  • <span class="font-bold">Espadas</span>: espadas curtas, medias e longas podem causar sangramento em seus ataques, mas não causam muito dano a armaduras de placas.<br>
+                                  • <span class="font-bold">Armas Colossais</span>: Armas Colossais podem causar danos em armaduras de placas livremente devido a seu peso.<br>
+                                  • <span class="font-bold">Adagas</span>: Adagas causam menos dano que as espadas no geral, mas causam 20% mais dano caso ataque os alvos pelas costas.<br>
+                                  • <span class="font-bold">Clavas</span>: Clavas causam 20% mais dano em armaduras de placas.<br>
+                                  • <span class="font-bold">Bastões</span>: Como as clavas, causam 10% mais dano a armaduras de placas, com o bonus de ser uma arma não letal em grande maioria.<br>
+                                  • <span class="font-bold">Lanças</span>: Armas perfurantes de longo alcance que podem ser atiradas, adicionando o bonus de corpo a corpo mesmo em ataques a distância.<br>
+                                  • <span class="font-bold">Foices</span>: Armas cortantes com ataques que causam dano em área.<br>
+                                  • <span class="font-bold">Machados</span>: Armas cortantes com ataques que podem causar danos em armaduras de placas.<br>
+                                  • <span class="font-bold">Foices</span>: Armas cortantes com ataques que causam dano em área.<br>
+                                  • <span class="font-bold">Varinhas</span>: Varinhas magicas são usadas para castar magias, reduzem o custo de mana nas habilidades em 10% base, e, caso o elemento da magia seja o mesmo da varinha, a redução no custo de mana sobe para 30%<br>
+                                  • <span class="font-bold">Cajados</span>: Cajados magicos possuem baixa durabilidade para ataques físicos, mas alto dano quando comparados as varinhas, mas, em contrapartida, possuem naturalmente 50% de redução ao custo de mana, e, caso o elemento do cajado seja compativel ao da magia, o custo de mana é reduzido para 60%.<br>
+                                  • <span class="font-bold">Arcos</span>: Armas a distancia que possuem a maior versatilidade, podem acertar alvos a distancia com grande potencia, e, o dano resultante é determinado pelo tipo de flecha utilizado, normalmente, arcos longos são capazes de atravessar armaduras de placa.<br>
+                                  • <span class="font-bold">Escudos</span>: Escudos são utilizados majoritariamente para defender, eles aumentam o atributo de defesa do personagem naturalmente ao manter o escudo equipado, para ações de defesa, o jogador precisa, definir a direção que ele vai defender e depende do tamanho do escudo, para defender, é somado: o bonus de defesa do Personagem, o bonus de força do Personagem e o bonus de armadura, tudo isso é somado ao Coeficiente de Defesa do personagem<br>
+                                  • <span class="font-bold">Armaduras</span>: AArmaduras aumentam o coeficiente de armadura do personagem, para cada 10% de defesa, aumenta o CD em +1, cada ponto do CD aumenta o valor no dado que o inimigo precisa tirar para que sua ação de ataque te acerte, caso a ação te acerte, o dano será reduzido pelo tipo de armadura e pelo Coeficiente de defesa da armadura, por exemplo, uma armadura com 20 de CD possui um +2 de CD e reduz todo dano recebido em 20%.<br>  
+                                </p>
+                      </div>
                 <!-- You can add more sections below as needed -->
                 <!-- Just copy the section structure above and edit the content -->
             </div>
         </div>
     </main>
+    
     
     <!-- Footer -->
     <footer class="bg-gray-800 py-4 mt-12">
