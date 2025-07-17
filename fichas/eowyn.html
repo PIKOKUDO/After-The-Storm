@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Ficha do Personagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7d0;
+        }
+        
+        .title {
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .parchment-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parchment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            background-color: #e0cca1;
+        }
+        
+        .parchment-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+        
+        .parchment-section {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #f0e5cd;
+            border: 1px solid #b99f6b;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .tab-button {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-color: #e8d9b5;
+            border: 1px solid #c4a86f;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background-color: #f0e5cd;
+            font-weight: bold;
+        }
+        
+        .tab-button:hover:not(.active) {
+            background-color: #e0cca1;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .character-image {
+            border: 3px solid #b99f6b;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .attribute-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #5c3a21;
+        }
+        
+        .inventory-slot {
+            min-height: 50px;
+            border: 1px dashed #b99f6b;
+            background-color: rgba(233, 219, 177, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .inventory-slot:hover {
+            background-color: rgba(233, 219, 177, 0.6);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5e7d0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b99f6b;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Back button -->
+        <div class="mb-8">
+            <a href="/After-The-Storm/fichas.html" class="inline-flex items-center px-4 py-2 parchment-button rounded-lg text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Voltar às Fichas
+            </a>
+        </div>
+        
+        <!-- Character Info Section -->
+        <div class="parchment-section p-6 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Character Image -->
+                <div class="character-image-container">
+    <img 
+        src="../images/eowyn-dryadalis.jpg" 
+        alt="Eowyn Dryadalis" 
+        class="character-image"
+        width="300"
+        height="400"
+        loading="lazy"
+    >
+</div>   
+                    <!-- Player Info -->
+                    <div class="w-full mb-4">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Jogador:</h3>
+                        <p class="text-gray-800">Nome do Jogador: <span class="font-bold">Luiza de Albuquerque</span></p>
+                        <p class="text-gray-800">Idade do Jogador: <span class="font-bold">15</span></p>
+                    </div>
+                    
+                    <!-- Character Class -->
+                    <div class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Classe:</h3>
+                        <p class="text-center text-xl font-bold text-gray-800">Arqueira (Fio Guiado)</p>
+                    </div>
+                </div>
+                
+                <!-- Character Details -->
+                <div class="w-full md:w-2/3">
+                    <h2 class="title text-3xl font-bold mb-4 text-gray-800">Nome do Personagem: <span class="underline">Eowyn Dryadalis</span></h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Informações Básicas</h3>
+                            <p class="text-gray-800">Idade: <span class="font-bold">22</span></p>
+                            <p class="text-gray-800">Altura: <span class="font-bold">1,67m</span></p>
+                            <p class="text-gray-800">Peso: <span class="font-bold">50kg</span></p>
+                            <p class="text-gray-800">Nível: <span class="font-bold">[EDITAR]</span></p>
+                            <p class="text-gray-800">xp: <span class="font-bold">[EDITAR]</span></p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Outras Informações</h3>
+                            <p class="text-gray-800">Raça: <span class="font-bold">Elfo Alto</span></p>
+                            <p class="text-gray-800">Alinhamento: <span class="font-bold">Neutra / Traidora dos Elfos Altos</span></p>
+                            <p class="text-gray-800">Origem: <span class="font-bold">Ruddliah</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Character Description -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">Descrição</h3>
+                        <p class="text-gray-800 italic">Eowyn é uma bela jovem da realeza élfica de Ruddliah. Possui rosto de traços delicados, cabelos loiros claros, ondulados e de fio fino. De nariz reto e lábios pequenos, seus olhos possuem uma coloração azulada clara e opaca. Toda sua pele é branca e caracterizada por um tom pálido, associado ao estágio palaciano de sua vida, nas terras nevadas com quase nenhuma exposição ao sol. É vaidosa, por isso, encontra-se utilizando camadas sutis de maquiagem que disfarcem sua palidez, trazendo coloração às bochechas e lábios. Predominantemente, utiliza roupas brancas e com detalhes dourados.</p>
+                    </div>
+                    
+                    <!-- Character Backstory -->
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 border-b border-gray-300 pb-1">História</h3>
+                        <p class="text-gray-800">Eowyn Dryadalis, uma jovem princesa entre os Altos Elfos, era reconhecida por sua beleza encantadora e prometida desde cedo a um casamento estratégico. Trancafiada quase toda a vida no palácio por ser considerada traiçoeira e indomável, ela observava o mundo apenas pelas janelas, lançando olhares a possíveis pretendentes e vivendo seus breves romances com forasteiros apenas nos limites do olhar. Seu único contato constante era com membros da corte — entre eles, o excêntrico bobo da corte, Eärendur Círdanor.
+
+Conheceram-se quando Eowyn ainda era uma adolescente frustrada com o tédio e a solidão. Eärendur, apesar de não ser um nobre e destoar completamente da formalidade da corte, encantava-a com seu carisma e truques lúdicos. Entre eles não houve romance — mas uma ligação profunda, quase fraterna. Ele despertava nela o lado mais criativo e travesso, que havia sido sufocado pelas exigências da nobreza. Com a costura, por exemplo, Eowyn preferia inventar armadilhas e adereços para suas peripécias, em vez de bordar véus e mantos nupciais.
+
+Na véspera de seus quinze anos, quando o casamento se aproximava, Eärendur sugeriu uma brincadeira ousada: roubar temporariamente joias da rainha, escondidas sob a cama, só para ver o caos causado. Riram juntos quando conseguiram realizar o plano com um simples sistema de cordas.
+
+O tempo passou e o casamento chegou. O escolhido era um Elfo Alto de sua idade, treinado como estrategista para a guerra contra os vikings. Durante a cerimônia, porém, a rainha — sua mãe — teve espasmos e morreu diante de todos. Atordoada e emocionalmente quebrada, Eowyn mal teve tempo de assimilar a tragédia. Ao fim da festa, encontrou acidentalmente uma cena silenciosa e brutal: seu pai, generais e noivo formavam um semicírculo ao redor de Eärendur, ajoelhado. Seu noivo segurava a espada que lhe tiraria a vida.
+
+Sem entender completamente o motivo, Eowyn virou-se de costas e fingiu não ver. Naquela noite, no quarto que agora dividia com o marido, ainda vestindo o rasgado vestido de noiva, usou os fios soltos da roupa para montar uma armadilha com as técnicas que o bobo havia lhe ensinado. Com uma pequena adaga, cortou a garganta do recém-esposo — vingança silenciosa em nome de seu único e verdadeiro amigo.
+
+Fugiu do castelo por rotas secretas que conhecia desde a infância. Na floresta, encontrou algo improvável: uma caixa de presente colorida e discreta. Ao abri-la, confetes explodiram em sua face. Soube de imediato quem a deixara ali. Dentro estavam um baralho de truques, um pequeno espelho, luvas que ela mesma havia costurado para ele, e as roupas coloridas manchadas de sangue que Eärendur usava no dia de sua execução. Ao fundo, joias de prata — provavelmente aquelas da rainha.
+
+Ela pegou tudo, menos as joias, que escondeu novamente. Com retalhos das roupas do amigo, costurou adornos em seu próprio vestido, prometendo a si mesma nunca perder a essência da infância, nem deixar que os padrões da corte lhe roubassem a leveza.
+
+A partir dali, passou a viver entre as árvores, vagando por vilas e campos. Encantava elfos comuns com sua beleza e charme, enganando e seduzindo para sobreviver. Passou a vida como queria — livre, traiçoeira, sorridente — roubando moedas, espalhando informações, e fazendo o que jamais poderia dentro das paredes do castelo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs Navigation -->
+        <div class="flex border-b border-gray-300 mb-6">
+            <button onclick="openTab(event, 'attributes')" class="tab-button px-6 py-2 mr-2 active">Atributos</button>
+            <button onclick="openTab(event, 'inventory')" class="tab-button px-6 py-2 mr-2">Inventário</button>
+            <button onclick="openTab(event, 'abilities')" class="tab-button px-6 py-2">Habilidades</button>
+        </div>
+        
+        <!-- Attributes Tab -->
+        <div id="attributes" class="tab-content active parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Atributos do Personagem</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Strength -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Força</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">1 (+0)</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Força física e capacidade de carga</p>
+                </div>
+                
+                <!-- Dexterity -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Destreza</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">92 (+9)</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Agilidade, reflexos e precisão</p>
+                </div>
+                
+                <!-- Charisma -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Carisma</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">80 (+8)</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Persuasão e presença social</p>
+                </div>
+                
+                <!-- Faith -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Fé</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">1 (+0)</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Poder espiritual e conexão divina</p>
+                </div>
+                
+                <!-- Luck -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sorte</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">1 (+0)</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Fortuna e acasos favoráveis</p>
+                </div>
+                
+                <!-- Health -->
+                <div class="text-center">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vida</h3>
+                    <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
+                        <span class="attribute-value">100</span>
+                    </div>
+                    <p class="mt-2 text-gray-700">Resistência física e vitalidade</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inventory Tab -->
+        <div id="inventory" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Inventário</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Weapons -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armas</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Arco Élfico</p>
+                            <p class="text-sm">Dano: 1d20 + Destreza | Alcance: 30m</p>
+                        </div>
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Adaga Cerimonial</p>
+                            <p class="text-sm">Dano: 1d6 | Usada para assassinar seu noivo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shields -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Escudos</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">[EDITAR escudo]</p>
+                            <p class="text-sm">[EDITAR descrição]</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wands -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Varinhas</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">[EDITAR varinha]</p>
+                            <p class="text-sm">[EDITAR descrição]</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scepters -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Cetros</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">[EDITAR cetro]</p>
+                            <p class="text-sm">[EDITAR descrição]</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bows -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Arcos</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Arco de Caça</p>
+                            <p class="text-sm">Dano: 1d12 | Alcance: 25m</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Armor -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Armaduras</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold">Vestido de Noiva Adaptado</p>
+                            <p class="text-sm">Armadura: 5 | Contém adornos das roupas de Eärendur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Money -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Drakmas</h3>
+                <div class="inventory-slot p-4 rounded text-center">
+                    <p class="text-2xl font-bold">[EDITAR quantidade]</p>
+                </div>
+            </div>
+            
+            <!-- Other Items -->
+            <div class="mt-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Outros Itens</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Baralho de Truques</p>
+                        <p class="text-sm">Presente de Eärendur</p>
+                    </div>
+                    <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Luvas Costuradas</p>
+                        <p class="text-sm">Presente de Eärendur</p>
+                    </div>
+                    <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Kit de Costura</p>
+                        <p class="text-sm">Usado para criar armadilhas</p>
+                    </div>
+                    <div class="inventory-slot p-3 rounded">
+                        <p class="font-bold">Flechas (20)</p>
+                        <p class="text-sm">Flechas comuns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Abilities Tab -->
+        <div id="abilities" class="tab-content parchment-section p-6">
+            <h2 class="title text-2xl font-bold mb-6 text-center text-gray-800">Habilidades</h2>
+            
+            <!-- Passive Abilities -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Habilidades Passivas</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Retrieval</h4>
+                        <p>Possui vantagem na hora de recuperar suas flechas após atirá-las.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">ArrowCraft</h4>
+                        <p>Possui vantagem na hora de criar flechas, e quando produz flechas comuns, com os recursos que gastaria para produzir uma flecha produz duas.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">It's over Anaklin!</h4>
+                        <p>Caso esteja em uma posição mais elevada que seu alvo (2.5m), suas flechas causam +20 de dano.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Construção Acelerada</h4>
+                        <p>Você pode construir máquinas de cerco pequenas e médias em combate, em tempo reduzido.</p>
+                        <p class="text-sm mt-2"><span class="font-bold">Armadilhas simples:</span> 1 ação</p>
+                        <p class="text-sm"><span class="font-bold">Torres de flechas ou trabucos pequenos:</span> 2 turnos</p>
+                        <p class="text-sm"><span class="font-bold">Máquinas maiores (ex: catapulta portátil):</span> 3 ou mais turnos</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Sucateiro Criativo</h4>
+                        <p>Você pode desmontar partes de inimigos mecânicos, restos de armaduras ou equipamentos quebrados para:</p>
+                        <p class="text-sm mt-2">• Reduzir custo de mana em 1 para próxima construção</p>
+                        <p class="text-sm">• Criar 1 item improvisado (flecha explosiva, bomba de fumaça etc)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Active Abilities -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-1">Habilidades Ativas</h3>
+                <div class="space-y-4">
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Sword to a bow fight</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p>Utilize para disparar uma flecha em um espadachim inimigo, caso seja a primeira ação do turno ou seja a ação que levou o grupo ao combate, o ranger não gasta ação para usar essa habilidade.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Hole in one</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p>Joga um objeto esférico pro alto, e atira uma flecha nele, fazendo com que a trajetória do objeto mude e ele seja arremessado na cabeça de um inimigo, causando 2D40 de dano contundente.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Trabuco Portátil</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 5 mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Recarga:</span> 4 turnos</p>
+                        <p>Cria um mini-trabuco (1 turno de montagem), fixo no chão.</p>
+                        <p class="text-sm mt-2"><span class="font-bold">Dano:</span> 3d30 em linha reta ou 2d40 em área (explosivo)</p>
+                        <p class="text-sm"><span class="font-bold">Alcance:</span> 15 metros</p>
+                        <p class="text-sm"><span class="font-bold">Duração:</span> 3 turnos ou até ser destruído</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Flecha de Alavanca</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 2 mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Recarga:</span> 2 turnos</p>
+                        <p>Dispara uma flecha com corda e gancho. Puxa alvos médios para perto (teste de Força contra CD 12). Pode ser usada para puxar aliados, travar alavancas ou escalar. Se acerta objeto pesado, fixa automaticamente.</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Overclock de Arco</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 3 mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Recarga:</span> 3 turnos</p>
+                        <p>Você prende molas, polias e peças de tensão no arco.</p>
+                        <p class="text-sm mt-2"><span class="font-bold">Duração:</span> 2 turnos</p>
+                        <p class="text-sm"><span class="font-bold">Efeitos:</span> +1 ataque por turno, +10 de dano com projéteis leves</p>
+                        <p class="text-sm"><span class="font-bold">Penalidade:</span> Desvantagem em testes de Destreza (alta vibração)</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Piso Armadilhado</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ativa</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 4 mana</p>
+                        <p>Você instala 1 armadilha escondida no chão. Dura até ser ativada.</p>
+                        <p class="text-sm mt-2"><span class="font-bold">Efeito:</span> Causa 2d20 de dano perfurante e prende o alvo (teste de FOR ou DEX CD 14)</p>
+                        <p class="text-sm"><span class="font-bold">Usos:</span> Pode preparar 2 armadilhas por combate</p>
+                    </div>
+                    
+                    <div class="parchment-button p-4 rounded">
+                        <h4 class="font-bold text-lg">Besta Anti-Dragão</h4>
+                        <p class="text-sm mb-2"><span class="font-bold">Tipo:</span> Ultimate</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Custo:</span> 8 mana</p>
+                        <p class="text-sm mb-2"><span class="font-bold">Recarga:</span> 1 vez por combate</p>
+                        <p>Leva 2 turnos para construir. Dispara uma enorme flecha com cabo preso ao chão.</p>
+                        <p class="text-sm mt-2"><span class="font-bold">Dano:</span> 5d30 perfurante, ignora resistência a projéteis</p>
+                        <p class="text-sm"><span class="font-bold">Efeito especial:</span> Se o alvo for voador, faz teste de DEX CD 15. Falha = alvo cai no chão (derrubado)</p>
+                        <p class="text-sm"><span class="font-bold">Restrição:</span> Só pode ser usada ao ar livre ou com teto alto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Conexões são importantes</p>
+        </div>
+    </footer>
+    
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            var tabbuttons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show the current tab and add active class to the button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
