@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engenheiro de Combate - Subclasse de Arqueiro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Cinzel:wght@700&display=swap');
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #0e1014;
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(148, 163, 184, 0.3);
+    }
+    .cost-ball {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: linear-gradient(135deg, #6b7280 0%, #1f2937 100%);
+      color: white;
+    }
+  </style>
+</head>
+<body class="text-gray-300">
+  <header class="relative h-96 overflow-hidden bg-gradient-to-b from-gray-800 to-black">
+    <div class="relative z-10 h-full flex items-center justify-center">
+      <div class="text-center px-4">
+        <h1 class="text-6xl font-bold text-lime-200 font-cinzel mb-4" style="text-shadow: 0 0 10px #9eff6e;">ENGENHEIRO DE COMBATE</h1>
+        <p class="text-xl text-lime-300 font-semibold italic">Subclasse de Arqueiro | Técnica, Tática e Engrenagens</p>
+      </div>
+    </div>
+  </header>
+  <section class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-lime-400 mb-8 text-center">Habilidades do Engenheiro</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <h4 class="text-xl font-bold text-lime-300 mb-3">1. Construção Acelerada (Passiva)</h4>
+          <p>Permite montar engenhocas em combate com menos tempo. Armadilhas: 1 turno, torres pequenas: 2, catapultas: 3.</p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <div class="cost-ball">5</div>
+          <h4 class="text-xl font-bold text-lime-300 mb-3">2. Trabuco Portátil</h4>
+          <p>Cria mini-trabuco que causa 3d30 (reta) ou 2d40 (em área), dura 3 rodadas.</p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <div class="cost-ball">2</div>
+          <h4 class="text-xl font-bold text-lime-300 mb-3">3. Flecha de Alavanca</h4>
+          <p>Puxa alvos, interage com objetos ou auxilia escaladas. Teste de FOR para resistir (CD 12).</p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <div class="cost-ball">3</div>
+          <h4 class="text-xl font-bold text-lime-300 mb-3">4. Overclock de Arco</h4>
+          <p>Por 2 turnos: +1 ataque, +10 dano com projéteis leves, mas sofre penalidade em testes de Destreza.</p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <div class="cost-ball">4</div>
+          <h4 class="text-xl font-bold text-lime-300 mb-3">5. Piso Armadilhado</h4>
+          <p>Instala 1 armadilha. 2d20 perfurante + prende inimigo se falhar no teste de FOR ou DEX (CD 14).</p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <div class="cost-ball">16</div>
+          <h4 class="text-xl font-bold text-lime-300 mb-3">6. Besta Anti-Dragão</h4>
+          <p>Constrói em 2 turnos. Dispara por 5d30 e derruba alvos voadores se falharem DEX (CD 15).</p>
+        </div>
+        <div class="relative bg-gray-800 rounded-lg p-6 border-b-4 border-lime-500 card-hover">
+          <h4 class="text-xl font-bold text-lime-300 mb-3">7. Sucateiro Criativo (Passiva)</h4>
+          <p>Usa restos para reduzir custo de mana ou fabricar flechas especiais com sucata + flecha comum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 px-4 bg-black">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-lime-400 mb-8 text-center">Flechas Especiais (1 Flecha + 2 Sucatas)</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-900 rounded-lg p-5 border border-lime-700">
+          <h4 class="text-xl font-bold text-lime-200 mb-2">Flecha de Fumaça</h4>
+          <p>Ao atingir, libera nuvem de fumaça de 5m de raio por 3 turnos. Cobre fugas e oculta aliados.</p>
+        </div>
+        <div class="bg-gray-900 rounded-lg p-5 border border-lime-700">
+          <h4 class="text-xl font-bold text-lime-200 mb-2">Flecha Explosiva</h4>
+          <p>Explode ao contato. 2d20 de dano em área de 2m. Pode incendiar materiais inflamáveis.</p>
+        </div>
+        <div class="bg-gray-900 rounded-lg p-5 border border-lime-700">
+          <h4 class="text-xl font-bold text-lime-200 mb-2">Flecha Incendiária</h4>
+          <p>Causa 1d12 inicial + 1d6 por rodada por 2 rodadas. Excelente contra criaturas vulneráveis ao fogo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
