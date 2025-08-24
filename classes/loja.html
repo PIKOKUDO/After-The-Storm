@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After The Storm - Loja de Habilidades</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap');
+        
+        body {
+            background-image: url('https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'MedievalSharp', cursive;
+        }
+        
+        .parchment {
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7c1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            border: 1px solid #d4b97a;
+            position: relative;
+        }
+        
+        .parchment::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(245, 231, 193, 0.1), rgba(245, 231, 193, 0.8));
+            pointer-events: none;
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-card .front {
+            backface-visibility: hidden;
+            transition: all 0.6s ease;
+        }
+        
+        .skill-card .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+            transition: all 0.6s ease;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .skill-card.flipped .front {
+            transform: rotateY(180deg);
+        }
+        
+        .skill-card.flipped .back {
+            transform: rotateY(0deg);
+        }
+        
+        .header-title {
+            font-family: 'Cinzel Decorative', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .category-title {
+            font-family: 'Cinzel Decorative', cursive;
+            border-bottom: 2px solid #8B4513;
+        }
+        
+        .back-button {
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f5e7c1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #8B4513;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B3410;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4">
+    <div class="container mx-auto max-w-6xl parchment p-6 md:p-10 relative">
+        <!-- Back Button -->
+        <a href="index.html" class="back-button absolute top-4 left-4 bg-amber-900 hover:bg-amber-800 text-amber-100 px-4 py-2 rounded-lg shadow-md flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Voltar
+        </a>
+        
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="header-title text-4xl md:text-5xl text-amber-900 mb-2">After The Storm</h1>
+            <h2 class="text-2xl md:text-3xl text-amber-800">Loja de Habilidades</h2>
+            <div class="w-32 h-1 bg-amber-700 mx-auto mt-4"></div>
+        </div>
+        
+        <!-- Support Skills -->
+        <div class="mb-12">
+            <h3 class="category-title text-2xl text-amber-900 mb-6">Habilidades de Suporte</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-hands-helping text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Cura Sagrada</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Cura Sagrada</h4>
+                        <p class="text-sm">Restaura 3d8 + modificador de fé pontos de vida em um aliado.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 15 Mana</span>
+                            <span>CD: 10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-shield-alt text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Proteção Divina</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Proteção Divina</h4>
+                        <p class="text-sm">Concede +2 na CD e resistência a dano não-mágico para um aliado por 3 rodadas. Alcance de 9 metros.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 12 MANA</span>
+                            <span>CD: 10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Empty Slot -->
+                <div class="h-48 bg-amber-100 bg-opacity-50 border-2 border-dashed border-amber-700 rounded-lg flex items-center justify-center">
+                    <p class="text-amber-700 text-center px-4">Novas habilidades de suporte serão adicionadas em atualizações futuras</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Area Control Skills -->
+        <div class="mb-12">
+            <h3 class="category-title text-2xl text-amber-900 mb-6">Habilidades de Controle de Área</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-vine text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Raízes Enredantes</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Raízes Enredantes</h4>
+                        <p class="text-sm">Raízes brotam do solo em uma área de 4m de raio, reduzindo a velocidade pela metade e causando 1d6 de dano perfurante por rodada. Duração: 3 rodadas.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 18 Mana</span>
+                            <span>CD: 15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-cloud-rain text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Névoa Cegante</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Névoa Cegante</h4>
+                        <p class="text-sm">Cria uma névoa densa em um cubo de 6m. Criaturas dentro são cegas e ataques à distância têm desvantagem. Duração: 5 rodadas.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 14 PO</span>
+                            <span>CD: 14</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Empty Slot -->
+                <div class="h-48 bg-amber-100 bg-opacity-50 border-2 border-dashed border-amber-700 rounded-lg flex items-center justify-center">
+                    <p class="text-amber-700 text-center px-4">Novas habilidades de controle serão adicionadas em atualizações futuras</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Physical Damage Skills -->
+        <div class="mb-12">
+            <h3 class="category-title text-2xl text-amber-900 mb-6">Habilidades de Dano Físico</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-sword text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Golpe Fulminante</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">goraçaun</h4>
+                        <p class="text-sm">Um ataque poderoso com uma adaga que causa 2d12 + modificador de Força de dano. Se o alvo estiver desprevenido, o dano é dobrado.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: --</span>
+                            <span>CD: -</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-bow-arrow text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Chuva de Flechas</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Chuva de Flechas</h4>
+                        <p class="text-sm">Dispara uma salva de flechas em um cone de 6m. Todas as criaturas no cone sofrem 3d6 de dano perfurante (Teste de Destreza CD 15 para metade).</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 16 flechas</span>
+                            <span>CD: 15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-fist-raised text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Impacto Esmagador</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Impacto Esmagador</h4>
+                        <p class="text-sm">Um golpe que causa 2d8 + modificador de Força e derruba o alvo (Teste de Força CD 14 para resistir).</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: --</span>
+                            <span>CD: 14</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Magical Damage Skills -->
+        <div class="mb-12">
+            <h3 class="category-title text-2xl text-amber-900 mb-6">Habilidades de Dano Mágico</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-fire text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Bola de Gelo</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Bola de Gelo</h4>
+                        <p class="text-sm">Explosão de Gelo em uma esfera de 6m de raio, causando 8d6 de dano de de gelo, imobilizando alvos por 1 turno (Teste de Destreza CD 15 para metade). Alcance: 36m.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 25 Mana</span>
+                            <span>CD: 15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-bolt text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Relâmpago geladinho</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Relâmpago geladinho</h4>
+                        <p class="text-sm">Conjura um raio que salta entre até 3 alvos, causando 4d8 de dano elétrico a cada um e congelando os alvos. Alcance: 18m.</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 18 Mana</span>
+                            <span>CD: 14</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="skill-card relative h-48 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="front h-full bg-amber-100 border-2 border-amber-700 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <i class="fas fa-snowflake text-4xl text-amber-700 mb-3"></i>
+                        <h4 class="text-xl font-bold text-amber-900 text-center">Rajada Gélida</h4>
+                        <p class="text-amber-800 text-sm mt-2">Clique para ver detalhes</p>
+                    </div>
+                    <div class="back h-full bg-amber-700 text-amber-100 rounded-lg">
+                        <h4 class="text-xl font-bold text-center mb-2">Rajada Gélida</h4>
+                        <p class="text-sm">Um cone de 9m de ar congelante causa 5d6 de dano de frio e reduz a velocidade em 3m por 1 rodada (Teste de Constituição CD 14 para resistir).</p>
+                        <div class="mt-4 flex justify-between text-xs">
+                            <span>Custo: 16 Mana</span>
+                            <span>CD: 14</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center text-sm text-amber-800 mt-8 border-t border-amber-700 pt-4">
+            <p>A busca pelo poder leva a caminhos nem sempre verdejantes.</p>
+            <p class="mt-1">Novas habilidades serão adicionadas conforme o progresso da campanha</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simple animation for cards when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>
