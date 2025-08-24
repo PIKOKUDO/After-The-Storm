@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferreiro do Reino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+        
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-image: url('https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .parchment {
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+            background-color: #f5e7c8;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid #d4b483;
+        }
+        
+        .parchment::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(245, 231, 200, 0.8), rgba(245, 231, 200, 0.2));
+            pointer-events: none;
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button:hover {
+            transform: translateY(-3px);
+            text-shadow: 0 0 5px rgba(210, 105, 30, 0.7);
+        }
+        
+        .item-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .item-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .item-card.flipped .item-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .item-card-front, .item-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        
+        .item-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-animation {
+            animation: flip 0.6s;
+        }
+        
+        @keyframes flip {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(180deg); }
+        }
+        
+        .weapon-icon {
+            filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5));
+        }
+    </style>
+</head>
+<body class="py-8 px-4">
+    <div class="container mx-auto max-w-6xl">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-5xl md:text-6xl font-bold text-amber-900 mb-2 drop-shadow-lg">Forja do Reino</h1>
+            <p class="text-xl text-amber-800 italic">"Ferro e fogo moldam o destino dos bravos"</p>
+        </header>
+        
+        <!-- Main Parchment -->
+        <main class="parchment p-6 md:p-8">
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap gap-2 mb-8 border-b border-amber-700 pb-4">
+                <button class="tab-button active bg-amber-700 text-white px-4 py-2 rounded-t-lg" data-tab="melee">Armas Corpo-a-Corpo</button>
+                <button class="tab-button bg-amber-600 text-amber-100 px-4 py-2 rounded-t-lg" data-tab="shields">Escudos</button>
+                <button class="tab-button bg-amber-600 text-amber-100 px-4 py-2 rounded-t-lg" data-tab="bows">Arcos</button>
+                <button class="tab-button bg-amber-600 text-amber-100 px-4 py-2 rounded-t-lg" data-tab="armor">Armaduras</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-content">
+                <!-- Melee Weapons -->
+                <div id="melee" class="tab-pane active">
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <button class="subtab-button active bg-amber-600 text-white px-3 py-1 rounded" data-subtab="swords">Espadas</button>
+                        <button class="subtab-button bg-amber-500 text-amber-100 px-3 py-1 rounded" data-subtab="daggers">Adagas</button>
+                        <button class="subtab-button bg-amber-500 text-amber-100 px-3 py-1 rounded" data-subtab="spears">Lanças</button>
+                        <button class="subtab-button bg-amber-500 text-amber-100 px-3 py-1 rounded" data-subtab="hammers">Martelos</button>
+                        <button class="subtab-button bg-amber-500 text-amber-100 px-3 py-1 rounded" data-subtab="axes">Machados</button>
+                    </div>
+                    
+                    <div class="subtab-content">
+                        <!-- Swords -->
+                        <div id="swords" class="subtab-pane active grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Espada Curta -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Espada Curta</h3>
+                                            <i class="fas fa-sword weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Espada Curta" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Uma espada básica para iniciantes</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Espada Curta</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d6</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>1.5 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>15 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Versátil e ágil, perfeita para combates rápidos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Espada Longa -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Espada Longa</h3>
+                                            <i class="fas fa-sword weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Espada Longa" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">A arma preferida dos cavaleiros</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Espada Longa</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d8</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>2 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>30 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Balanceada e letal, requer treinamento para uso eficiente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Espada Bastarda -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Espada Bastarda</h3>
+                                            <i class="fas fa-sword weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Espada Bastarda" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Para guerreiros que preferem força bruta</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Espada Bastarda</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d10</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>3 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>50 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Poderosa e pesada, causa ferimentos devastadores.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Daggers -->
+                        <div id="daggers" class="subtab-pane hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Adaga Simples -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Adaga Simples</h3>
+                                            <i class="fas fa-knife weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Adaga Simples" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Pequena e fácil de esconder</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Adaga Simples</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d4</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>0.5 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>5 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Ideal para ataques furtivos ou como arma secundária.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Adaga Dupla -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Adaga Dupla</h3>
+                                            <i class="fas fa-knife weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Adaga Dupla" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Para ataques rápidos em sequência</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Adaga Dupla</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d4 (cada)</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>0.8 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>12 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Par de adagas balanceadas para combate com duas armas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Spears -->
+                        <div id="spears" class="subtab-pane hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Lança Simples -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Lança Simples</h3>
+                                            <i class="fas fa-spear weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Lança Simples" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Arma de alcance básica</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Lança Simples</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d6</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>2 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>10 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Permite atacar inimigos a uma pequena distância.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Lança de Caça -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Lança de Caça</h3>
+                                            <i class="fas fa-spear weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Lança de Caça" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Projetada para perfurar couros</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Lança de Caça</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d8</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>2.5 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>25 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Ponta afiada especialmente eficaz contra couro e peles.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Hammers -->
+                        <div id="hammers" class="subtab-pane hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Martelo de Guerra -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Martelo de Guerra</h3>
+                                            <i class="fas fa-hammer weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Martelo de Guerra" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Para esmagar armaduras</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Martelo de Guerra</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d8</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>3.5 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>35 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Eficaz contra armaduras pesadas, causa dano contundente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Axes -->
+                        <div id="axes" class="subtab-pane hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Machado de Batalha -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Machado de Batalha</h3>
+                                            <i class="fas fa-axe weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Machado de Batalha" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Para guerreiros brutais</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Machado de Batalha</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d8</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>3 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>30 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Corte profundo e letal, requer força para manuseio eficaz.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Machado Duplo -->
+                            <div class="item-card" onclick="flipCard(this)">
+                                <div class="item-card-inner">
+                                    <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h3 class="text-xl font-bold text-amber-900">Machado Duplo</h3>
+                                            <i class="fas fa-axe weapon-icon text-3xl text-gray-700"></i>
+                                        </div>
+                                        <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Machado Duplo" class="w-16 h-16 mx-auto mb-3">
+                                        <p class="text-sm text-amber-800 italic">Para bárbaros destemidos</p>
+                                    </div>
+                                    <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                        <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Machado Duplo</h3>
+                                        <div class="space-y-2">
+                                            <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d8 (cada)</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>5 kg</span></p>
+                                            <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>60 moedas</span></p>
+                                        </div>
+                                        <p class="text-xs text-amber-700 mt-3 italic">Par de machados para combate frenético e agressivo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shields -->
+                <div id="shields" class="tab-pane hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Escudo Pequeno -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Escudo Pequeno</h3>
+                                        <i class="fas fa-shield-alt weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Escudo Pequeno" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Proteção básica sem sacrificar mobilidade</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Escudo Pequeno</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Defesa:</span> <span>+1</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>3 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>20 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Leve o suficiente para não atrapalhar os movimentos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Escudo Médio -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Escudo Médio</h3>
+                                        <i class="fas fa-shield-alt weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Escudo Médio" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Balanço entre proteção e mobilidade</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Escudo Médio</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Defesa:</span> <span>+2</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>5 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>40 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Proteção confiável para a maioria dos combatentes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Escudo Grande -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Escudo Grande</h3>
+                                        <i class="fas fa-shield-alt weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Escudo Grande" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Para quem prefere defesa acima de tudo</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Escudo Grande</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Defesa:</span> <span>+3</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>8 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>70 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Proteção máxima, mas reduz significativamente a mobilidade.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bows -->
+                <div id="bows" class="tab-pane hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Arco Curto -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Arco Curto</h3>
+                                        <i class="fas fa-bow-arrow weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Arco Curto" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Para ataques rápidos à distância</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Arco Curto</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d6</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>1 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>25 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Leve e rápido, ideal para ataques em movimento.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Arco Longo -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Arco Longo</h3>
+                                        <i class="fas fa-bow-arrow weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Arco Longo" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Alcance e poder de fogo superiores</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Arco Longo</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Dano:</span> <span>1d8</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>2 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>50 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Maior alcance e dano, mas requer mais força para usar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Armor -->
+                <div id="armor" class="tab-pane hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Armadura de Couro -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Armadura de Couro</h3>
+                                        <i class="fas fa-vest weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Armadura de Couro" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Proteção básica para iniciantes</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Armadura de Couro</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Defesa:</span> <span>+1</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>5 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>30 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Couro endurecido que oferece proteção mínima sem sacrificar mobilidade.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cota de Malha -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Cota de Malha</h3>
+                                        <i class="fas fa-vest weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Cota de Malha" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Proteção confiável para veteranos</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Cota de Malha</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Defesa:</span> <span>+3</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>12 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>100 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Anéis metálicos entrelaçados que oferecem boa proteção contra cortes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Armadura de Placas -->
+                        <div class="item-card" onclick="flipCard(this)">
+                            <div class="item-card-inner">
+                                <div class="item-card-front p-4 bg-amber-100 rounded-lg border border-amber-300 h-full flex flex-col">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold text-amber-900">Armadura de Placas</h3>
+                                        <i class="fas fa-vest weapon-icon text-3xl text-gray-700"></i>
+                                    </div>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Armadura de Placas" class="w-16 h-16 mx-auto mb-3">
+                                    <p class="text-sm text-amber-800 italic">Proteção máxima para os mais corajosos</p>
+                                </div>
+                                <div class="item-card-back p-4 bg-amber-200 rounded-lg border border-amber-400 h-full flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-amber-900 mb-3 text-center">Armadura de Placas</h3>
+                                    <div class="space-y-2">
+                                        <p class="flex justify-between"><span class="font-bold">Defesa:</span> <span>+5</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Peso:</span> <span>20 kg</span></p>
+                                        <p class="flex justify-between"><span class="font-bold">Valor:</span> <span>300 moedas</span></p>
+                                    </div>
+                                    <p class="text-xs text-amber-700 mt-3 italic">Placas de metal que oferecem proteção máxima, mas reduzem significativamente a mobilidade.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-amber-800">
+            <p>© 2023 Forja do Reino - Todos os direitos reservados</p>
+            <p class="text-sm italic">"O fogo da forja aquece o coração do guerreiro"</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and panes
+                tabButtons.forEach(btn => btn.classList.remove('active', 'bg-amber-700', 'text-white'));
+                tabButtons.forEach(btn => btn.classList.add('bg-amber-600', 'text-amber-100'));
+                tabPanes.forEach(pane => pane.classList.add('hidden'));
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-amber-700', 'text-white');
+                button.classList.remove('bg-amber-600', 'text-amber-100');
+                
+                // Show corresponding pane
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+        
+        // Subtab switching functionality
+        const subtabButtons = document.querySelectorAll('.subtab-button');
+        const subtabPanes = document.querySelectorAll('.subtab-pane');
+        
+        subtabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and panes in the same tab
+                const parentTab = button.closest('.tab-pane');
+                parentTab.querySelectorAll('.subtab-button').forEach(btn => {
+                    btn.classList.remove('active', 'bg-amber-600', 'text-white');
+                    btn.classList.add('bg-amber-500', 'text-amber-100');
+                });
+                
+                parentTab.querySelectorAll('.subtab-pane').forEach(pane => {
+                    pane.classList.add('hidden');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-amber-600', 'text-white');
+                button.classList.remove('bg-amber-500', 'text-amber-100');
+                
+                // Show corresponding pane
+                const subtabId = button.getAttribute('data-subtab');
+                parentTab.querySelector(`#${subtabId}`).classList.remove('hidden');
+            });
+        });
+        
+        // Card flipping functionality
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
