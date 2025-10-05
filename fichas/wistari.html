@@ -100,7 +100,9 @@
         .inventory-slot:hover {
             background-color: rgba(233, 219, 177, 0.6);
         }
-        
+        .item-raro {
+            color: #0096FF;
+        }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
@@ -209,7 +211,7 @@
                     <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                         <span class="attribute-value">10</span>
                     </div>
-                    <p class="mt-2 text-gray-700">Força física e capacidade de carga</p>
+                    <p class="mt-2 text-gray-700">+1</p>
                 </div>
                 
                 <!-- Dexterity -->
@@ -234,9 +236,9 @@
                 <div class="text-center">
                     <h3 class="text-xl font-bold text-gray-800 mb-2">Fé</h3>
                     <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
-                        <span class="attribute-value">70</span>
+                        <span class="attribute-value">80</span>
                     </div>
-                    <p class="mt-2 text-gray-700">+7/17</p>
+                    <p class="mt-2 text-gray-700">+8/18</p>
                 </div>
                 
                 <!-- Luck -->
@@ -254,7 +256,7 @@
                     <div class="parchment-button p-4 rounded-full w-24 h-24 mx-auto flex items-center justify-center">
                         <span class="attribute-value">140</span>
                     </div>
-                    <p class="mt-2 text-gray-700">140/140</p>
+                    <p class="mt-2 text-gray-700">14/14</p>
                 </div>
             </div>
         </div>
@@ -265,7 +267,15 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Weapons -->
-               
+               <div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 border-b border-gray-300 pb-1">Espadas</h3>
+                    <div class="space-y-3">
+                        <div class="inventory-slot p-3 rounded">
+                            <p class="font-bold **item raro**">Bengala - lamina de Viktor</p>
+                            <p class="text-sm">Dano: 2D4 | Peso: 4kg | Valor: D$2900 | -50% de custo nas magias e +1 propagação de alvo em magias elétricas</p>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Shields -->
                 
