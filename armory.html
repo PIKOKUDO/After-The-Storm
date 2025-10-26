@@ -1,504 +1,481 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>ᛁᚹᛟᚱᛋ ᚨᚱᛗᛟᚱᚤ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferraria do Ivor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+    
+.font-cinzel {
+    font-family: 'Cinzel', serif;
+}
 
-    body {
-      background: #f9f5e9;
-      font-family: 'Uncial Antiqua', cursive;
-      color: #2c1a0f;
-      margin: 0;
-      padding: 20px;
-      background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
-    }
+.font-medievalsharp {
+    font-family: 'MedievalSharp', cursive;
+}
 
-    h1, h2, h3 {
-      text-align: center;
-      margin-top: 40px;
-      border-bottom: 2px solid #5a3b1a;
-      padding-bottom: 10px;
-    }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
 
-    .categoria {
-      margin: 30px 0;
-    }
+::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
 
-    .subcategoria {
-      margin-left: 20px;
-      margin-top: 15px;
-    }
+::-webkit-scrollbar-thumb {
+    background: #92400e;
+    border-radius: 4px;
+}
 
-    .card {
-      background: #fff8e1;
-      border: 2px solid #5a3b1a;
-      border-radius: 8px;
-      margin: 10px 0;
-      padding: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: #78350f;
+}
 
-    .card:hover {
-      background: #f1e2c6;
-    }
+/* Item Card Styles */
+.item-card {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
 
-    .card-conteudo {
-      display: none;
-      margin-top: 10px;
-      padding: 10px;
-      border-top: 1px solid #5a3b1a;
-    }
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-    button {
-      display: block;
-      margin: 40px auto;
-      padding: 10px 20px;
-      font-size: 18px;
-      font-family: inherit;
-      background: #5a3b1a;
-      color: #f9f5e9;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+/* Material Card Styles */
+.material-card {
+    background: rgba(254, 243, 199, 0.7);
+    border: 1px solid #92400e;
+    transition: all 0.3s ease;
+}
 
-    button:hover {
-      background: #3b2610;
+.material-card:hover {
+    background: rgba(254, 243, 199, 0.9);
+    box-shadow: 0 4px 8px rgba(146, 64, 14, 0.2);
+}
+
+/* Form Input Styles */
+input, select, textarea {
+    transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .crafting-grid {
+        grid-template-columns: 1fr;
     }
+    
+    .material-grid {
+        grid-template-columns: 1fr;
+    }
+}
   </style>
 </head>
-<body>
+<body class="bg-amber-50 font-cinzel">
+    <!-- Main Container -->
+    <div class="min-h-screen bg-[url('https://static.photos/textures/1200x630/5')] bg-fixed bg-cover bg-center">
+        <!-- Parchment Overlay -->
+        <div class="min-h-screen backdrop-blur-sm bg-amber-50/80">
+            <!-- Header -->
+            <header class="pt-8 pb-4 text-center">
+                <h1 class="text-5xl font-bold text-amber-900 mb-2 font-medievalsharp drop-shadow-lg">Ferraria do Ivor</h1>
+                <a href="index.html" class="inline-block mt-4 px-6 py-2 bg-amber-800 text-amber-50 rounded-lg shadow-md hover:bg-amber-700 transition-colors">
+                    <i data-feather="home"></i> Retornar ao Início
+                </a>
+            </header>
 
-  <h1>ᛁᚹᛟᚱᛋ ᚨᚱᛗᛟᚱᚤ</h1>
+            <!-- Main Content -->
+            <main class="container mx-auto px-4 py-8 max-w-6xl">
+                <!-- Crafting System -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                    <!-- Weapons Section -->
+                    <section class="bg-[url('https://static.photos/textures/1200x630/10')] bg-cover rounded-lg border-2 border-amber-800 shadow-xl">
+                        <div class="backdrop-blur-sm bg-amber-100/80 p-6 rounded-lg h-full">
+                            <h2 class="text-3xl font-bold text-amber-900 mb-6 text-center border-b-2 border-amber-800 pb-2">Armas</h2>
+                            <div class="grid grid-cols-1 gap-4" id="weapons-container">
+                                <!-- Weapons will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </section>
 
-  <!-- Categoria: Armas Corpo a Corpo -->
-  <div class="categoria">
-    <h2>Armas Corpo a Corpo</h2>
+                    <!-- Magic Section -->
+                    <section class="bg-[url('https://static.photos/textures/1200x630/15')] bg-cover rounded-lg border-2 border-amber-800 shadow-xl">
+                        <div class="backdrop-blur-sm bg-amber-100/80 p-6 rounded-lg h-full">
+                            <h2 class="text-3xl font-bold text-amber-900 mb-6 text-center border-b-2 border-amber-800 pb-2">Mágicos</h2>
+                            <div class="grid grid-cols-1 gap-4" id="magic-container">
+                                <!-- Magic items will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </section>
 
-    <div class="subcategoria">
-      <h3>Adagas</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Adaga de Aço</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 2</p>
-          <p><strong>Preço:</strong> 50</p>
-          <p><strong>Dano:</strong> 2d3 + dex</p>
-          <p><strong>Descrição:</strong> +5 de dano quando atacando pelas costas</p>
+                    <!-- Defense Section -->
+                    <section class="bg-[url('https://static.photos/textures/1200x630/20')] bg-cover rounded-lg border-2 border-amber-800 shadow-xl">
+                        <div class="backdrop-blur-sm bg-amber-100/80 p-6 rounded-lg h-full">
+                            <h2 class="text-3xl font-bold text-amber-900 mb-6 text-center border-b-2 border-amber-800 pb-2">Defesa</h2>
+                            <div class="grid grid-cols-1 gap-4" id="defense-container">
+                                <!-- Defense items will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Materials Management -->
+                <section class="bg-[url('https://static.photos/textures/1200x630/25')] bg-cover rounded-lg border-2 border-amber-800 shadow-xl mb-8 p-6 backdrop-blur-sm bg-amber-100/80">
+                    <h2 class="text-3xl font-bold text-amber-900 mb-6 text-center border-b-2 border-amber-800 pb-2">Gerenciamento de Materiais</h2>
+                    
+                    <!-- Current Materials -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-amber-800 mb-4">Materiais Disponíveis</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="materials-list">
+                            <!-- Materials will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Add Material Form -->
+                    <div class="bg-amber-200/60 p-6 rounded-lg border border-amber-700">
+                        <h3 class="text-xl font-bold text-amber-800 mb-4">Adicionar Novo Material</h3>
+                        <form id="add-material-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-amber-900 mb-2">Nome do Material</label>
+                                <input type="text" id="material-name" class="w-full px-4 py-2 rounded border border-amber-700 bg-amber-100" required>
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 mb-2">Categoria</label>
+                                <select id="material-category" class="w-full px-4 py-2 rounded border border-amber-700 bg-amber-100" required>
+                                    <option value="weapons">Armas</option>
+                                    <option value="defense">Armaduras</option>
+                                    <option value="magic">Mágicos</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 mb-2">Bônus de Dano</label>
+                                <input type="text" id="material-damage" class="w-full px-4 py-2 rounded border border-amber-700 bg-amber-100" placeholder="+1D6">
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 mb-2">Bônus de Peso</label>
+                                <input type="text" id="material-weight" class="w-full px-4 py-2 rounded border border-amber-700 bg-amber-100" placeholder="+5kg">
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 mb-2">Bônus de Valor</label>
+                                <input type="text" id="material-value" class="w-full px-4 py-2 rounded border border-amber-700 bg-amber-100" placeholder="+400D$">
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 mb-2">Descrição</label>
+                                <textarea id="material-description" class="w-full px-4 py-2 rounded border border-amber-700 bg-amber-100" rows="2"></textarea>
+                            </div>
+                            <div class="md:col-span-2">
+                                <button type="submit" class="w-full px-6 py-3 bg-amber-800 text-amber-50 rounded-lg shadow-md hover:bg-amber-700 transition-colors">
+                                    Adicionar Material
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
         </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Adaga de Caça</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 1</p>
-          <p><strong>Preço:</strong> 55</p>
-          <p><strong>Dano:</strong> 2d2 + dex</p>
-          <p><strong>Descrição:</strong> +20% dano em animais</p>
-        </div>
-      </div>
-    
-        <div class="card" onclick="toggleCard(this)">
-      <div class="card-titulo">Adaga de Aço Carmesim</div>
-      <div class="card-conteudo">
-        <p><strong>Peso:</strong> 0~1</p>
-        <p><strong>Preço:</strong> 800+</p>
-        <p><strong>Dano:</strong> 2d5</p>
-        <p><strong>Descrição:</strong> Arma de Carmeaço, causa sangramento</p>
-      </div>
     </div>
-      </div>
-    
-    <div class="card" onclick="toggleCard(this)">
-       <div class="card-titulo">Adaga de Caça Carmesim</div>
-      <div class="card-conteudo">
-        <p><strong>Peso:</strong> 0</p>
-        <p><strong>Preço:</strong> 800+</p>
-        <p><strong>Dano:</strong> 2d4</p>
-        <p><strong>Descrição:</strong> Arma de Carmeaço, causa sangramento</p>
-      </div>
-    </div>    
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Espadas</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Espada Longa de Aço</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 6</p>
-          <p><strong>Preço:</strong> 100</p>
-          <p><strong>Dano:</strong> 2d4 + for</p>
-          <p><strong>Descrição:</strong> espada longa comum</p>
-        </div>
-      </div>
-      
-          <div class="card" onclick="toggleCard(this)">
-  <div class="card-titulo">Espada Curta Carmesim</div>
-  <div class="card-conteudo">
-    <p><strong>Peso:</strong> 1~2</p>
-    <p><strong>Preço:</strong> 800+</p>
-    <p><strong>Dano:</strong> 2d5</p>
-    <p><strong>Descrição:</strong> Espada curta de Carmeaço, causa sangramento</p>
-  </div>
-</div>
-<div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Espada Curta</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 3</p>
-          <p><strong>Preço:</strong> 85</p>
-          <p><strong>Dano:</strong> 2d3 + for</p>
-          <p><strong>Descrição:</strong> menos chances de ficar presa em locais confinados</p>
-        </div>
-        <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Espada LongaCarmesim</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 4</p>
-          <p><strong>Preço:</strong> 930</p>
-          <p><strong>Dano:</strong> 2d4 + for</p>
-          <p><strong>Descrição:</strong> Espada longa de Carmeaço, causa sangramento nos acertos</p>
-        </div>
-      </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Machados</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Machado de Guerra</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 8</p>
-          <p><strong>Preço:</strong> 120</p>
-          <p><strong>Dano:</strong> 2d5 + for</p>
-          <p><strong>Descrição:</strong> Pode causar sangramento (10%)</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Clavas</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Clava de Ferro</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 5</p>
-          <p><strong>Preço:</strong> 70</p>
-          <p><strong>Dano:</strong> 2d3 + for</p>
-          <p><strong>Descrição:</strong> Chance de atordoar (5%)</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Lanças</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Lança Rústica</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 5</p>
-          <p><strong>Preço:</strong> 90</p>
-          <p><strong>Dano:</strong> 2d3 + for/dex</p>
-          <p><strong>Descrição:</strong> Pode arremessar, força para ataques corpo a corpo, dex para lançamentos</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Foices</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Foice Enferrujada</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 6</p>
-          <p><strong>Preço:</strong> 40</p>
-          <p><strong>Dano:</strong> 2d4 : + dex</p>
-          <p><strong>Descrição:</strong> Chance de causar doenças variadas</p>
-        </div>
-        <div class="card-titulo">Foice carmesim</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 4</p>
-          <p><strong>Preço:</strong> 700</p>
-          <p><strong>Dano:</strong> 2d8 : + dex</p>
-          <p><strong>Descrição:</strong> foice de Carmeaço, causa sangramento em acertos</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Martelos</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Martelo de Pedra</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 7</p>
-          <p><strong>Preço:</strong> 110</p>
-          <p><strong>Dano:</strong> 2d4</p>
-          <p><strong>Descrição:</strong> +20% dano em armaduras</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Espadões</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Claymore de Aço</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 11</p>
-          <p><strong>Preço:</strong> 250</p>
-          <p><strong>Dano:</strong> 3d4</p>
-          <p><strong>Descrição:</strong> —</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Categoria: Armas de Longo Alcance -->
-  <div class="categoria">
-    <h2>Armas de Longo Alcance</h2>
-    <div class="subcategoria">
-      <h3>Arcos</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Arco Simples</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 4</p>
-          <p><strong>Preço:</strong> 60</p>
-          <p><strong>Dano:</strong> 2d2</p>
-          <p><strong>Descrição:</strong> Alcance longo</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Munições</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Flecha de Madeira</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 0.1</p>
-          <p><strong>Preço:</strong> 5</p>
-          <p><strong>Dano:</strong> 1d3</p>
-          <p><strong>Descrição:</strong> Adiciona o dano da flecha ao dano do arco</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Flecha de Aço</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 0.1</p>
-          <p><strong>Preço:</strong> 20</p>
-          <p><strong>Dano:</strong> 1d5</p>
-          <p><strong>Descrição:</strong> Adiciona o dano da flecha ao dano do arco</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Flecha de Ferro</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 0.1</p>
-          <p><strong>Preço:</strong> 20</p>
-          <p><strong>Dano:</strong> 1d5</p>
-          <p><strong>Descrição:</strong> Adiciona o dano da flecha ao dano do arco</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Flecha de Osso</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 0.1</p>
-          <p><strong>Preço:</strong> 15</p>
-          <p><strong>Dano:</strong> 1d3</p>
-          <p><strong>Descrição:</strong> Adiciona o dano da flecha ao dano do arco</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Categoria: Armas Mágicas -->
-  <div class="categoria">
-    <h2>Armas Mágicas</h2>
-
-    <div class="subcategoria">
-      <h3>Varinhas</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Varinha de Faíscas</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 1</p>
-          <p><strong>Preço:</strong> 60</p>
-          <p><strong>Dano:</strong> 1d4</p>
-          <p><strong>Descrição:</strong> +5% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Varinha de Neve</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 1</p>
-          <p><strong>Preço:</strong> 70</p>
-          <p><strong>Dano:</strong> —</p>
-          <p><strong>Descrição:</strong> +10% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Varinha Vazia</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> —</p>
-          <p><strong>Preço:</strong> 50</p>
-          <p><strong>Dano:</strong> —</p>
-          <p><strong>Descrição:</strong> +5% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Varinha de Chifre de Cervo</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 1</p>
-          <p><strong>Preço:</strong> 95</p>
-          <p><strong>Dano:</strong> 1d5</p>
-          <p><strong>Descrição:</strong> +10% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Varinha de Carvão</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 1</p>
-          <p><strong>Preço:</strong> 75</p>
-          <p><strong>Dano:</strong> 1d4</p>
-          <p><strong>Descrição:</strong> +10% dano mágico</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="subcategoria">
-      <h3>Cajados</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Cajado de Carvalho</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 4</p>
-          <p><strong>Preço:</strong> 80</p>
-          <p><strong>Dano:</strong> 1d6</p>
-          <p><strong>Descrição:</strong> +10% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Cajado de Cinzas</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 5</p>
-          <p><strong>Preço:</strong> 95</p>
-          <p><strong>Dano:</strong> —</p>
-          <p><strong>Descrição:</strong> +15% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Cajado Entalhado</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 4</p>
-          <p><strong>Preço:</strong> 85</p>
-          <p><strong>Dano:</strong> —</p>
-          <p><strong>Descrição:</strong> +10% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Cajado da Vinha</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 5</p>
-          <p><strong>Preço:</strong> 90</p>
-          <p><strong>Dano:</strong> 1d4</p>
-          <p><strong>Descrição:</strong> +10% dano mágico</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Cajado de Runas</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 6</p>
-          <p><strong>Preço:</strong> 110</p>
-          <p><strong>Dano:</strong> 1d6</p>
-          <p><strong>Descrição:</strong> +20% dano mágico</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Categoria: Escudos -->
-  <div class="categoria">
-    <h2>Escudos</h2>
-    <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">broquel</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 2</p>
-          <p><strong>Preço:</strong> 60</p>
-          <p><strong>Defesa:</strong> 10</p>
-          <p><strong>Descrição:</strong> Quando equipado, aumenta o Coeficiente de armadura em +1</p>
-        </div>
-      </div>
-    <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Escudo Torre</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 6</p>
-          <p><strong>Preço:</strong> 320</p>
-          <p><strong>Defesa:</strong> 30</p>
-          <p><strong>Descrição:</strong> Quando equipado, Aumenta o Coeficiente de armadura em +3</p>
-        </div>
-      </div>
-    <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Portão de pedra</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 16</p>
-          <p><strong>Preço:</strong> 350</p>
-          <p><strong>Defesa:</strong> 50</p>
-          <p><strong>Descrição:</strong> Quando equipado, aumenta o Coeficiente de armadura em +5</p>
-        </div>
-      </div>
-      </div>
-  
-  <!-- Categoria: Armaduras -->
-  <div class="categoria">
-    <h2>Armaduras</h2>
-    <div class="subcategoria">
-      <h3>Leves</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Armadura de Couro</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 5</p>
-          <p><strong>Preço:</strong> 30</p>
-          <p><strong>C.A.:</strong> 20</p>
-          <p><strong>Descrição:</strong> Aumenta o coeficiente de armadura em 20</p>
-        </div>
-      </div>
-    </div>
-    <div class="subcategoria">
-      <h3>Médias</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Cota de malhas</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 8</p>
-          <p><strong>Preço:</strong> 160</p>
-          <p><strong>CA:</strong> 40</p>
-          <p><strong>Descrição:</strong> Aumenta o coeficiente de armadura em 40</p>
-        </div>
-      </div>
-    </div>
-    <div class="subcategoria">
-      <h3>Pesadas</h3>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Armadura de Placas de aço</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 16</p>
-          <p><strong>Preço:</strong> 680</p>
-          <p><strong>CA:</strong> 60</p>
-          <p><strong>Descrição:</strong> Aumenta o coeficiente de armadura em 60</p>
-        </div>
-      </div>
-      <div class="card" onclick="toggleCard(this)">
-        <div class="card-titulo">Armadura de Placas Carmesim</div>
-        <div class="card-conteudo">
-          <p><strong>Peso:</strong> 14</p>
-          <p><strong>Preço:</strong> 1380</p>
-          <p><strong>CA:</strong> 50</p>
-          <p><strong>Descrição:</strong> Aumenta o coeficiente de armadura em 50 e impede sangramentos</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Botão Voltar -->
-  <button onclick="window.location.href='index.html'">Volte para o Início</button>
 
   <script>
-    function toggleCard(card) {
-      const content = card.querySelector('.card-conteudo');
-      content.style.display = content.style.display === "block" ? "none" : "block";
+
+    function calculateFinalDamage(baseDamage, materialBonus) {
+    if (materialBonus === '+0') return baseDamage;
+      const baseMatch = baseDamage.match(/(\d+)D(\d+)/);
+    const bonusMatch = materialBonus.match(/(\d+)D(\d+)/);
+    
+    if (!baseMatch || !bonusMatch) {
+       return `${baseDamage} ${materialBonus}`;
     }
+    
+    const baseDice = parseInt(baseMatch[1]);
+    const baseSides = parseInt(baseMatch[2]);
+    const bonusDice = parseInt(bonusMatch[1]);
+    const bonusSides = parseInt(bonusMatch[2]);
+    const totalDice = baseDice + bonusDice;
+    
+   
+    const totalSides = Math.max(baseSides, bonusSides);
+    
+    return `${totalDice}D${totalSides}`;
+}
+
+
+function calculateFinalWeight(baseWeight, materialBonus) {
+    if (materialBonus === '+0') return baseWeight;
+    
+    const baseValue = parseFloat(baseWeight);
+    const bonusValue = parseFloat(materialBonus.replace('+', ''));
+    
+    return `${baseValue + bonusValue}kg`;
+}
+
+
+function calculateFinalValue(baseValue, materialBonus) {
+    if (materialBonus === '+0') return baseValue;
+    
+    const baseNum = parseFloat(baseValue);
+    const bonusNum = parseFloat(materialBonus.replace('+', '').replace('D$', ''));
+    
+    return `${baseNum + bonusNum}D$`;
+}
+    const items = {
+    weapons: [
+        { id: 1, name: "Arco", damage: "1D6", weight: "2kg", value: "50D$", description: "Arco simples para caça e combate à distância." },
+        { id: 2, name: "Adaga", damage: "1D2", weight: "3kg", value: "100D$", description: "Lamina curta, facil de esconder e quase tão letal quanto uma espada, causa o triplo de dano em ataques criticos." },
+        { id: 3, name: "Espada Longa", damage: "2d4", weight: "4kg", value: "150D$", description: "Espada versátil para vários estilos de combate." },
+        { id: 4, name: "Espada Grande", damage: "2D6", weight: "6kg", value: "250D$", description: "Espada pesada para golpes poderosos." },
+        { id: 5, name: "Machado", damage: "1D4", weight: "4kg", value: "80D$", description: "Machado para combate e trabalho." },
+        { id: 6, name: "Machado de Guerra", damage: "1D6", weight: "5kg", value: "180D$", description: "Machado pesado para batalha." },
+        { id: 7, name: "Maça", damage: "1D4", weight: "4kg", value: "75D$", description: "Maça simples para esmagar armaduras." },
+        { id: 8, name: "Martelo de Guerra", damage: "1D8", weight: "6kg", value: "200D$", description: "Martelo pesado para combate." },
+        { id: 9, name: "Lança", damage: "1D4", weight: "3kg", value: "70D$", description: "Lança versátil para várias situações." }
+    ],
+    magic: [
+        { id: 10, name: "Varinha Mágica", damage: "1D4", weight: "0.5kg", value: "300D$", description: "Varinha básica para conjurações." },
+        { id: 11, name: "Cajado", damage: "1D6", weight: "2kg", value: "500D$", description: "Cajado para magos experientes." },
+        { id: 12, name: "Baralho de Tarot", damage: "1D4", weight: "1kg", value: "400D$", description: "Baralho místico para adivinhação." }
+    ],
+    defense: [
+        { id: 13, name: "Armadura Leve", damage: "+1 AC", weight: "5kg", value: "200D$", description: "Armadura flexível para mobilidade, adiciona metade do bonus de dex no CA, mas ataques perfurantes possuem vantagem." },
+        { id: 14, name: "Armadura Média", damage: "+3 AC", weight: "10kg", value: "400D$", description: "Armadura balanceada para proteção, adiciona a média do bonus de força e de dex, mas ataques perfurantes possuem vantagem." },
+        { id: 15, name: "Armadura Pesada", damage: "+5 AC", weight: "20kg", value: "800D$", description: "Armadura completa para máxima proteção, adiciona metade do bonus de força no CA, mas ataques esmagadores possuem vantagem.." },
+        { id: 16, name: "Escudo", damage: "+2 AC", weight: "6kg", value: "150D$", description: "Escudo para defesa em combate." }
+    ]
+};
+
+// Base materials data
+const baseMaterials = {
+    weapons: [
+        { id: 1, name: "Ferro", damage: "+2", weight: "+1kg", value: "+50D$", description: "Material básico para armas." },
+        { id: 2, name: "Aço", damage: "+2", weight: "+1kg", value: "+100D$", description: "Material resistente para armas." }
+        { id: 3, name: "Aço", damage: "+2", weight: "+1kg", value: "+100D$", description: "Material resistente para armas." }
+    ],
+    defense: [
+        { id: 10, name: "Couro", damage: "+1", weight: "+2kg", value: "+50D$", description: "Material leve para armaduras." },
+        { id: 11, name: "Cota de Malha", damage: "+2", weight: "+5kg", value: "+150D$", description: "Material balanceado para proteção." },
+        { id: 12, name: "Placas de aço", damage: "+3", weight: "+10kg", value: "+300D$", description: "Material pesado para máxima proteção." }
+    ],
+    magic: [
+        { id: 20, name: "Carvalho", damage: "+1D2", weight: "+0.5kg", value: "+200D$", description: "Madeira sólida para itens mágicos." },
+        { id: 21, name: "Ébano", damage: "+1D4", weight: "+1kg", value: "+600D$", description: "Madeira rara para itens poderosos." },
+        { id: 22, name: "Cristal", damage: "+1D6", weight: "+0.5kg", value: "+800D$", description: "Material arcano para itens mágicos." }
+    ]
+};
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', function() {
+    // Load custom materials from localStorage
+    const customMaterials = JSON.parse(localStorage.getItem('customMaterials')) || {};
+    
+    // Merge base materials with custom ones
+    const allMaterials = {
+        weapons: [...baseMaterials.weapons, ...(customMaterials.weapons || [])],
+        defense: [...baseMaterials.defense, ...(customMaterials.defense || [])],
+        magic: [...baseMaterials.magic, ...(customMaterials.magic || [])]
+    };
+    
+    // Render all items
+    renderItems('weapons', items.weapons, allMaterials.weapons);
+    renderItems('magic', items.magic, allMaterials.magic);
+    renderItems('defense', items.defense, allMaterials.defense);
+    
+    // Render all materials
+    renderMaterials(allMaterials);
+    
+    // Setup form submission
+    document.getElementById('add-material-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        addNewMaterial(allMaterials);
+    });
+});
+
+// Render items for a category
+function renderItems(category, items, materials) {
+    const container = document.getElementById(`${category}-container`);
+    container.innerHTML = '';
+    
+    items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'item-card bg-amber-100 p-4 rounded-lg border border-amber-700 shadow-md';
+        
+        // Create material options
+        const materialOptions = materials.map(material => 
+            `<option value="${material.id}">${material.name}</option>`
+        ).join('');
+        
+        card.innerHTML = `
+            <h3 class="text-xl font-bold text-amber-900 mb-2">${item.name}</h3>
+            <div class="text-amber-800 mb-3">
+                <p><span class="font-semibold">Dano:</span> ${item.damage}</p>
+                <p><span class="font-semibold">Peso:</span> ${item.weight}</p>
+                <p><span class="font-semibold">Valor:</span> ${item.value}</p>
+                <p class="text-sm italic">${item.description}</p>
+            </div>
+            
+            <div class="mb-3">
+                <label class="block text-amber-900 mb-1">Material</label>
+                <select class="material-select w-full px-3 py-1 rounded border border-amber-700 bg-amber-50" 
+                        data-item-id="${item.id}" 
+                        onchange="updateFinalAttributes(this)">
+                    <option value="">-- Selecionar --</option>
+                    ${materialOptions}
+                </select>
+            </div>
+            
+            <div class="final-attributes bg-amber-200/50 p-3 rounded border border-amber-600 hidden">
+                <h4 class="font-semibold text-amber-900 mb-1">Atributos Finais</h4>
+                <p><span class="font-semibold">Dano:</span> <span class="final-damage">${item.damage}</span></p>
+                <p><span class="font-semibold">Peso:</span> <span class="final-weight">${item.weight}</span></p>
+                <p><span class="font-semibold">Valor:</span> <span class="final-value">${item.value}</span></p>
+            </div>
+            
+            <button class="craft-btn w-full mt-3 px-4 py-2 bg-amber-800 text-amber-50 rounded hover:bg-amber-700 opacity-50 cursor-not-allowed">
+                forjar
+            </button>
+        `;
+        
+        container.appendChild(card);
+    });
+}
+
+// Render all materials
+function renderMaterials(materials) {
+    const container = document.getElementById('materials-list');
+    container.innerHTML = '';
+    
+    // Combine all materials
+    const allMaterials = [...materials.weapons, ...materials.defense, ...materials.magic];
+    
+    allMaterials.forEach(material => {
+        const card = document.createElement('div');
+        card.className = 'material-card p-4 rounded-lg';
+        
+        let category;
+        if (materials.weapons.includes(material)) category = "Armas";
+        else if (materials.defense.includes(material)) category = "Armaduras";
+        else category = "Mágicos";
+        
+        card.innerHTML = `
+            <h3 class="text-lg font-bold text-amber-900">${material.name}</h3>
+            <p class="text-sm text-amber-700 mb-1">Categoria: ${category}</p>
+            <p class="text-sm"><span class="font-semibold">Bônus de Dano:</span> ${material.damage}</p>
+            <p class="text-sm"><span class="font-semibold">Bônus de Peso:</span> ${material.weight}</p>
+            <p class="text-sm"><span class="font-semibold">Bônus de Valor:</span> ${material.value}</p>
+            <p class="text-xs italic mt-2">${material.description}</p>
+        `;
+        
+        container.appendChild(card);
+    });
+}
+
+// Update final attributes when material is selected
+function updateFinalAttributes(selectElement) {
+    const itemId = parseInt(selectElement.dataset.itemId);
+    const materialId = parseInt(selectElement.value);
+    const card = selectElement.closest('.item-card');
+    const finalAttributes = card.querySelector('.final-attributes');
+    
+  
+    if (!materialId) {
+        finalAttributes.classList.add('hidden');
+        return;
+    }
+    
+  
+    let item;
+    let materials;
+    
+    if (itemId <= 9) { 
+        item = items.weapons.find(i => i.id === itemId);
+        materials = [...baseMaterials.weapons, ...(JSON.parse(localStorage.getItem('customMaterials'))?.weapons || [])];
+    } else if (itemId <= 19) { 
+        item = items.magic.find(i => i.id === itemId);
+        materials = [...baseMaterials.magic, ...(JSON.parse(localStorage.getItem('customMaterials'))?.magic || [])];
+    } else { 
+        item = items.defense.find(i => i.id === itemId);
+        materials = [...baseMaterials.defense, ...(JSON.parse(localStorage.getItem('customMaterials'))?.defense || [])];
+    }
+    
+
+    const material = materials.find(m => m.id === materialId);
+    if (!material) return;
+    
+  
+    const const finalDamage = calculateFinalDamage(item.damage, material.damage);
+    const const finalWeight = calculateFinalWeight(item.weight, material.weight);
+    const const finalValue = calculateFinalValue(item.value, material.value);
+    
+
+    card.querySelector('.final-damage').textContent = finalDamage;
+    card.querySelector('.final-weight').textContent = finalWeight;
+    card.querySelector('.final-value').textContent = finalValue;
+    
+    finalAttributes.classList.remove('hidden');
+}
+
+
+function addNewMaterial(existingMaterials) {
+    const form = document.getElementById('add-material-form');
+    const category = document.getElementById('material-category').value;
+    
+  
+    const newMaterial = {
+        id: Date.now(), // Use timestamp as unique ID
+        name: document.getElementById('material-name').value,
+        damage: document.getElementById('material-damage').value || '+0',
+        weight: document.getElementById('material-weight').value || '+0',
+        value: document.getElementById('material-value').value || '+0',
+        description: document.getElementById('material-description').value || 'Sem descrição.'
+    };
+    
+
+    if (!existingMaterials[category]) {
+        existingMaterials[category] = [];
+    }
+    existingMaterials[category].push(newMaterial);
+    
+
+    const customMaterials = JSON.parse(localStorage.getItem('customMaterials')) || { weapons: [], defense: [], magic: [] };
+    customMaterials[category].push(newMaterial);
+    localStorage.setItem('customMaterials', JSON.stringify(customMaterials));
+    
+
+    renderItems('weapons', items.weapons, [...baseMaterials.weapons, ...customMaterials.weapons]);
+    renderItems('magic', items.magic, [...baseMaterials.magic, ...customMaterials.magic]);
+    renderItems('defense', items.defense, [...baseMaterials.defense, ...customMaterials.defense]);
+    renderMaterials({
+        weapons: [...baseMaterials.weapons, ...customMaterials.weapons],
+        defense: [...baseMaterials.defense, ...customMaterials.defense],
+        magic: [...baseMaterials.magic, ...customMaterials.magic]
+    });
+    
+    
+    form.reset();
+    
+    
+    alert(`Material "${newMaterial.name}" adicionado com sucesso à categoria ${getCategoryName(category)}!`);
+}
+
+
+function getCategoryName(categoryKey) {
+    switch(categoryKey) {
+        case 'weapons': return 'Armas';
+        case 'defense': return 'Armaduras';
+        case 'magic': return 'Mágicos';
+        default: return categoryKey;
+    }
+}
   </script>
+  
+    <script>feather.replace();</script>
 </body>
 </html>
