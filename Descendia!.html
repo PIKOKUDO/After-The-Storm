@@ -95,7 +95,7 @@
             
             <div class="parchment-card rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
                 <h2 class="text-3xl font-bold mb-6 text-center">O que é</h2>
-                <textarea class="w-full h-40 p-4 rounded resize-none focus:outline-none" placeholder="Descendia! nasce no limiar do mundo,
+                <textarea class="w-full p-4 rounded resize-none focus:outline-none" placeholder="Descendia! nasce no limiar do mundo,
 entre a pressa e a tentação.
 Dungeon crawler, roguelike antigo,
 onde descer é um pacto com a escuridão.
@@ -140,7 +140,7 @@ uma nova regra nascerá da sua mão."></textarea>
             
             <div class="stone-card rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
                 <h2 class="text-3xl font-bold mb-6 text-center">Como funciona</h2>
-                <textarea class="w-full h-40 p-4 rounded resize-none focus:outline-none" placeholder="Quando a campanha não pode seguir,
+                <textarea class="w-full p-4 rounded resize-none focus:outline-none" placeholder="Quando a campanha não pode seguir,
 ou quando a escolha é descer,
 Descendia! se abre no chão,
 esperando quem quiser ceder.
@@ -175,7 +175,7 @@ ou virar parte das paredes rachadas."></textarea>
             
             <div class="infernal-card rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
                 <h2 class="text-3xl font-bold mb-6 text-center">Recompensas</h2>
-                <textarea class="w-full h-40 p-4 rounded resize-none focus:outline-none" placeholder="Pelas masmorras, itens repousam,
+                <textarea class="w-full p-4 rounded resize-none focus:outline-none" placeholder="Pelas masmorras, itens repousam,
 esperando quem vá buscar.
 Quanto mais fundo o andar se afunda,
 mais raros começam a brilhar.
@@ -209,7 +209,15 @@ de cada queda, cada pacto, cada paz."></textarea>
     </div>
     
     <script>
-        
+        document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('textarea').forEach(area => {
+    area.style.height = area.scrollHeight + 'px';
+    area.addEventListener('input', () => {
+      area.style.height = 'auto';
+      area.style.height = area.scrollHeight + 'px';
+    });
+  });
+});
         function createEmbers() {
             const emberCount = 20;
             for (let i = 0; i < emberCount; i++) {
