@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descendia!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=MedievalSharp&family=Eater&display=swap');
+        
+        body {
+            background: linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460, #533d4d, #8b2e24, #6a1b10, #4a0f08);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .ember {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,100,0,0.8) 0%, rgba(255,50,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-up 4s linear infinite;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.2);
+                opacity: 0;
+            }
+        }
+        
+        .scroll-container {
+            padding-bottom: 100px;
+        }
+        
+        .parchment-card {
+            font-family: 'MedievalSharp', cursive;
+            background: url('https://www.transparenttextures.com/patterns/old-paper.png'), linear-gradient(to bottom right, #f5e7c1, #e4d5a7);
+            color: #3a2c0e;
+            border: 8px double #5d4a1f;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .stone-card {
+            font-family: 'Cinzel Decorative', serif;
+            background: url('https://www.transparenttextures.com/patterns/stone-wall.png'), linear-gradient(to bottom right, #7a7a7a, #5a5a5a);
+            color: #e0e0e0;
+            border: 12px groove #3a3a3a;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px #000;
+        }
+        
+        .infernal-card {
+            font-family: 'Eater', cursive;
+            background: url('https://www.transparenttextures.com/patterns/cracked-lava.png'), linear-gradient(to bottom right, #8b0000, #4a0000);
+            color: #ff6b35;
+            border: 6px ridge #ff4500;
+            box-shadow: 0 0 30px #ff4500;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        
+        .infernal-card textarea {
+            background-color: rgba(0,0,0,0.5);
+            color: #ff6b35;
+            border: 2px solid #ff4500;
+        }
+        
+        .parchment-card textarea {
+            background-color: rgba(255,255,255,0.7);
+            color: #3a2c0e;
+            border: 2px solid #5d4a1f;
+        }
+        
+        .stone-card textarea {
+            background-color: rgba(0,0,0,0.3);
+            color: #e0e0e0;
+            border: 2px solid #3a3a3a;
+        }
+    </style>
+</head>
+<body class="relative">
+    <div class="scroll-container">
+        <header class="py-10 text-center">
+            <h1 class="text-6xl md:text-8xl font-bold text-red-600 mb-4" style="font-family: 'Eater', cursive; text-shadow: 0 0 20px #ff0000;">Descendia!</h1>
+        </header>
+        
+        <main class="container mx-auto px-4 space-y-12 max-w-4xl">
+            
+            <div class="parchment-card rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                <h2 class="text-3xl font-bold mb-6 text-center">O que é</h2>
+                <textarea class="w-full h-40 p-4 rounded resize-none focus:outline-none" placeholder="Descendia! nasce no limiar do mundo,
+entre a pressa e a tentação.
+Dungeon crawler, roguelike antigo,
+onde descer é um pacto com a escuridão.
+
+De um a vinte ousam entrar,
+sabendo bem o que virá:
+quanto mais fundo o passo cai,
+mais cruel o desafio será —
+e mais dourada a recompensa há.
+
+É rápido, canônico, vivo,
+parte do mundo pós-tempestade,
+After The Storm observa em silêncio
+cada escolha, cada verdade.
+
+Mas há regras escritas no próprio abismo,
+leis que não pedem perdão.
+Quebrá-las chama o Slayer,
+e com ele vem a anulação.
+
+Nenhum mortal deve revelar
+o Descendia! a outro mortal.
+As recompensas vêm por mãos alheias,
+um entregador — figura ritual.
+
+Nada é passado antes da entrega,
+nada escapa da condição.
+Mate o entregador se ousar,
+e o Slayer poderá cair no chão.
+
+Mas atenção ao paradoxo cruel:
+quem derrota o Slayer, então,
+herda o título, a caça eterna,
+torna-se a própria punição.
+
+Descendia! escreve-se assim,
+com maiúscula e exclamação.
+E se o milésimo andar tocar,
+uma nova regra nascerá da sua mão."></textarea>
+            </div>
+            
+            
+            <div class="stone-card rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                <h2 class="text-3xl font-bold mb-6 text-center">Como funciona</h2>
+                <textarea class="w-full h-40 p-4 rounded resize-none focus:outline-none" placeholder="Quando a campanha não pode seguir,
+ou quando a escolha é descer,
+Descendia! se abre no chão,
+esperando quem quiser ceder.
+
+A cada andar, um breve silêncio:
+três rodadas para respirar,
+afiar lâminas, alinhar destinos,
+antes dos monstros acordar.
+
+O combate consome tudo,
+mas o fim traz redenção:
+caídos se erguem do chão,
+feridas fecham sem dor ou razão.
+
+A mana retorna inteira,
+como se o abismo fosse justo.
+Mas a partir do quinto degrau,
+o jogo cobra outro custo.
+
+Modificadores surgem na pedra,
+escolhidos por quem ousar.
+Para cada bênção aceita,
+uma maldição vem acompanhar.
+
+Equilíbrio torto, regra cruel,
+luz e sombra de mãos dadas.
+Nas cavernas, escolher bem
+é a diferença entre subir…
+ou virar parte das paredes rachadas."></textarea>
+            </div>
+            
+            
+            <div class="infernal-card rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                <h2 class="text-3xl font-bold mb-6 text-center">Recompensas</h2>
+                <textarea class="w-full h-40 p-4 rounded resize-none focus:outline-none" placeholder="Pelas masmorras, itens repousam,
+esperando quem vá buscar.
+Quanto mais fundo o andar se afunda,
+mais raros começam a brilhar.
+
+O inferno é farto para os corajosos,
+generoso com quem não recua.
+E se um andar cair sem feridos,
+o próprio mundo multiplica a sua lua.
+
+Sem dano, o XP triplica,
+como prêmio à perfeição.
+E após o décimo andar vencido,
+cada vida poupada aumenta a progressão.
+
+Um ponto cinco vezes mais poder
+para cada andar limpo de morte.
+Aqui, sobreviver juntos
+é mais valioso que a sorte.
+
+Tudo que se ganha no Descendia!
+atravessa o véu da missão,
+retornando à campanha principal
+como eco de outra dimensão.
+
+E no momento da entrega final,
+a memória não se desfaz:
+os personagens lembram de tudo,
+de cada queda, cada pacto, cada paz."></textarea>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        
+        function createEmbers() {
+            const emberCount = 20;
+            for (let i = 0; i < emberCount; i++) {
+                const ember = document.createElement('div');
+                ember.classList.add('ember');
+                
+                
+                const size = Math.random() * 10 + 5;
+                ember.style.width = `${size}px`;
+                ember.style.height = `${size}px`;
+                
+                
+                ember.style.left = `${Math.random() * 100}vw`;
+                ember.style.bottom = '0';
+                
+               
+                ember.style.animationDuration = `${Math.random() * 3 + 3}s`;
+                
+               
+                ember.style.animationDelay = `${Math.random() * 5}s`;
+                
+                document.body.appendChild(ember);
+            }
+        }
+        
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            createEmbers();
+        });
+    </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>
